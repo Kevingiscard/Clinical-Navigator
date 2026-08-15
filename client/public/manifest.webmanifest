@@ -1,0 +1,11 @@
+{
+  "name": "Clinical Navigator",
+  "short_name": "Navigator",
+  "description": "Orientation opérationnelle et documentaire en recherche clinique.",
+  "lang": "fr",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f5f8f7",
+  "theme_color": "#0d2b36",
+  "icons": [{ "src": "/manus-storage/clinical-navigator-icon_9d686799.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }]
+}

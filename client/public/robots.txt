@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /fr/admin
+Sitemap: /sitemap.xml
