@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/Kevingiscard/Clinical-Navigator/actions/workflows/ci.yml/badge.svg)](https://github.com/Kevingiscard/Clinical-Navigator/actions/workflows/ci.yml) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE) [![Vercel](https://vercelbadge.vercel.app/api/Kevingiscard/Clinical-Navigator)](https://vercel.com/)
 
-**Version 4.1 — plateforme full-stack, portable et sans dépendance obligatoire à Manus.**
+**Version 4.2 — plateforme full-stack, static-only, bilingue et sans dépendance obligatoire à Manus.**
 
 **Clinical Navigator** est une application web française d’orientation opérationnelle pour les professionnels de la recherche clinique. Elle aide à structurer une situation, à repérer les acteurs et documents pertinents, et à rendre visibles les sources, le statut du contenu et les limites d’une réponse. Elle ne remplace jamais le protocole, les SOP, une prise en charge clinique, les responsables habilités ou les autorités compétentes.
 
@@ -12,11 +12,11 @@
 |---|---|
 | Parcours « J’ai un problème » | Questionnaire en huit étapes, détection indicative d’identifiants directs, priorité de sécurité, réponse structurée et modes Rapide/Détaillé/Expert. |
 | Workflows | Catalogue déterministe de scénarios, actions, acteurs, documents, checks, délais contextuels, escalade, limites et références. |
-| Connaissance | 24 modules, 31 scénarios, glossaire et sources officielles dont ICH E6(R3) et les bonnes pratiques de l’OMS. [1] [2] |
+| Connaissance | 24 modules, 31 scénarios et une base pédagogique bilingue de 154 entrées réparties en 11 catégories, avec références et signalement des juridictions à vérifier. [1] [2] |
 | Outils | Calculateur de fenêtre de visite, canevas CAPA, checklists de monitoring, d’activation et de close-out. |
 | Espace personnel | Favoris et repères génériques sauvegardés pour les utilisateurs authentifiés, avec refus des identifiants directs détectés. |
 | Gouvernance | Administration protégée, statuts de contenu, sources à revoir, backlog, feedback, analytics anonymisées et santé système. |
-| Web | PWA, fallback hors ligne, routes françaises, manifest, robots, sitemap, metadata et données structurées. |
+| Web | PWA versionnée, app shell/offline fallback, routes statiques, manifest, robots, sitemap, metadata, budget initial JavaScript et sélecteur FR/EN persistant. |
 
 ## Démarrer en local
 
@@ -27,13 +27,16 @@ pnpm check
 pnpm test
 pnpm e2e
 pnpm build
+pnpm knowledge:verify
+pnpm budget
+pnpm verify
 ```
 
 ## Variables d’environnement
 
 Copiez [`.env.example`](.env.example) vers `.env` en local. Les secrets serveur ne doivent jamais être exposés au navigateur ni préfixés `VITE_`. Pour Vercel, configurez les variables dans les environnements Preview et Production. La configuration complète et la limitation actuelle du driver Drizzle/MySQL sont décrites dans [`docs/deployment.md`](docs/deployment.md).
 
-Les vérifications de production sont disponibles avec `pnpm references:validate`, `pnpm diagnostics:consistency`, `pnpm security:baseline` et `pnpm release:gate`.
+Les vérifications de production sont disponibles avec `pnpm references:validate`, `pnpm diagnostics:consistency`, `pnpm security:baseline`, `pnpm knowledge:verify`, `pnpm budget` et `pnpm release:gate`. `pnpm verify` agrège le contrôle clinique, les diagnostics, le typecheck, les tests et le budget statique.
 
 Les migrations sont générées à partir de `drizzle/schema.ts`. Toute modification du schéma doit être appliquée avec une migration validée, jamais via une suppression de données non revue.
 
@@ -61,6 +64,7 @@ La page `/fr/veille` présente une revue institutionnelle datée des référence
 | [Gouvernance du contenu](docs/content-governance.md) | Statuts, versioning, revue et publication humaine. |
 | [Confidentialité et sécurité](docs/security-privacy.md) | Données interdites, minimisation et limites de détection. |
 | [Politique IA](docs/ai-policy.md) | Hiérarchie règles/sources/assistance et garde-fous. |
+| [Contrat v2](docs/v2-final-contract.md) | Parcours bilingue, base embarquée, assistant hybride, PWA et limites de self-healing. |
 | [Maintenance planifiée](docs/periodic-maintenance.md) | Contrôles de liens et prérequis de publication. |
 | [Déploiement](docs/deployment.md) | Checklist de publication et limites d’hébergement. |
 | [Contribution](docs/contributing.md) | Standards de code et de contenu. |

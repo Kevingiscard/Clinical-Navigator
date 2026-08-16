@@ -23,7 +23,16 @@ export function createApp(): Express {
   app.use(express.urlencoded({ limit: "2mb", extended: true }));
 
   app.get("/api/health", (_req: Request, res: Response) => {
-    res.status(200).json({ ok: true, service: "clinical-navigator-api", timestamp: new Date().toISOString() });
+    const databaseConfigured = Boolean(process.env.DATABASE_URL);
+    res.status(200).json({
+      ok: true,
+      service: "clinical-navigator-api",
+      version: process.env.npm_package_version ?? "4.1.0",
+      commit: process.env.VERCEL_GIT_COMMIT_SHA ?? process.env.GIT_COMMIT_SHA ?? "unknown",
+      uptimeSeconds: Math.round(process.uptime()),
+      database: databaseConfigured ? "configured" : "not-configured",
+      timestamp: new Date().toISOString(),
+    });
   });
 
   registerStorageProxy(app);
