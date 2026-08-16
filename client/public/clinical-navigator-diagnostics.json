@@ -3,16 +3,16 @@
     "name": "Clinical Navigator",
     "version": "4.1.0",
     "repository": "Kevingiscard/Clinical-Navigator",
-    "branch": "main"
+    "branch": "feat/production-readiness"
   },
   "build": {
     "version": "4.1.0",
-    "commitSha": "d26faec231184d414e8b95f5df83a885cce2e1d7",
-    "branch": "main",
-    "buildTime": "2026-08-16T13:27:24.991Z"
+    "commitSha": "ea8f3a0b61a34a59615db90d4d2caeadeb15687b",
+    "branch": "feat/production-readiness",
+    "buildTime": "2026-08-16T15:11:41.494Z"
   },
   "status": {
-    "overall": "WARNING",
+    "overall": "OK",
     "frontend": "OK",
     "pwa": "OK",
     "navigation": "OK",
@@ -63,18 +63,18 @@
   "tests": {
     "typescript": "PASS",
     "unit": "PASS",
-    "integration": "UNKNOWN",
-    "e2e": "UNKNOWN",
-    "accessibility": "UNKNOWN",
+    "integration": "PASS",
+    "e2e": "PASS",
+    "accessibility": "PASS",
     "security": "PASS",
     "build": "PASS"
   },
   "releaseGate": {
     "typescript": "PASS",
     "unit": "PASS",
-    "integration": "UNKNOWN",
-    "e2e": "UNKNOWN",
-    "accessibility": "UNKNOWN",
+    "integration": "PASS",
+    "e2e": "PASS",
+    "accessibility": "PASS",
     "security": "PASS",
     "build": "PASS",
     "pwa": "PASS",
@@ -82,7 +82,7 @@
     "clinicalConsistency": "PASS",
     "references": "PASS"
   },
-  "releaseReady": false,
+  "releaseReady": true,
   "routes": [
     {
       "route": "/",
@@ -131,5 +131,5 @@
   ],
   "warnings": [],
   "errors": [],
-  "generatedAt": "2026-08-16T13:27:24.991Z"
+  "generatedAt": "2026-08-16T15:11:41.494Z"
 }

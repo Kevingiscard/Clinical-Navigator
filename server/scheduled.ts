@@ -13,17 +13,21 @@ async function inspectSourceLink(sourceId: string, url: string): Promise<LinkChe
   }
 }
 
+export async function runDailyMaintenance() {
+  const checkedAt = new Date().toISOString();
+  const checks = await Promise.all(sources.map(source => inspectSourceLink(source.id, source.url)));
+  return { checkedAt, checked: checks.length, failed: checks.filter(item => !item.ok).length, checks };
+}
+
 export function registerScheduledRoutes(app: Express) {
   app.post("/api/scheduled/source-review", async (req: Request, res: Response) => {
     const startedAt = new Date().toISOString();
     try {
       const user = await sdk.authenticateRequest(req);
       if (!user.isCron || !user.taskUid) return res.status(403).json({ error: "cron-only", timestamp: startedAt });
-      const checks = await Promise.all(sources.map(source => inspectSourceLink(source.id, source.url)));
-      const failed = checks.filter(item => !item.ok);
-      return res.json({ ok: true, taskUid: user.taskUid, checkedAt: startedAt, checked: checks.length, failed: failed.length, checks });
+      return res.json({ ok: true, taskUid: user.taskUid, ...(await runDailyMaintenance()) });
     } catch (error) {
-      return res.status(500).json({ error: error instanceof Error ? error.message : "Erreur de maintenance", timestamp: startedAt, context: { url: req.originalUrl } });
+      return res.status(500).json({ error: error instanceof Error ? error.message : "Erreur de maintenance", timestamp: startedAt });
     }
   });
 }

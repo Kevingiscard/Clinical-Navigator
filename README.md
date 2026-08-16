@@ -1,6 +1,8 @@
 # Clinical Navigator
 
-**Version 4.0 — plateforme autonome, portable et sans dépendance à Manus.**
+[![CI](https://github.com/Kevingiscard/Clinical-Navigator/actions/workflows/ci.yml/badge.svg)](https://github.com/Kevingiscard/Clinical-Navigator/actions/workflows/ci.yml) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE) [![Vercel](https://vercelbadge.vercel.app/api/Kevingiscard/Clinical-Navigator)](https://vercel.com/)
+
+**Version 4.1 — plateforme full-stack, portable et sans dépendance obligatoire à Manus.**
 
 **Clinical Navigator** est une application web française d’orientation opérationnelle pour les professionnels de la recherche clinique. Elle aide à structurer une situation, à repérer les acteurs et documents pertinents, et à rendre visibles les sources, le statut du contenu et les limites d’une réponse. Elle ne remplace jamais le protocole, les SOP, une prise en charge clinique, les responsables habilités ou les autorités compétentes.
 
@@ -19,11 +21,19 @@
 ## Démarrer en local
 
 ```bash
-pnpm install
+pnpm install --frozen-lockfile
 pnpm dev
 pnpm check
 pnpm test
+pnpm e2e
+pnpm build
 ```
+
+## Variables d’environnement
+
+Copiez [`.env.example`](.env.example) vers `.env` en local. Les secrets serveur ne doivent jamais être exposés au navigateur ni préfixés `VITE_`. Pour Vercel, configurez les variables dans les environnements Preview et Production. La configuration complète et la limitation actuelle du driver Drizzle/MySQL sont décrites dans [`docs/deployment.md`](docs/deployment.md).
+
+Les vérifications de production sont disponibles avec `pnpm references:validate`, `pnpm diagnostics:consistency`, `pnpm security:baseline` et `pnpm release:gate`.
 
 Les migrations sont générées à partir de `drizzle/schema.ts`. Toute modification du schéma doit être appliquée avec une migration validée, jamais via une suppression de données non revue.
 
@@ -38,6 +48,12 @@ Les réponses sont des aides à l’organisation du travail. Les échéances, d�
 La page `/fr/veille` présente une revue institutionnelle datée des références majeures utilisées par l'application. Elle distingue les documents actuellement effectifs des documents publiés mais à effet futur, notamment pour ICH E6(R3). Voir `docs/research-update-2026-08.md` pour la traçabilité de la revue.
 
 ## Documentation
+
+| Production | Objet |
+|---|---|
+| [Variables d’environnement](.env.example) | Inventaire documenté des variables utilisées. |
+| [Politique de sécurité](SECURITY.md) | Signalement, versions supportées et règles de secret. |
+| [Déploiement Vercel](docs/deployment.md) | API serverless, cron, secrets et base de données. |
 
 | Document | Objet |
 |---|---|
