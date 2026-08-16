@@ -91,12 +91,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 630,
+                  "duration": 711,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-08-16T18:06:56.803Z",
+                  "startTime": "2026-08-16T18:26:51.269Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -125,12 +125,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 801,
+                  "duration": 890,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-08-16T18:06:57.538Z",
+                  "startTime": "2026-08-16T18:26:52.131Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -159,12 +159,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 1030,
+                  "duration": 962,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-08-16T18:06:58.352Z",
+                  "startTime": "2026-08-16T18:26:53.042Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -193,12 +193,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 1057,
+                  "duration": 1971,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-08-16T18:06:59.396Z",
+                  "startTime": "2026-08-16T18:26:54.010Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -227,12 +227,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 1875,
+                  "duration": 1375,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-08-16T18:07:00.460Z",
+                  "startTime": "2026-08-16T18:26:55.987Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -261,12 +261,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 739,
+                  "duration": 919,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-08-16T18:07:02.348Z",
+                  "startTime": "2026-08-16T18:26:57.371Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -277,6 +277,74 @@
           "id": "1141e77e9715b8a320aa-c62bba93a4e2e28b5e0a",
           "file": "production-readiness.spec.ts",
           "line": 41,
+          "column": 1
+        },
+        {
+          "title": "le mode system respecte la préférence sombre et reste lisible",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 754,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-08-16T18:26:58.297Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1141e77e9715b8a320aa-f7a1cbcc2aed96ec7a59",
+          "file": "production-readiness.spec.ts",
+          "line": 50,
+          "column": 1
+        },
+        {
+          "title": "la page formation ne déborde pas à 320px",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 621,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-08-16T18:26:59.062Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1141e77e9715b8a320aa-e5eceb086bf1981ad26c",
+          "file": "production-readiness.spec.ts",
+          "line": 59,
           "column": 1
         },
         {
@@ -295,12 +363,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 1131,
+                  "duration": 1214,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-08-16T18:07:03.095Z",
+                  "startTime": "2026-08-16T18:26:59.695Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -310,7 +378,7 @@
           ],
           "id": "1141e77e9715b8a320aa-c96aef9e892e35d53c32",
           "file": "production-readiness.spec.ts",
-          "line": 50,
+          "line": 66,
           "column": 1
         }
       ]
@@ -318,9 +386,9 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-08-16T18:06:54.284Z",
-    "duration": 10033.248,
-    "expected": 7,
+    "startTime": "2026-08-16T18:26:47.637Z",
+    "duration": 13381.744999999999,
+    "expected": 9,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0

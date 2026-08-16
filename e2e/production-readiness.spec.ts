@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 
 test.beforeEach(async ({ page }) => {
-  await page.addInitScript(() => localStorage.removeItem("cn_disclaimer_v1"));
+  await page.addInitScript(() => { localStorage.removeItem("cn_disclaimer_v1"); localStorage.removeItem("theme"); });
 });
 
 test("home affiche le disclaimer médical au premier accès", async ({ page }) => {
@@ -46,6 +46,22 @@ test("une route inconnue affiche la page NotFound", async ({ page }) => {
 });
 
 import AxeBuilder from "@axe-core/playwright";
+
+test("le mode system respecte la préférence sombre et reste lisible", async ({ page }) => {
+  await page.emulateMedia({ colorScheme: "dark" });
+  await page.goto("/fr/formation");
+  await expect.poll(() => page.locator("html").evaluate(element => element.classList.contains("dark"))).toBe(true);
+  const colors = await page.locator("body").evaluate(element => { const style = getComputedStyle(element); return { background: style.backgroundColor, color: style.color }; });
+  expect(colors.background).not.toBe("rgb(255, 255, 255)");
+  expect(colors.color).not.toBe("rgb(0, 0, 0)");
+});
+
+test("la page formation ne déborde pas à 320px", async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 800 });
+  await page.goto("/fr/formation");
+  const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
+  expect(overflow).toBeLessThanOrEqual(1);
+});
 
 test("home respecte le contrôle accessibilité axe de base", async ({ page }) => {
   await page.goto("/");

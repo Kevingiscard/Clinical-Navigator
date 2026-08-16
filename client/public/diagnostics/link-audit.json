@@ -1,0 +1,229 @@
+{
+  "generatedAt": "2026-08-16T18:26:12.263Z",
+  "status": "PASS",
+  "routes": [
+    "/",
+    "/404",
+    "/fr/a-propos",
+    "/fr/admin",
+    "/fr/admin/catalogue",
+    "/fr/admin/donnees",
+    "/fr/auditer-un-essai",
+    "/fr/auteur",
+    "/fr/comment-ca-marche",
+    "/fr/concevoir-un-essai",
+    "/fr/concevoir-un-essai/outils",
+    "/fr/conditions",
+    "/fr/confidentialite",
+    "/fr/contact",
+    "/fr/diagnostic",
+    "/fr/essais-complexes",
+    "/fr/explorer",
+    "/fr/favoris",
+    "/fr/formation",
+    "/fr/guides",
+    "/fr/guides/:slug",
+    "/fr/limites",
+    "/fr/mentions-legales",
+    "/fr/mes-cas",
+    "/fr/mes-donnees",
+    "/fr/modules",
+    "/fr/modules/:slug",
+    "/fr/mon-espace",
+    "/fr/outils",
+    "/fr/probleme",
+    "/fr/ressources",
+    "/fr/scenarios",
+    "/fr/scenarios/:slug",
+    "/fr/sources",
+    "/fr/soutenir",
+    "/fr/systeme",
+    "/fr/veille"
+  ],
+  "findings": [],
+  "internalLinks": [
+    {
+      "file": "client/src/components/ClinicalShell.tsx",
+      "href": "/"
+    },
+    {
+      "file": "client/src/components/ClinicalShell.tsx",
+      "href": "/fr/probleme"
+    },
+    {
+      "file": "client/src/components/ClinicalShell.tsx",
+      "href": "/fr/auteur"
+    },
+    {
+      "file": "client/src/components/ClinicalShell.tsx",
+      "href": "/fr/sources"
+    },
+    {
+      "file": "client/src/components/ClinicalShell.tsx",
+      "href": "/fr/limites"
+    },
+    {
+      "file": "client/src/components/ClinicalShell.tsx",
+      "href": "/fr/confidentialite"
+    },
+    {
+      "file": "client/src/components/ClinicalShell.tsx",
+      "href": "/fr/mentions-legales"
+    },
+    {
+      "file": "client/src/components/ErrorBoundary.tsx",
+      "href": "/fr/systeme"
+    },
+    {
+      "file": "client/src/components/GuidanceReport.tsx",
+      "href": "/fr/limites"
+    },
+    {
+      "file": "client/src/components/LegalBanners.tsx",
+      "href": "/fr/mes-donnees"
+    },
+    {
+      "file": "client/src/pages/AccountPage.tsx",
+      "href": "/fr/confidentialite"
+    },
+    {
+      "file": "client/src/pages/AccountPage.tsx",
+      "href": "/fr/probleme"
+    },
+    {
+      "file": "client/src/pages/AccountPage.tsx",
+      "href": "/fr/outils"
+    },
+    {
+      "file": "client/src/pages/AdminAnalyticsPage.tsx",
+      "href": "/fr/admin"
+    },
+    {
+      "file": "client/src/pages/AdminCatalogPage.tsx",
+      "href": "/fr/admin"
+    },
+    {
+      "file": "client/src/pages/AuthorPage.tsx",
+      "href": "/fr/concevoir-un-essai"
+    },
+    {
+      "file": "client/src/pages/AuthorPage.tsx",
+      "href": "/fr/veille"
+    },
+    {
+      "file": "client/src/pages/ComponentShowcase.tsx",
+      "href": "/"
+    },
+    {
+      "file": "client/src/pages/ComponentShowcase.tsx",
+      "href": "/fr/guides"
+    },
+    {
+      "file": "client/src/pages/DiagnosticsPage.tsx",
+      "href": "/Clinical-Navigator/diagnostics/latest.json"
+    },
+    {
+      "file": "client/src/pages/Home.tsx",
+      "href": "/fr/concevoir-un-essai"
+    },
+    {
+      "file": "client/src/pages/Home.tsx",
+      "href": "/fr/probleme"
+    },
+    {
+      "file": "client/src/pages/Home.tsx",
+      "href": "/fr/auditer-un-essai"
+    },
+    {
+      "file": "client/src/pages/Home.tsx",
+      "href": "/fr/probleme"
+    },
+    {
+      "file": "client/src/pages/Home.tsx",
+      "href": "/fr/concevoir-un-essai"
+    },
+    {
+      "file": "client/src/pages/Home.tsx",
+      "href": "/fr/auditer-un-essai"
+    },
+    {
+      "file": "client/src/pages/Home.tsx",
+      "href": "/fr/veille"
+    },
+    {
+      "file": "client/src/pages/Home.tsx",
+      "href": "/fr/modules"
+    },
+    {
+      "file": "client/src/pages/Home.tsx",
+      "href": "/fr/sources"
+    },
+    {
+      "file": "client/src/pages/Home.tsx",
+      "href": "/fr/concevoir-un-essai"
+    },
+    {
+      "file": "client/src/pages/Home.tsx",
+      "href": "/fr/ressources"
+    },
+    {
+      "file": "client/src/pages/PrivacySettingsPage.tsx",
+      "href": "/fr/mon-espace"
+    },
+    {
+      "file": "client/src/pages/PrivacySettingsPage.tsx",
+      "href": "/fr/confidentialite"
+    },
+    {
+      "file": "client/src/pages/ProblemWizardStandalone.tsx",
+      "href": "/fr/probleme"
+    },
+    {
+      "file": "client/src/pages/ProblemWizardStandalone.tsx",
+      "href": "/fr/veille"
+    },
+    {
+      "file": "client/src/pages/ResearchPage.tsx",
+      "href": "/fr/concevoir-un-essai"
+    },
+    {
+      "file": "client/src/pages/ResearchPage.tsx",
+      "href": "/fr/ressources"
+    },
+    {
+      "file": "client/src/pages/TrialDesignOperationsPage.tsx",
+      "href": "/fr/concevoir-un-essai"
+    },
+    {
+      "file": "client/src/pages/TrialDesignPage.tsx",
+      "href": "/fr/veille"
+    },
+    {
+      "file": "client/src/pages/TrialDesignPage.tsx",
+      "href": "/fr/auditer-un-essai"
+    },
+    {
+      "file": "client/src/pages/TrialDesignStudio.tsx",
+      "href": "/"
+    },
+    {
+      "file": "client/src/pages/TrialDesignStudio.tsx",
+      "href": "/fr/veille"
+    },
+    {
+      "file": "client/src/pages/TrialDesignStudio.tsx",
+      "href": "/fr/veille"
+    },
+    {
+      "file": "client/src/pages/TrialToolsLab.tsx",
+      "href": "/fr/concevoir-un-essai"
+    }
+  ],
+  "externalLinks": [
+    {
+      "file": "client/src/pages/AuthorPage.tsx",
+      "href": "https://github.com/Kevingiscard/Clinical-Navigator"
+    }
+  ],
+  "anchorLinks": []
+}

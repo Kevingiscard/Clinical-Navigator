@@ -98,3 +98,11 @@ Revoir les références au plus tard le 2027-02-16, ou immédiatement après la 
 ## Décision
 
 Le statut approprié reste **Clinical Navigator — Production Candidate** jusqu’à validation distante de la CI, revue humaine des sources et vérification de l’environnement de déploiement. Ne pas utiliser `certifié`, `validé FDA`, `validé EMA`, `HDS`, `ISO` ou `HIPAA` sans certificat officiel correspondant.
+
+## Mise à jour UI du 2026-08-16
+
+La refonte visuelle ajoute des tokens noir/blanc dans `client/src/styles/tokens.css`, remplace la police distante par une stack Inter système, supprime les halos décoratifs, active les modes `light`, `dark` et `system`, ajoute la préférence `prefers-reduced-motion` et renforce les focus visibles.
+
+L’audit statique des liens et interactions produit `client/public/diagnostics/link-audit.json`, `link-audit.md` et `interaction-audit.md`. Le dernier passage réel est `PASS` avec zéro finding, 44 liens internes analysés et une URL externe de source enregistrée pour revue HTTP périodique.
+
+Les tests E2E couvrent maintenant neuf scénarios, dont la préférence sombre système, la lisibilité minimale et l’absence de débordement à 320 px. Le dernier passage est `9 passed`. Les validations Safari, Firefox, lecteurs d’écran et appareils réels restent `NOT_RUN`.

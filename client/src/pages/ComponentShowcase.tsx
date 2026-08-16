@@ -739,7 +739,7 @@ export default function ComponentsShowcase() {
                     <PaginationContent>
                       <PaginationItem>
                         <PaginationPrevious
-                          href="#"
+                          href={`?page=${Math.max(1, currentPage - 1)}`}
                           onClick={e => {
                             e.preventDefault();
                             setCurrentPage(Math.max(1, currentPage - 1));
@@ -749,7 +749,7 @@ export default function ComponentsShowcase() {
                       {[1, 2, 3, 4, 5].map(page => (
                         <PaginationItem key={page}>
                           <PaginationLink
-                            href="#"
+                            href={`?page=${page}`}
                             isActive={currentPage === page}
                             onClick={e => {
                               e.preventDefault();
@@ -762,10 +762,10 @@ export default function ComponentsShowcase() {
                       ))}
                       <PaginationItem>
                         <PaginationNext
-                          href="#"
-                          onClick={e => {
-                            e.preventDefault();
-                            setCurrentPage(Math.min(5, currentPage + 1));
+href={`?page=${Math.min(5, currentPage + 1)}`}
+                        onClick={e => {
+                          e.preventDefault();
+                          setCurrentPage(Math.min(5, currentPage + 1));
                           }}
                         />
                       </PaginationItem>
@@ -851,8 +851,8 @@ export default function ComponentsShowcase() {
                       </BreadcrumbItem>
                       <BreadcrumbSeparator />
                       <BreadcrumbItem>
-                        <BreadcrumbLink href="/components">
-                          Components
+                        <BreadcrumbLink href="/fr/guides">
+                          Guides
                         </BreadcrumbLink>
                       </BreadcrumbItem>
                       <BreadcrumbSeparator />
