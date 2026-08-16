@@ -48,14 +48,17 @@ jobs:
       - name: Build
         env:
           VITE_BASE_PATH: /Clinical-Navigator/
+          VITE_STATIC_ONLY: "true"
+          VITE_API_BASE_URL: ""
         run: pnpm build:static
       - name: GitHub Pages fallback
         run: |
           cp dist/public/index.html dist/public/404.html
-          for route in fr fr/probleme fr/concevoir-un-essai fr/concevoir-un-essai/outils fr/auditer-un-essai fr/outils fr/veille fr/systeme fr/diagnostic fr/a-propos fr/auteur; do
+          while IFS= read -r route; do
+            [ -z "$route" ] && continue
             mkdir -p "dist/public/$route"
             cp dist/public/index.html "dist/public/$route/index.html"
-          done
+          done < <(node scripts/generate-static-routes.mjs)
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:

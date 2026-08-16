@@ -211,6 +211,14 @@ export const sources: SourceRecord[] = [
   },
 ];
 
+// Une juridiction n’est considérée comme couverte que si le registre contient
+// au moins une source explicitement marquée VERIFIED pour cette juridiction.
+// Les juridictions sans source vérifiée restent sélectionnables, mais l’interface
+// doit signaler que leur couverture est en construction.
+export function hasVerifiedSourceForJurisdiction(jurisdiction: string) {
+  return sources.some(source => source.jurisdiction === jurisdiction && source.status === "VERIFIED");
+}
+
 export const modules: ClinicalModule[] = [
   { id: "conception", title: "Conception", summary: "Question, objectifs, endpoints, population, faisabilité et risques.", icon: "Compass", status: "VERIFIED", topics: ["Question", "Hypothèse", "Effectif", "Risques"] },
   { id: "protocole", title: "Protocole", summary: "Structure, versions, amendements, cohérence et calendrier.", icon: "FileText", status: "VERIFIED", topics: ["Version", "Amendement", "Calendrier"] },
