@@ -16,6 +16,21 @@ test("le parcours problème charge son interface", async ({ page }) => {
   await expect(page.locator("main")).toBeVisible();
 });
 
+test("le dashboard knowledge expose des chiffres calculés et une recherche locale", async ({ page }) => {
+  await page.goto("/fr/knowledge");
+  await expect(page.getByRole("heading", { name: "Clinical Knowledge Dashboard" })).toBeVisible();
+  await expect(page.getByText("161").first()).toBeVisible();
+  await page.getByLabel("Rechercher dans la base de connaissances").fill("estimand");
+  await expect(page.getByText("Estimand").first()).toBeVisible();
+});
+
+test("la file admin knowledge exige une revue humaine", async ({ page }) => {
+  await page.goto("/fr/admin/knowledge");
+  await expect(page.getByRole("heading", { name: "Review Queue" })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Publier après revue" })).toBeDisabled();
+  await expect(page.getByText("Cette vue prépare une revue humaine.")).toBeVisible();
+});
+
 test("la formation expose la base bilingue et la couverture juridictionnelle", async ({ page }) => {
   await page.goto("/fr/formation");
   await expect(page.getByRole("heading", { name: /Apprendre par situation/ })).toBeVisible();

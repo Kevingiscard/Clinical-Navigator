@@ -6,6 +6,9 @@ import { registerStorageProxy } from "./storageProxy";
 import { appRouter } from "../routers";
 import { createContext } from "./context";
 import { registerScheduledRoutes, runDailyMaintenance } from "../scheduled";
+import { knowledgeItems, clinicalKnowledgeGraph } from "../../shared/knowledgeDatasets";
+import { referenceRegistry } from "../../shared/referenceRegistry";
+import { jurisdictionRegistry } from "../../shared/jurisdictionRegistry";
 
 function isAuthorizedCronRequest(req: Request): boolean {
   const secret = process.env.CRON_SECRET;
@@ -37,6 +40,24 @@ export function createApp(): Express {
 
   registerStorageProxy(app);
   registerOAuthRoutes(app);
+
+  app.get("/api/knowledge/search", (req: Request, res: Response) => {
+    const query = String(req.query.q ?? "").trim().toLocaleLowerCase().slice(0, 160);
+    const limit = Math.min(Math.max(Number(req.query.limit ?? 20) || 20, 1), 50);
+    const results = knowledgeItems.filter(item => { const text = `${item.title} ${item.shortDescription} ${item.keywords.join(" ")} ${item.synonyms.join(" ")}`.toLocaleLowerCase(); return !query || text.includes(query); }).slice(0, limit);
+    res.json({ query, datasetVersion: "1.0.0", generatedAt: new Date().toISOString(), results });
+  });
+  app.get("/api/knowledge/:id/related", (req: Request, res: Response) => {
+    const relations = clinicalKnowledgeGraph.filter(relation => relation.from === req.params.id || relation.to === req.params.id);
+    res.json({ id: req.params.id, relations });
+  });
+  app.get("/api/knowledge/:id", (req: Request, res: Response) => {
+    const item = knowledgeItems.find(candidate => candidate.id === req.params.id);
+    if (!item) return res.status(404).json({ error: "knowledge-not-found" });
+    return res.json({ item, datasetVersion: "1.0.0" });
+  });
+  app.get("/api/sources", (_req: Request, res: Response) => res.json({ generatedAt: new Date().toISOString(), references: referenceRegistry }));
+  app.get("/api/jurisdictions", (_req: Request, res: Response) => res.json({ generatedAt: new Date().toISOString(), jurisdictions: jurisdictionRegistry }));
   registerScheduledRoutes(app);
 
   app.post("/api/cron/daily-maintenance", async (req: Request, res: Response) => {

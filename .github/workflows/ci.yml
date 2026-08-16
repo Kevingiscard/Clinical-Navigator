@@ -28,6 +28,7 @@ jobs:
       - run: pnpm references:validate
       - run: pnpm diagnostics:consistency
       - run: pnpm knowledge:verify
+      - run: pnpm knowledge:graph:verify
       - run: pnpm links:audit
       - run: pnpm security:baseline
       - run: pnpm build

@@ -91,12 +91,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 711,
+                  "duration": 497,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-08-16T18:26:51.269Z",
+                  "startTime": "2026-08-16T21:52:47.378Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -125,12 +125,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 890,
+                  "duration": 762,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-08-16T18:26:52.131Z",
+                  "startTime": "2026-08-16T21:52:47.958Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -141,6 +141,74 @@
           "id": "1141e77e9715b8a320aa-527387e7b2b958585d17",
           "file": "production-readiness.spec.ts",
           "line": 13,
+          "column": 1
+        },
+        {
+          "title": "le dashboard knowledge expose des chiffres calculés et une recherche locale",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 833,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-08-16T21:52:48.735Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1141e77e9715b8a320aa-8f345d6bb2fe8b5f3e79",
+          "file": "production-readiness.spec.ts",
+          "line": 19,
+          "column": 1
+        },
+        {
+          "title": "la file admin knowledge exige une revue humaine",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 736,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-08-16T21:52:49.573Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1141e77e9715b8a320aa-d4e0f7772971ee086f41",
+          "file": "production-readiness.spec.ts",
+          "line": 27,
           "column": 1
         },
         {
@@ -159,12 +227,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 962,
+                  "duration": 942,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-08-16T18:26:53.042Z",
+                  "startTime": "2026-08-16T21:52:50.315Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -174,7 +242,7 @@
           ],
           "id": "1141e77e9715b8a320aa-eec017cb44ee630f307f",
           "file": "production-readiness.spec.ts",
-          "line": 19,
+          "line": 34,
           "column": 1
         },
         {
@@ -193,12 +261,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 1971,
+                  "duration": 879,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-08-16T18:26:54.010Z",
+                  "startTime": "2026-08-16T21:52:51.263Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -208,7 +276,7 @@
           ],
           "id": "1141e77e9715b8a320aa-a221e0da227100a9daf8",
           "file": "production-readiness.spec.ts",
-          "line": 26,
+          "line": 41,
           "column": 1
         },
         {
@@ -227,12 +295,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 1375,
+                  "duration": 939,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-08-16T18:26:55.987Z",
+                  "startTime": "2026-08-16T21:52:52.150Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -242,7 +310,7 @@
           ],
           "id": "1141e77e9715b8a320aa-70ea23bebe7a21f2fc37",
           "file": "production-readiness.spec.ts",
-          "line": 35,
+          "line": 50,
           "column": 1
         },
         {
@@ -261,12 +329,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 919,
+                  "duration": 716,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-08-16T18:26:57.371Z",
+                  "startTime": "2026-08-16T21:52:53.094Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -276,7 +344,7 @@
           ],
           "id": "1141e77e9715b8a320aa-c62bba93a4e2e28b5e0a",
           "file": "production-readiness.spec.ts",
-          "line": 41,
+          "line": 56,
           "column": 1
         },
         {
@@ -295,12 +363,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 754,
+                  "duration": 484,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-08-16T18:26:58.297Z",
+                  "startTime": "2026-08-16T21:52:53.816Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -310,7 +378,7 @@
           ],
           "id": "1141e77e9715b8a320aa-f7a1cbcc2aed96ec7a59",
           "file": "production-readiness.spec.ts",
-          "line": 50,
+          "line": 65,
           "column": 1
         },
         {
@@ -329,12 +397,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 621,
+                  "duration": 377,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-08-16T18:26:59.062Z",
+                  "startTime": "2026-08-16T21:52:54.308Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -344,7 +412,7 @@
           ],
           "id": "1141e77e9715b8a320aa-e5eceb086bf1981ad26c",
           "file": "production-readiness.spec.ts",
-          "line": 59,
+          "line": 74,
           "column": 1
         },
         {
@@ -363,12 +431,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 1214,
+                  "duration": 774,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-08-16T18:26:59.695Z",
+                  "startTime": "2026-08-16T21:52:54.693Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -378,7 +446,7 @@
           ],
           "id": "1141e77e9715b8a320aa-c96aef9e892e35d53c32",
           "file": "production-readiness.spec.ts",
-          "line": 66,
+          "line": 81,
           "column": 1
         }
       ]
@@ -386,9 +454,9 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-08-16T18:26:47.637Z",
-    "duration": 13381.744999999999,
-    "expected": 9,
+    "startTime": "2026-08-16T21:52:44.784Z",
+    "duration": 10770.717999999999,
+    "expected": 11,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0

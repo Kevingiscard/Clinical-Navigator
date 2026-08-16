@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-16T18:26:12.263Z",
+  "generatedAt": "2026-08-16T21:49:27.245Z",
   "status": "PASS",
   "routes": [
     "/",
@@ -8,6 +8,7 @@
     "/fr/admin",
     "/fr/admin/catalogue",
     "/fr/admin/donnees",
+    "/fr/admin/knowledge",
     "/fr/auditer-un-essai",
     "/fr/auteur",
     "/fr/comment-ca-marche",
@@ -23,6 +24,7 @@
     "/fr/formation",
     "/fr/guides",
     "/fr/guides/:slug",
+    "/fr/knowledge",
     "/fr/limites",
     "/fr/mentions-legales",
     "/fr/mes-cas",
