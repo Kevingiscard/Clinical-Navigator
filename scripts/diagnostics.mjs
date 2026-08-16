@@ -89,7 +89,7 @@ const payload = {
   product: { name: 'Clinical Navigator', version: build.version, repository: 'Kevingiscard/Clinical-Navigator', branch: build.branch },
   build,
   status: {
-    overall: result.errors.length ? 'ERROR' : ['typescript', 'unit', 'build', 'clinicalConsistency', 'security', 'e2e', 'accessibility'].some((key) => !['PASS', 'OK'].includes(runtimeStatus(key))) || !Object.values(referenceChecks).every(Boolean) ? 'WARNING' : 'OK',
+    overall: result.errors.length ? 'ERROR' : ['typescript', 'unit', 'integration', 'build', 'clinicalConsistency', 'security', 'e2e', 'accessibility'].some((key) => !['PASS', 'OK'].includes(runtimeStatus(key))) || !Object.values(referenceChecks).every(Boolean) ? 'WARNING' : 'OK',
     frontend: status(exists('client/src/App.tsx')),
     pwa: status(pwaOk, true),
     navigation: status(routes.every(r => r.present)),
@@ -116,7 +116,7 @@ const payload = {
     typescript: runtimeStatus('typescript'), unit: runtimeStatus('unit'), integration: runtimeStatus('integration'), e2e: runtimeStatus('e2e'), accessibility: runtimeStatus('accessibility'), security: runtimeStatus('security'), build: runtimeStatus('build'),
     pwa: pwaOk ? 'PASS' : 'ERROR', routes: routes.every(r => r.present) ? 'PASS' : 'ERROR', clinicalConsistency: runtimeStatus('clinicalConsistency'), references: Object.values(referenceChecks).every(Boolean) ? 'PASS' : 'WARNING'
   },
-  releaseReady: ['typescript', 'unit', 'build', 'clinicalConsistency', 'security', 'references', 'e2e', 'accessibility'].every((key) => {
+  releaseReady: ['typescript', 'unit', 'integration', 'build', 'clinicalConsistency', 'security', 'references', 'e2e', 'accessibility'].every((key) => {
     const value = key === 'references' ? (Object.values(referenceChecks).every(Boolean) ? 'PASS' : 'WARNING') : runtimeStatus(key);
     return value === 'PASS' || value === 'OK';
   }) && pwaOk && routes.every(r => r.present) && result.errors.length === 0,

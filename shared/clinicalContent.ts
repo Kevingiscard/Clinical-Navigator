@@ -211,6 +211,14 @@ export const sources: SourceRecord[] = [
   },
 ];
 
+// Une juridiction n’est considérée comme couverte que si le registre contient
+// au moins une source explicitement marquée VERIFIED pour cette juridiction.
+// Les juridictions sans source vérifiée restent sélectionnables, mais l’interface
+// doit signaler que leur couverture est en construction.
+export function hasVerifiedSourceForJurisdiction(jurisdiction: string) {
+  return sources.some(source => source.jurisdiction === jurisdiction && source.status === "VERIFIED");
+}
+
 export const modules: ClinicalModule[] = [
   { id: "conception", title: "Conception", summary: "Question, objectifs, endpoints, population, faisabilité et risques.", icon: "Compass", status: "VERIFIED", topics: ["Question", "Hypothèse", "Effectif", "Risques"] },
   { id: "protocole", title: "Protocole", summary: "Structure, versions, amendements, cohérence et calendrier.", icon: "FileText", status: "VERIFIED", topics: ["Version", "Amendement", "Calendrier"] },
@@ -236,6 +244,10 @@ export const modules: ClinicalModule[] = [
   { id: "master-protocol", title: "Master protocol", summary: "Protocole maître, sous-protocoles, versions et données partagées.", icon: "Layers3", status: "NEEDS_REVIEW", topics: ["Sous-protocole", "Version", "Cohérence"] },
   { id: "formation", title: "Formation", summary: "Parcours de découverte, pratiques et expertises.", icon: "GraduationCap", status: "DRAFT", topics: ["Quiz", "Scénarios", "Références"] },
   { id: "ressources", title: "Ressources", summary: "Bibliothèque de sources, autorités et documents de référence.", icon: "Library", status: "VERIFIED", topics: ["ICH", "OMS", "Autorités"] },
+  { id: "statistiques", title: "Statistiques", summary: "Estimands, hypothèses, effectifs, modèles, données manquantes et analyses de sensibilité.", icon: "BarChart3", status: "NEEDS_REVIEW", topics: ["Estimand", "Effectif", "Analyse"] },
+  { id: "essais-complexes", title: "Essais complexes", summary: "Parcours spécialisés pour designs adaptatifs, cluster, step-wedge, platform, basket, umbrella et master protocol.", icon: "Layers3", status: "NEEDS_REVIEW", topics: ["Adaptive", "Cluster", "Platform"] },
+  { id: "veille", title: "Veille", summary: "Centre de veille méthodologique, réglementaire, sécurité, statistique et santé numérique.", icon: "Radar", status: "NEEDS_REVIEW", topics: ["Transition", "Sources", "Revue"] },
+  { id: "probleme", title: "J’ai un problème", summary: "Moteur d’orientation vers les faits, la sécurité, les documents, les escalades et les ressources pertinentes.", icon: "CircleAlert", status: "VERIFIED", topics: ["Orientation", "Escalade", "Checklist"] },
 ];
 
 const standardActors: ScenarioActor[] = [

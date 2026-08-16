@@ -1,0 +1,29 @@
+export type JurisdictionCoverageStatus = "SOURCE_FOUND_NEEDS_LOCAL_REVIEW" | "PORTAL_NOT_CONFIRMED";
+export type JurisdictionCoverage = { slug: string; country: string; region: string; authorityLabel: string; officialPortal?: string; status: JurisdictionCoverageStatus; localReviewRequired: true; note: string; lastChecked: string };
+const checked = "2026-08-16";
+const sourceFound = (input: Omit<JurisdictionCoverage, "status" | "localReviewRequired" | "lastChecked">): JurisdictionCoverage => ({ ...input, status: "SOURCE_FOUND_NEEDS_LOCAL_REVIEW", localReviewRequired: true, lastChecked: checked });
+const notConfirmed = (input: Omit<JurisdictionCoverage, "status" | "localReviewRequired" | "lastChecked">): JurisdictionCoverage => ({ ...input, status: "PORTAL_NOT_CONFIRMED", localReviewRequired: true, lastChecked: checked });
+export const jurisdictionRegistry: JurisdictionCoverage[] = [
+  sourceFound({ slug: "united-states", country: "United States", region: "North America", authorityLabel: "U.S. FDA", officialPortal: "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/e6r3-good-clinical-practice-gcp", note: "Official GCP guidance portal found; IND/IDE, IRB and state/federal requirements remain study-specific." }),
+  sourceFound({ slug: "canada", country: "Canada", region: "North America", authorityLabel: "Health Canada", officialPortal: "https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/clinical-trials.html", note: "Confirm product class, REB and submission route." }),
+  sourceFound({ slug: "european-union", country: "European Union", region: "Europe", authorityLabel: "EMA / CTIS", officialPortal: "https://www.ema.europa.eu/en/human-regulatory-overview/research-development/clinical-trials-human-medicines/clinical-trials-regulation", note: "Member State authorities and ethics bodies remain decisive." }),
+  sourceFound({ slug: "united-kingdom", country: "United Kingdom", region: "Europe", authorityLabel: "MHRA / HRA", officialPortal: "https://www.hra.nhs.uk/", note: "Confirm MHRA route and devolved requirements." }),
+  sourceFound({ slug: "australia", country: "Australia", region: "Oceania", authorityLabel: "TGA", officialPortal: "https://www.tga.gov.au/", note: "Confirm CTN/CTA and ethics pathway." }),
+  sourceFound({ slug: "japan", country: "Japan", region: "Asia", authorityLabel: "PMDA / MHLW", officialPortal: "https://www.pmda.go.jp/english/", note: "Confirm local sponsor, translation and GCP requirements." }),
+  sourceFound({ slug: "china", country: "China", region: "Asia", authorityLabel: "NMPA", officialPortal: "https://www.nmpa.gov.cn/", note: "Confirm national, provincial, ethics and language requirements." }),
+  sourceFound({ slug: "india", country: "India", region: "Asia", authorityLabel: "CDSCO", officialPortal: "https://cdsco.gov.in/", note: "Confirm current clinical-trial rules and ethics requirements." }),
+  sourceFound({ slug: "brazil", country: "Brazil", region: "Latin America", authorityLabel: "ANVISA / CONEP", officialPortal: "https://www.gov.br/anvisa/pt-br/assuntos/medicamentos/ensaios-clinicos", note: "Confirm ANVISA, CONEP/CEP and Portuguese documentation." }),
+  sourceFound({ slug: "south-africa", country: "South Africa", region: "Africa", authorityLabel: "SAHPRA", officialPortal: "https://www.sahpra.org.za/", note: "Confirm ethics and local representative requirements." }),
+  sourceFound({ slug: "nigeria", country: "Nigeria", region: "Africa", authorityLabel: "NAFDAC", officialPortal: "https://nafdac.gov.ng/", note: "Confirm NAFDAC, ethics, import and local requirements." }),
+  sourceFound({ slug: "kenya", country: "Kenya", region: "Africa", authorityLabel: "Pharmacy and Poisons Board", officialPortal: "https://www.pharmacyboardkenya.org/", note: "Confirm ethics, local sponsor and import requirements." }),
+  sourceFound({ slug: "ghana", country: "Ghana", region: "Africa", authorityLabel: "Ghana FDA", officialPortal: "https://fdaghana.gov.gh/", note: "Confirm current trial and ethics pathways." }),
+  sourceFound({ slug: "rwanda", country: "Rwanda", region: "Africa", authorityLabel: "Rwanda FDA", officialPortal: "https://rwandafda.gov.rw/", note: "Confirm current trial and ethics requirements." }),
+  sourceFound({ slug: "uganda", country: "Uganda", region: "Africa", authorityLabel: "National Drug Authority", officialPortal: "https://www.nda.or.ug/", note: "Confirm national and ethics requirements." }),
+  sourceFound({ slug: "tanzania", country: "Tanzania", region: "Africa", authorityLabel: "TMDA", officialPortal: "https://www.tmda.go.tz/", note: "Confirm current clinical-trial requirements." }),
+  notConfirmed({ slug: "benin", country: "Bénin", region: "Africa", authorityLabel: "Autorité nationale et comité d’éthique compétents", note: "No national source verified in this release; do not infer a submission route." }),
+  notConfirmed({ slug: "cote-divoire", country: "Côte d’Ivoire", region: "Africa", authorityLabel: "Autorité nationale et comité d’éthique compétents", note: "No national source verified in this release; local confirmation mandatory." }),
+  notConfirmed({ slug: "senegal", country: "Sénégal", region: "Africa", authorityLabel: "Autorité nationale et comité d’éthique compétents", note: "No national source verified in this release; local confirmation mandatory." }),
+  notConfirmed({ slug: "cameroon", country: "Cameroun", region: "Africa", authorityLabel: "Autorité nationale et comité d’éthique compétents", note: "No national source verified in this release; local confirmation mandatory." }),
+  notConfirmed({ slug: "democratic-republic-of-congo", country: "République démocratique du Congo", region: "Africa", authorityLabel: "Autorité nationale et comité d’éthique compétents", note: "No national source verified in this release; local confirmation mandatory." }),
+];
+export const jurisdictionRegistryVersion = "1.0.0";

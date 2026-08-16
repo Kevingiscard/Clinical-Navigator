@@ -1,15 +1,15 @@
 {
   "typescript": {
     "status": "PASS",
-    "timestamp": "2026-08-16T13:25:05.286Z",
+    "timestamp": "2026-08-16T15:27:57.272Z",
     "command": "pnpm check",
-    "durationMs": 6413
+    "durationMs": 2016
   },
   "unit": {
     "status": "PASS",
-    "timestamp": "2026-08-16T13:25:06.915Z",
+    "timestamp": "2026-08-16T15:28:00.132Z",
     "command": "pnpm test",
-    "durationMs": 1600
+    "durationMs": 1343
   },
   "clinicalConsistency": {
     "status": "PASS",
@@ -31,8 +31,26 @@
   },
   "build": {
     "status": "PASS",
-    "timestamp": "2026-08-16T13:26:58.023Z",
-    "command": "VITE_BASE_PATH=/Clinical-Navigator/ pnpm build:static",
-    "durationMs": 4833
+    "timestamp": "2026-08-16T15:32:05.917Z",
+    "command": "pnpm build",
+    "durationMs": 3678
+  },
+  "e2e": {
+    "status": "PASS",
+    "timestamp": "2026-08-16T15:33:29.974Z",
+    "command": "pnpm e2e",
+    "durationMs": 5903
+  },
+  "accessibility": {
+    "status": "PASS",
+    "timestamp": "2026-08-16T15:33:35.851Z",
+    "command": "pnpm e2e",
+    "durationMs": 5849
+  },
+  "integration": {
+    "status": "PASS",
+    "timestamp": "2026-08-16T15:27:58.763Z",
+    "command": "pnpm vitest run server/app.integration.test.ts",
+    "durationMs": 1465
   }
 }

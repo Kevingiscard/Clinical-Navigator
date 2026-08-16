@@ -36,13 +36,21 @@ jobs:
       - name: Production build
         env:
           VITE_BASE_PATH: /Clinical-Navigator/
+          VITE_STATIC_ONLY: "true"
         run: pnpm build:static
+      - name: Static route generation
+        env:
+          VITE_BASE_PATH: /Clinical-Navigator/
+        run: pnpm routes:static
+      - name: Bundle budget
+        run: pnpm budget
       - name: Validate published assets
         run: |
           test -f dist/public/index.html
           test -f dist/public/manifest.webmanifest
           test -f dist/public/sw.js
           test -f dist/public/offline.html
+          test -f dist/public/404.html
       - name: Dependency audit
         run: pnpm audit --audit-level high || true
       - name: Runtime smoke check

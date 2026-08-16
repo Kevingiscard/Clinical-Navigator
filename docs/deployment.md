@@ -1,13 +1,49 @@
-# Déploiement
+# Déploiement production
 
-Avant publication, vérifiez que les migrations sont appliquées, que les tests passent et que le tableau de bord ne présente aucun contenu critique sans statut. La configuration actuelle s’adapte à un hébergement autoscalé : aucune fonctionnalité ne dépend d’un processus en mémoire durable, d’un minuteur local ou d’un worker persistant.
+Clinical Navigator peut être servi comme frontend statique sur GitHub Pages ou comme application full-stack sur Vercel. La cible Vercel utilise `api/index.ts` comme fonction serverless et `server/_core/app.ts` comme fabrique Express sans `app.listen()`.
 
-| Étape | Vérification |
-|---|---|
-| Base de données | Les tables sont présentes et les migrations validées. |
-| Qualité | `pnpm check` et `pnpm test` se terminent avec succès. |
-| Sécurité | Les routes admin sont protégées serveur, les entrées sensibles sont refusées et les secrets ne sont pas intégrés au code. |
-| PWA/SEO | Manifest, fallback, robots, sitemap et metadata sont disponibles. Adapter le domaine absolu du sitemap lors de l’activation d’un domaine final. |
-| Maintenance | Publier d’abord, puis créer un déclencheur Heartbeat pour `/api/scheduled/source-review` seulement après validation humaine. |
+## Vérifications locales
 
-La publication doit être déclenchée par le propriétaire depuis l’interface du projet après la création d’un checkpoint. Aucun déploiement ou tâche planifiée ne doit être activé à partir d’un environnement de développement.
+```bash
+pnpm install --frozen-lockfile
+pnpm check
+pnpm test
+pnpm references:validate
+pnpm diagnostics:consistency
+pnpm security:baseline
+pnpm build
+```
+
+Le dépôt ne doit jamais publier `releaseReady: true` sans preuve E2E et accessibilité. Le rapport public est généré dans `client/public/diagnostics/latest.json`.
+
+## Variables d’environnement
+
+Copiez `.env.example` vers `.env` en local. En production, configurez les valeurs dans Vercel ou dans les secrets GitHub Actions. Les variables serveur (`DATABASE_URL`, `JWT_SECRET`, `CRON_SECRET`, `BUILT_IN_FORGE_API_KEY`) ne doivent pas être préfixées `VITE_`.
+
+Les variables Vercel attendues sont `VERCEL_TOKEN`, `VERCEL_ORG_ID` et `VERCEL_PROJECT_ID`. Le cron quotidien appelle `/api/cron/daily-maintenance` avec `Authorization: Bearer <CRON_SECRET>` ; le secret doit être identique dans l’environnement Vercel.
+
+## Base de données
+
+Le schéma actuel est basé sur `drizzle-orm/mysql2` et des migrations SQL compatibles MySQL/TiDB. **Ne configurez pas `DATABASE_URL` vers Neon PostgreSQL sans migrer explicitement le driver, le schéma et les migrations**. Une migration Neon est une tâche séparée et ne doit pas être déclarée réussie par le workflow actuel.
+
+La commande de migration disponible est :
+
+```bash
+pnpm db:migrate
+```
+
+Exécutez-la uniquement contre une base compatible avec le driver installé et après sauvegarde. La migration automatique en production doit être activée après validation du fournisseur de base, des droits et du plan de retour arrière.
+
+## Vercel
+
+1. Créez ou sélectionnez le projet Vercel et connectez le dépôt.
+2. Configurez les variables d’environnement pour les environnements Preview et Production.
+3. Vérifiez `/api/health` après le déploiement.
+4. Vérifiez le cron dans le tableau de bord Vercel avant de l’activer.
+5. Exécutez les tests et le build avant toute migration de schéma.
+
+Le workflow GitHub Pages reste la voie de publication statique actuellement vérifiée. La publication Vercel nécessite les identifiants et secrets du compte propriétaire ; ils ne sont pas fournis dans Git et ne doivent pas être inventés.
+
+## Audit des dépendances
+
+Le seuil critique de l’audit des dépendances de production est bloquant et doit rester vert. L’audit haut produit encore un rapport non bloquant pour `xlsx@0.18.5` (avis sans version corrigée publiée), `lodash` via Recharts 2 et `lodash-es` via Mermaid/Streamdown. Ces dépendances doivent être remplacées ou mises à niveau dans une tâche dédiée avant une mise en production exposée à des données sensibles. Le workflow publie le rapport complet comme artefact au lieu de masquer ces résultats.

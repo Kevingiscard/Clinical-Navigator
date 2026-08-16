@@ -4,7 +4,7 @@ const file = 'client/public/diagnostics/runtime-tests.json';
 const diagnostics = 'client/public/diagnostics/latest.json';
 const runtime = fs.existsSync(file) ? JSON.parse(fs.readFileSync(file, 'utf8')) : {};
 const report = fs.existsSync(diagnostics) ? JSON.parse(fs.readFileSync(diagnostics, 'utf8')) : {};
-const required = ['typescript', 'unit', 'build', 'clinicalConsistency', 'security', 'references', 'e2e', 'accessibility', 'pwa', 'routes'];
+const required = ['typescript', 'unit', 'integration', 'build', 'clinicalConsistency', 'security', 'references', 'e2e', 'accessibility', 'pwa', 'routes'];
 const failures = [];
 for (const key of required) {
   const value = report.releaseGate?.[key] ?? runtime[key]?.status ?? 'UNKNOWN';
