@@ -8,5 +8,10 @@ copyFileSync(index, join(output, "404.html"));
 const appTsx = readFileSync(join(root, "client", "src", "App.tsx"), "utf8");
 const routes = new Set();
 for (const match of appTsx.matchAll(/path="([^"]+)"/g)) { const route = match[1]; if (route !== "/" && route !== "/404" && !route.includes(":")) routes.add(route); }
+const clinicalContent = readFileSync(join(root, "shared", "clinicalContent.ts"), "utf8");
+const moduleSection = clinicalContent.match(/export const modules[\s\S]*?\n\];/m)?.[0] ?? "";
+for (const match of moduleSection.matchAll(/\{ id: "([^"]+)"/g)) routes.add(`/fr/modules/${match[1]}`);
+routes.add("/fr/modules/sources");
+routes.add("/fr/modules/outils");
 for (const route of [...routes].sort()) { const directory = join(output, route.replace(/^\//, "")); mkdirSync(directory, { recursive: true }); copyFileSync(index, join(directory, "index.html")); }
 console.log(`Prepared static artifact: 404.html + ${routes.size} route copies.`);

@@ -1,0 +1,18 @@
+{
+  "generatedAt": "2026-08-16T22:22:37.892Z",
+  "status": "PASS",
+  "stats": {
+    "modules": 28,
+    "resources": 24,
+    "tools": 4,
+    "checklists": 3,
+    "templates": 1,
+    "sources": 7,
+    "trainings": 1,
+    "externalLinks": 7
+  },
+  "modules": 28,
+  "resources": 24,
+  "externalLinks": 7,
+  "findings": []
+}

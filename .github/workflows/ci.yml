@@ -29,6 +29,7 @@ jobs:
       - run: pnpm diagnostics:consistency
       - run: pnpm knowledge:verify
       - run: pnpm knowledge:graph:verify
+      - run: pnpm module:resources:validate
       - run: pnpm links:audit
       - run: pnpm security:baseline
       - run: pnpm build

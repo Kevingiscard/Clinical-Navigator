@@ -10,11 +10,11 @@ Application version `4.1.0`, base clinique `2.0.0`, registre des références `1
 
 ## Commit
 
-Commit de cette mise à jour : `8fdf191cc74b17b8a1aaa03773c6a5a666c63682`.
+Commit de la version précédente : `8fdf191cc74b17b8a1aaa03773c6a5a666c63682`. Les hubs opérationnels sont ajoutés dans le commit local `b829b7c`.
 
 ## Fonctionnalités
 
-Le produit conserve les parcours accueil, problème, conception, audit, outils, formation, ressources, sources, diagnostics et administration. Cette mise à jour renforce l’IA offline, le build static-only, le registre des juridictions, la gouvernance des références, le Knowledge Graph et les contrôles de publication. Le graphe seed contient 161 items, 4 relations et 21 juridictions ; il ne prétend pas à l’exhaustivité réglementaire mondiale.
+Le produit conserve les parcours accueil, problème, conception, audit, outils, formation, ressources, sources, diagnostics et administration. Cette mise à jour renforce l’IA offline, le build static-only, le registre des juridictions, la gouvernance des références, le Knowledge Graph, les hubs opérationnels et les contrôles de publication. Le graphe seed contient 161 items, 4 relations et 21 juridictions ; le catalogue contient 28 modules et 24 ressources. Aucun de ces chiffres ne prétend à l’exhaustivité réglementaire mondiale.
 
 ## Tests
 
@@ -105,4 +105,4 @@ La refonte visuelle ajoute des tokens noir/blanc dans `client/src/styles/tokens.
 
 L’audit statique des liens et interactions produit `client/public/diagnostics/link-audit.json`, `link-audit.md` et `interaction-audit.md`. Le dernier passage réel est `PASS` avec zéro finding, 44 liens internes analysés et une URL externe de source enregistrée pour revue HTTP périodique.
 
-Les tests E2E couvrent maintenant onze scénarios, dont le dashboard Knowledge, la file de revue humaine, la préférence sombre système, la lisibilité minimale et l’absence de débordement à 320 px. Le dernier passage réel est `11 passed`. Les validations Safari, Firefox, lecteurs d’écran et appareils réels restent `NOT_RUN`.
+Les tests E2E couvrent maintenant treize scénarios, dont le hub dynamique, le catalogue transversal, la recherche locale, la checklist, le dashboard Knowledge, la file de revue humaine, la préférence sombre système, la lisibilité minimale et l’absence de débordement à 320 px. Le dernier passage réel est `13 passed`. Les validations Safari, Firefox, lecteurs d’écran et appareils réels restent `NOT_RUN`.

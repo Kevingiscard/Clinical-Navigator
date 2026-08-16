@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-16T21:49:27.245Z",
+  "generatedAt": "2026-08-16T22:22:38.504Z",
   "status": "PASS",
   "routes": [
     "/",
@@ -167,6 +167,10 @@
     {
       "file": "client/src/pages/Home.tsx",
       "href": "/fr/ressources"
+    },
+    {
+      "file": "client/src/pages/ModuleHubPage.tsx",
+      "href": "/fr/modules"
     },
     {
       "file": "client/src/pages/PrivacySettingsPage.tsx",

@@ -16,6 +16,27 @@ test("le parcours problème charge son interface", async ({ page }) => {
   await expect(page.locator("main")).toBeVisible();
 });
 
+test("le hub module propose un parcours, une recherche et une checklist locale", async ({ page }) => {
+  await page.goto("/fr/modules/conception");
+  await expect(page.getByRole("heading", { name: "Conception" }).first()).toBeVisible();
+  await expect(page.getByText("Parcours recommandé")).toBeVisible();
+  await page.getByLabel("Rechercher dans ce module").fill("estimand");
+  await expect(page.getByText(/Estimands and sensitivity|Clinical Trial Design Studio/i).first()).toBeVisible();
+  const checklist = page.getByRole("checkbox").first();
+  if (await checklist.count()) {
+    await checklist.check();
+    await expect(checklist).toBeChecked();
+  }
+});
+
+test("le catalogue transversal expose les ressources et une recherche", async ({ page }) => {
+  await page.goto("/fr/ressources");
+  await expect(page.getByRole("heading", { name: "Ressources et glossaire" })).toBeVisible();
+  await expect(page.getByText("Catalogue transversal", { exact: true })).toBeVisible();
+  await page.getByLabel("Rechercher dans le catalogue de ressources").fill("estimand");
+  await expect(page.getByText(/Estimands and sensitivity|Clinical Trial Design Studio/i).first()).toBeVisible();
+});
+
 test("le dashboard knowledge expose des chiffres calculés et une recherche locale", async ({ page }) => {
   await page.goto("/fr/knowledge");
   await expect(page.getByRole("heading", { name: "Clinical Knowledge Dashboard" })).toBeVisible();
