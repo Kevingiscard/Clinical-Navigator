@@ -4,7 +4,7 @@ import { sources } from "@shared/clinicalContent";
 import { AlertTriangle, ArrowRight, BookOpenCheck, CalendarClock, ExternalLink, Globe2, ShieldCheck, Sparkles } from "lucide-react";
 import { Link } from "wouter";
 
-const currentDate = "15 août 2026";
+const currentDate = "16 août 2026";
 
 const lanes = [
   {
@@ -12,7 +12,7 @@ const lanes = [
     tone: "border-[#b9ddce] bg-[#f0faf5]",
     icon: ShieldCheck,
     description: "Références que le produit peut présenter comme socle actuel, sous réserve du périmètre et de la juridiction.",
-    items: sources.filter(s => ["ich-e6r3-principles", "ich-e9-r1", "who-best-practices", "eu-ctr-536-2014", "ema-ctis", "ema-ctis-handbook", "cnil-mr001-2026", "cnil-mr003-2026"].includes(s.id)),
+    items: sources.filter(s => ["ich-e6r3-principles", "ich-e9-r1", "spirit-2025", "consort-2025", "who-best-practices", "eu-ctr-536-2014", "ema-ctis", "ema-ctis-handbook", "cnil-mr001-2026", "cnil-mr003-2026"].includes(s.id)),
   },
   {
     title: "À anticiper / date d’effet à surveiller",

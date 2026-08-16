@@ -116,8 +116,20 @@ export const sources: SourceRecord[] = [
   {
     id: "ich-e6r3-annex2", title: "ICH E6(R3) — Annex 2", publisher: "ICH / EMA",
     url: "https://www.ema.europa.eu/en/ich-e6-good-clinical-practice-scientific-guideline",
-    jurisdiction: "International / UE", publishedAt: "2026-07-15", verifiedAt: "2026-08-15", nextReviewAt: "2027-01-15", status: "DRAFT", isOfficial: true,
+    jurisdiction: "International / UE", publishedAt: "2026-07-15", verifiedAt: "2026-08-15", nextReviewAt: "2027-01-15", status: "NEEDS_REVIEW", isOfficial: true,
     scope: "Annex 2 portant notamment sur certains designs pragmatiques, décentralisés et l’usage de sources de données du monde réel. Effective annoncée au 15 janvier 2027.",
+  },
+  {
+    id: "spirit-2025", title: "SPIRIT 2025 — protocoles d’essais randomisés", publisher: "SPIRIT / BMJ",
+    url: "https://www.consort-spirit.org/published-statements",
+    jurisdiction: "International", publishedAt: "2025-04-01", verifiedAt: "2026-08-16", nextReviewAt: "2027-04-01", status: "VERIFIED", isOfficial: false,
+    scope: "Référence méthodologique actualisée pour la rédaction et la vérification des protocoles d’essais randomisés. Utiliser comme checklist de préparation, sans la transformer en exigence réglementaire universelle.",
+  },
+  {
+    id: "consort-2025", title: "CONSORT 2025 — reporting des essais randomisés", publisher: "CONSORT / EQUATOR",
+    url: "https://www.equator-network.org/reporting-guidelines/consort/",
+    jurisdiction: "International", publishedAt: "2025-04-01", verifiedAt: "2026-08-16", nextReviewAt: "2027-04-01", status: "VERIFIED", isOfficial: false,
+    scope: "Guideline de reporting pour les essais randomisés. À utiliser pour préparer la transparence du reporting, sans confondre guideline de publication et obligation réglementaire.",
   },
   {
     id: "ich-e9-r1", title: "ICH E9 / E9(R1) — Statistical Principles & Estimands", publisher: "ICH / EMA",

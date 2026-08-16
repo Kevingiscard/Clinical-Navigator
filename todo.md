@@ -1,0 +1,110 @@
+# Project TODO
+
+- [x] Définir le périmètre fonctionnel exécutable, les limites réglementaires et les avertissements de sécurité clinique.
+- [x] Créer le modèle de données versionné pour contenus, sources, juridictions, scénarios, workflows, décisions, actions, exemples et checklists.
+- [x] Créer les statuts de contenu VERIFIED, NEEDS_REVIEW, OUTDATED, DRAFT et ARCHIVED avec des règles d’affichage.
+- [x] Mettre en œuvre la minimisation des données et les contrôles de détection des données directement ou indirectement identifiantes.
+- [x] Concevoir une interface publique française Clinical/Scientific/Premium/Minimal, responsive et accessible.
+- [x] Construire la page d’accueil avec le parcours principal « J’ai un problème » et des entrées par rôle, phase, type d’essai et situation.
+- [x] Construire le questionnaire de qualification à huit étapes avec priorisation immédiate de la sécurité du participant.
+- [x] Générer une réponse structurée comprenant situation, priorité, actions, acteurs, documents, vérifications, délais, escalade, erreurs, exemple, checklist, références et limites.
+- [x] Implémenter un bloc structuré de délais dans la réponse avec source, niveau de confiance et cas de délai contextuel.
+- [x] Créer un moteur de workflow configurable avec questions, réponses, conditions, nœuds suivants, actions, gravité et sources.
+- [x] Ajouter les modes de réponse Rapide, Détaillé et Expert.
+- [x] Rendre les modes Rapide, Détaillé et Expert réellement distincts dans le rendu de la réponse.
+- [x] Ajouter un affichage explicable « Pourquoi ? » pour les recommandations.
+- [x] Créer la bibliothèque de scénarios initiaux prioritaires, avec contenu pédagogique, références et limites explicites.
+- [x] Créer le catalogue de modules couvrant le cycle de vie d’un essai clinique et les essais complexes.
+- [x] Créer les guides, glossaire, exemples, checklists et mini-cours initiaux en français.
+- [x] Créer une recherche globale et des filtres par rôle, phase, type d’étude, juridiction et catégorie.
+- [x] Ajouter une bibliothèque de sources officielles avec métadonnées, version, statut, dates de vérification et liens.
+- [x] Créer les pages publiques Guides, Modules, Essais complexes, Ressources, Formation, Sources, Limites, Confidentialité, Conditions et Contact.
+- [x] Créer les outils pratiques : calculateur de fenêtre de visite, préparation de monitoring, suivi d’actions, CAPA tracker, calendrier et checklists d’activation/close-out.
+- [x] Permettre l’enregistrement de favoris et de cas génériques non identifiants pour les utilisateurs authentifiés.
+- [x] Ajouter les procédures sécurisées de favoris et de cas génériques, avec rejet d’identifiants directs.
+- [x] Ajouter la collecte de feedback minimal et le content backlog pour les situations non trouvées.
+- [x] Ajouter les procédures de feedback minimal, de backlog de contenu et de rejet des informations directement identifiantes.
+- [x] Créer le dashboard d’administration avec statuts de contenu, sources, feedback, backlog, analytics agrégées et santé système.
+- [x] Mettre en place les rôles, permissions et protections d’accès de l’administration.
+- [x] Vérifier par test la protection backend de l’administration pour un utilisateur non administrateur.
+- [x] Ajouter l’analytics privacy-first sans cookies, avec événements anonymisés et agrégés.
+- [x] Ajouter une procédure d’analytics anonymisées et agrégées, sans cookie ni identifiant utilisateur.
+- [x] Mettre en place la PWA : manifest, icônes, service worker, fallback hors ligne et installation mobile.
+- [x] Mettre en place le SEO : routes /fr, metadata, Open Graph, données structurées, sitemap et robots.txt.
+- [x] Préparer les tâches périodiques de vérification de liens et de revue de contenu sans publication réglementaire automatique.
+- [ ] Créer et activer le déclencheur de maintenance uniquement après la publication et la validation humaine du propriétaire.
+- [x] Auditer les flux existants afin d’identifier précisément les vues démonstratives, les persistances réelles et les écarts à une application opérationnelle complète.
+- [x] Rendre persistants le suivi d’actions, les checklists et le calendrier de repères dans les cas génériques non identifiants de l’utilisateur.
+- [x] Ajouter le modèle de données et les procédures sécurisées de persistance des éléments opérationnels de cas.
+- [x] Ajouter la consultation, la modification et la suppression sécurisées des cas génériques et de leurs éléments opérationnels.
+- [x] Ajouter un véritable espace d’administration pour créer, réviser, versionner, archiver et publier sous validation humaine les contenus éditoriaux.
+- [x] Ajouter les procédures administratives sécurisées de création, révision, versionnement, publication et archivage des contenus.
+- [x] Ajouter la gestion administrable des sources et juridictions avec statut, revue et versioning effectifs.
+- [x] Rendre visibles les contenus vérifiés publiés depuis l’administration dans les parcours publics du site.
+- [ ] Préparer la publication depuis l’interface du projet et activer uniquement les tâches de maintenance autorisées après validation du propriétaire.
+- [x] Définir une politique de données limitée aux informations nécessaires, aux événements consentis et aux exports administrateur autorisés.
+- [x] Ajouter les structures de consentement, de journal minimal de connexion et de traçabilité d’export sans donnée de santé ni empreinte exhaustive.
+- [x] Créer un tableau de bord administrateur de données et un export Excel sécurisé, réservé aux administrateurs.
+- [ ] Préparer l’envoi de rapports Excel au destinataire fourni avec validation de la configuration d’envoi et déclenchement administrateur explicite.
+- [x] Analyser les exigences du fichier fourni et documenter les validations externes ou limites restantes.
+- [x] Ajouter le pilier « Concevoir un essai » et sa navigation principale.
+- [x] Ajouter le pilier « Concevoir un essai » et sa navigation principale.
+- [x] Ajouter le socle persistant du Clinical Trial Design Workspace, ses 17 étapes, les contrôles de cohérence et les calculateurs transparents.
+- [x] Créer les projets d’étude versionnés avec statut, juridiction, propriétaire et confidentialité des données.
+- [x] Construire le Clinical Trial Design Workspace et ses 17 étapes réversibles.
+- [x] Construire le Clinical Trial Design Workspace et ses 17 étapes réversibles.
+- [x] Ajouter les builders PICO/PICOT, objectifs, hypothèses, population, critères d’éligibilité, endpoints et estimands.
+- [x] Ajouter les builders PICO/PICOT, objectifs, population, critères d’éligibilité, endpoints et estimands.
+- [x] Ajouter le moteur de cohérence PICO → objectifs → endpoints → estimand → analyse → effectif.
+- [x] Ajouter le moteur de cohérence PICO → objectifs → endpoints → estimand → analyse → effectif.
+- [x] Ajouter le sélecteur de design, la comparaison de designs, la randomisation théorique et les contrôles d’aveugle/allocation.
+- [x] Ajouter le sélecteur de design, la comparaison de designs, la randomisation théorique et les contrôles d’aveugle/allocation.
+- [x] Ajouter les calculateurs d’effectif et de faisabilité en affichant les hypothèses et les avertissements de validation statistique.
+- [x] Ajouter les calculateurs d’effectif et de faisabilité en affichant les hypothèses et les avertissements de validation statistique.
+- [x] Corriger et tester les quantiles de puissance utilisés par le calculateur pédagogique d’effectif.
+- [x] Ajouter le calendrier des évaluations, les fenêtres de visite, le parcours participant abstrait et le calendrier d’essai.
+- [x] Ajouter la section calendrier des évaluations, fenêtres de visite et suivi participant abstrait dans le workspace.
+- [x] Ajouter les modèles de recrutement, de capacité centre, de complexité, de charge et de faisabilité du protocole.
+- [x] Ajouter le modèle de recrutement et les sections de capacité centre, charge et faisabilité du protocole.
+- [x] Ajouter les sections réglementaires, protocolaires, reporting, glossaire et références méthodologiques sous statut versionné.
+- [ ] Ajouter des rôles de projet explicites, les contrôles d’accès et l’interface de collaboration correspondante.
+- [ ] Étendre le moteur de cohérence au chaînage endpoint → estimand → analyse statistique → effectif.
+- [x] Ajouter un module structuré de randomisation théorique et de validations sur l’aveugle et la dissimulation d’allocation.
+- [ ] Créer un calendrier d’essai structuré avec visites, fenêtres, jalons et parcours participant abstrait.
+- [ ] Ajouter des modèles distincts de capacité centre, complexité opérationnelle et charge de protocole.
+- [ ] Ajouter un glossaire et des références méthodologiques versionnées dans le workspace de conception d’essai.
+- [x] Ajouter les sections réglementaires, protocolaires et de reporting sous statut et versioning de projet.
+- [x] Auditer et corriger toutes les erreurs techniques vérifiables : compilation, tests, build, données, journaux, PWA et parcours d’interface.
+- [x] Ajouter des tests de permissions, de consentement et de traçabilité des exports administrateur.
+- [x] Auditer la fiabilité de l’authentification, des routes protégées, des requêtes de données, de la persistance et des erreurs utilisateur.
+- [x] Corriger les états bloqués, erreurs de session, incohérences de persistance et chemins sans récupération identifiés pendant l’audit.
+- [x] Revalider tous les parcours applicatifs, la PWA, le build de production et les écrans mobile/desktop après corrections.
+- [x] Annuler la définition des offres et droits Stripe à la demande de l’utilisateur.
+- [x] Annuler l’activation Stripe et la configuration des clés à la demande de l’utilisateur.
+- [x] Annuler le checkout, les abonnements et le portail client Stripe à la demande de l’utilisateur.
+- [x] Annuler le webhook Stripe et les droits d’accès associés à la demande de l’utilisateur.
+- [x] Annuler les tests Stripe à la demande de l’utilisateur.
+- [x] Préparer les procédures d’export, de sauvegarde et de restauration documentée.
+- [x] Créer un kit de lancement organique non publié et les emplacements de soutien configurables sans création de compte financier.
+- [x] Rédiger README, architecture, gouvernance du contenu, IA, sécurité, déploiement, contribution et roadmap.
+- [x] Écrire et exécuter les tests unitaires des scénarios, règles de confidentialité, permissions et outils.
+- [x] Vérifier l’accessibilité clavier, le contraste, les états de chargement, les états vides et les erreurs, puis consigner les limites de l’audit.
+- [x] Vérifier le rendu desktop et mobile de l’application et documenter les écrans contrôlés.
+- [x] Préparer un checkpoint final du projet prêt à publier sans déclencher de publication externe.
+- [x] Intégrer la spécification détaillée du parcours principal, des workflows, des 20+ modules, des outils, de l’administration, de la PWA et des routes SEO françaises fournie par l’utilisateur.
+- [ ] Implémenter un vrai moteur de cohérence chaîné reliant endpoint principal, estimand, analyse statistique, population d’analyse et hypothèses d’effectif, avec règles explicites de compatibilité et tests dédiés.
+- [ ] Créer des modèles séparés pour capacité centre, complexité opérationnelle et charge/protocol burden, avec sorties distinctes, validations dédiées et intégration UI.
+- [x] Analyser exhaustivement la spécification Clinical Navigator 3.0 fournie et produire une matrice de couverture entre exigences, état réel, limites et priorités.
+- [x] Ajouter le troisième pilier « Auditer un essai » avec contrôles scientifiques, statistiques, opérationnels et documentaires clairement limités.
+- [ ] Étendre le workspace de conception aux builders et livrables structurés manquants, sans produire de décision réglementaire ou clinique autonome.
+- [ ] Préparer les écrans d’administration System Health, incidents, releases, sécurité, sauvegardes et veille sans activer d’automatisation avant publication et validation humaine.
+- [x] Documenter les exigences externes, les validations humaines obligatoires, les sources vérifiables et les limites de sûreté du périmètre Clinical Navigator 3.0.
+- [x] Implémenter de vrais contrôles d’audit transversaux pour le pilier « Auditer un essai » : protocole ↔ SAP, endpoints ↔ analyses ↔ effectif, calendrier ↔ visites ↔ évaluations, reporting ↔ registration ↔ réglementaire.
+- [x] Ajouter des tests dédiés couvrant les écarts documentaires et opérationnels du pilier d’audit, pas seulement la présence de sections et les incompatibilités méthodologiques déjà existantes.
+- [x] Intégrer dans le workspace principal une vue structurée des références méthodologiques avec statut, version, source et date de revue.
+- [ ] Ajouter les procédures de consultation et de gestion des références versionnées et les raccorder à l’interface principale du workspace.
+- [ ] Ajouter un historique de versions des références méthodologiques avec auteur, motif et date de revue distincte.
+- [x] Structurer le glossaire public avec terme et définition ; l’édition du glossaire reste réservée à la gouvernance éditoriale.
+- [ ] Vérifier les parcours de production après publication et consigner les résultats de disponibilité, consentement et routes principales.
+- [ ] Obtenir une confirmation explicite du propriétaire avant l’activation de toute maintenance récurrente ou configuration d’envoi de rapports Excel.
+- [ ] Exporter et remettre une archive portable complète du code source, migrations, configuration et documentation, sans secrets ni dépendances générées.

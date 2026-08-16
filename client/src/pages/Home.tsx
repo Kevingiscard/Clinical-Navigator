@@ -1,9 +1,115 @@
+import { ClinicalShell } from "@/components/ClinicalShell";
 import { Button } from "@/components/ui/button";
 import { modules, scenarios } from "@shared/clinicalContent";
-import { ArrowRight, BookOpenCheck, CheckCircle2, ClipboardList, Compass, LockKeyhole, Search, ShieldCheck, Sparkles, UsersRound } from "lucide-react";
+import { ArrowRight, BookOpenCheck, CheckCircle2, ClipboardCheck, Compass, Search, ShieldCheck, Sparkles, Wrench, FlaskConical } from "lucide-react";
 import { Link } from "wouter";
-import { ClinicalShell } from "@/components/ClinicalShell";
-import { ContentStatusBadge } from "@/components/StatusBadge";
-const cards = [["Comprendre la situation", "Identifiez le problème dans son contexte : rôle, phase, type d’étude et juridiction."], ["Avancer dans le bon ordre", "Obtenez un plan de vérification, d’action, de documentation et d’escalade."], ["Garder la maîtrise", "Consultez les sources, les limites et les responsabilités avant toute décision."]];
-export default function Home() { const featured = modules.slice(3, 9); return <ClinicalShell><section className="relative overflow-hidden border-b border-[#dce9e4] bg-[#f8fbfa]"><div className="hero-orbit hero-orbit-one" /><div className="hero-orbit hero-orbit-two" /><div className="container relative grid gap-12 py-16 lg:grid-cols-[1.15fr_0.85fr] lg:py-24"><div className="max-w-3xl"><div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#c9e0d6] bg-[#eff9f4] px-3 py-1.5 text-xs font-bold uppercase tracking-[0.12em] text-[#237162]"><ShieldCheck className="h-3.5 w-3.5" />Orientation opérationnelle, pas décision autonome</div><h1 className="font-serif text-5xl font-bold leading-[0.98] tracking-tight text-[#0d2b36] sm:text-6xl lg:text-7xl">Votre copilote <span className="text-[#287c71]">opérationnel</span> en recherche clinique.</h1><p className="mt-7 max-w-2xl text-lg leading-8 text-[#49625f]">Une plateforme qui vous aide à clarifier une situation, vérifier les points essentiels, identifier les acteurs et trouver les références utiles sans jamais remplacer le protocole ou les procédures applicables.</p><div className="mt-8 flex flex-wrap gap-3"><Link href="/fr/probleme"><Button size="lg" className="h-12 rounded-xl bg-[#0d2b36] px-6 text-base font-bold text-white shadow-lg shadow-[#0d2b36]/15 hover:bg-[#164451]">J’ai un problème <ArrowRight className="ml-2 h-4 w-4" /></Button></Link><Link href="/fr/guides"><Button size="lg" variant="outline" className="h-12 rounded-xl border-[#b9d7cd] bg-white px-6 text-base font-bold text-[#1e4c4e] hover:bg-[#eff8f4]">Explorer les guides</Button></Link></div><div className="mt-9 flex flex-wrap gap-x-6 gap-y-2 text-sm font-medium text-[#53716b]"><span className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[#2e8b78]" />Sources affichées</span><span className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[#2e8b78]" />Aucune donnée patient requise</span><span className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[#2e8b78]" />Contenu versionné</span></div></div><div className="relative self-center"><div className="rounded-[2rem] border border-[#cbe3d9] bg-white/85 p-4 shadow-[0_30px_80px_rgba(20,57,57,0.14)] backdrop-blur"><div className="rounded-[1.5rem] bg-[#0d2b36] p-6 text-white"><div className="flex items-center justify-between"><span className="rounded-full bg-white/10 px-3 py-1 text-xs font-bold text-[#b8e2d1]">PARCOURS GUIDÉ</span><span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#2f8577]"><Compass className="h-5 w-5" /></span></div><p className="mt-5 text-xs font-bold uppercase tracking-[0.18em] text-[#9ccdbd]">Étape 1 sur 8</p><h2 className="mt-2 font-serif text-2xl font-bold">Quel est votre rôle ?</h2><div className="mt-5 grid grid-cols-2 gap-2"><div className="rounded-xl border border-white/15 bg-white/10 p-3 text-sm font-medium">ARC / CRA</div><div className="rounded-xl border border-white/10 bg-white/5 p-3 text-sm text-white/75">Investigateur</div><div className="rounded-xl border border-white/10 bg-white/5 p-3 text-sm text-white/75">Coordinateur</div><div className="rounded-xl border border-white/10 bg-white/5 p-3 text-sm text-white/75">Autre rôle</div></div></div><div className="grid gap-3 p-5"><div className="flex items-start gap-3"><div className="rounded-lg bg-[#e8f5ef] p-2 text-[#277e6e]"><ShieldCheck className="h-4 w-4" /></div><div><p className="text-sm font-bold text-[#1c4345]">Priorité sécurité</p><p className="text-xs leading-5 text-[#637a75]">En cas de risque immédiat, le parcours s’arrête et vous oriente vers le circuit compétent.</p></div></div><div className="flex items-start gap-3"><div className="rounded-lg bg-[#fbf2e9] p-2 text-[#bd633f]"><LockKeyhole className="h-4 w-4" /></div><div><p className="text-sm font-bold text-[#1c4345]">Aucune donnée identifiante</p><p className="text-xs leading-5 text-[#637a75]">Une alerte est affichée si un élément directement identifiable semble être saisi.</p></div></div></div></div><div className="absolute -bottom-5 -left-5 hidden rounded-2xl border border-[#d3e7dd] bg-white p-4 shadow-lg sm:block"><p className="text-2xl font-bold text-[#0d2b36]">{scenarios.length}</p><p className="text-xs font-semibold uppercase tracking-wide text-[#61807a]">Scénarios structurés</p></div></div></div></section><section className="border-b border-[#dce9e4] bg-white"><div className="container py-5"><div className="flex flex-wrap items-center justify-between gap-4"><div className="flex items-center gap-3"><div className="rounded-lg bg-[#e8f5ef] p-2 text-[#287c71]"><Sparkles className="h-4 w-4" /></div><div><p className="text-sm font-bold text-[#173e43]">Veille mise à jour · 15 août 2026</p><p className="text-xs text-[#607771]">ICH E6(R3), E9(R1), CTR/CTIS, OMS et référentiels CNIL 2026 distingués par statut et date d’effet.</p></div></div><Link href="/fr/veille" className="inline-flex items-center gap-2 text-sm font-bold text-[#1c7566]">Voir la veille <ArrowRight className="h-4 w-4" /></Link></div></div></section><section className="container py-16"><div className="max-w-2xl"><p className="text-xs font-bold uppercase tracking-[0.16em] text-[#39806f]">Une démarche claire</p><h2 className="mt-3 font-serif text-4xl font-bold tracking-tight text-[#0d2b36]">Trouver rapidement une démarche fiable.</h2></div><div className="mt-10 grid gap-4 md:grid-cols-3">{cards.map(([title, description], index) => <div key={title} className="rounded-2xl border border-[#dbe8e3] bg-white p-6 shadow-sm"><span className="text-sm font-bold text-[#2d8977]">0{index + 1}</span><h3 className="mt-5 text-lg font-bold text-[#173e43]">{title}</h3><p className="mt-2 text-sm leading-6 text-[#607771]">{description}</p></div>)}</div></section><section className="border-y border-[#dbe8e3] bg-[#eaf3ef]"><div className="container py-16"><div className="flex flex-wrap items-end justify-between gap-5"><div><p className="text-xs font-bold uppercase tracking-[0.16em] text-[#39806f]">Bibliothèque opérationnelle</p><h2 className="mt-3 font-serif text-4xl font-bold tracking-tight text-[#0d2b36]">Explorer par module.</h2></div><Link href="/fr/modules" className="inline-flex items-center gap-2 text-sm font-bold text-[#176d60] hover:text-[#0d2b36]">Voir tous les modules <ArrowRight className="h-4 w-4" /></Link></div><div className="mt-9 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">{featured.map((module, index) => <Link href={`/fr/modules/${module.id}`} key={module.id} className="group rounded-2xl border border-transparent bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:border-[#a8d1c2] hover:shadow-md"><div className="flex items-start justify-between gap-3"><span className="text-sm font-bold text-[#3c8978]">{String(index + 1).padStart(2, "0")}</span><ContentStatusBadge status={module.status} /></div><h3 className="mt-6 text-lg font-bold text-[#153d42] group-hover:text-[#1d7869]">{module.title}</h3><p className="mt-2 text-sm leading-6 text-[#607771]">{module.summary}</p><div className="mt-4 flex flex-wrap gap-2">{module.topics.slice(0, 3).map(topic => <span key={topic} className="rounded-md bg-[#f0f6f3] px-2 py-1 text-xs font-medium text-[#53716b]">{topic}</span>)}</div></Link>)}</div></div></section><section className="container py-16"><div className="grid gap-9 lg:grid-cols-[0.8fr_1.2fr]"><div><p className="text-xs font-bold uppercase tracking-[0.16em] text-[#39806f]">Une réponse vérifiable</p><h2 className="mt-3 font-serif text-4xl font-bold tracking-tight text-[#0d2b36]">L’IA vient après les règles, pas à leur place.</h2><p className="mt-5 text-base leading-7 text-[#536c68]">Clinical Navigator structure la question, recherche le workflow correspondant et rend visibles les documents à vérifier. Lorsque le contexte est insuffisant, la réponse le dit explicitement.</p><Link href="/fr/comment-ca-marche" className="mt-6 inline-flex items-center text-sm font-bold text-[#176d60]">Comment cela fonctionne <ArrowRight className="ml-2 h-4 w-4" /></Link></div><div className="grid gap-3 sm:grid-cols-2"><Trust icon={<Search />} title="Recherche structurée" description="Par rôle, phase, type d’étude, situation et juridiction." /><Trust icon={<ClipboardList />} title="Checklists actionnables" description="Des étapes visibles, progressives et adaptables au contexte." /><Trust icon={<BookOpenCheck />} title="Sources et versions" description="Chaque source indique son statut, sa portée et sa date de revue." /><Trust icon={<UsersRound />} title="Responsabilités distinctes" description="Le produit distingue informer, décider, documenter et exécuter." /></div></div></section><section className="container pb-20"><div className="rounded-[2rem] bg-[#0d2b36] px-6 py-12 text-center text-white sm:px-12"><Sparkles className="mx-auto h-7 w-7 text-[#9ed9c3]" /><h2 className="mt-4 font-serif text-4xl font-bold">Une situation à clarifier ?</h2><p className="mx-auto mt-3 max-w-2xl text-[#c2d9d2]">Commencez par décrire la situation sans aucune donnée permettant d’identifier un participant. Le parcours vous guidera ensuite pas à pas.</p><Link href="/fr/probleme" className="mt-7 inline-flex"><Button size="lg" className="rounded-xl bg-[#b8dfce] px-6 font-bold text-[#0d2b36] hover:bg-white">J’ai un problème <ArrowRight className="ml-2 h-4 w-4" /></Button></Link></div></section></ClinicalShell>; }
-function Trust({ icon, title, description }: { icon: React.ReactNode; title: string; description: string }) { return <div className="rounded-2xl border border-[#dbe8e3] bg-white p-5"><span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#e4f3ec] text-[#277e6e]">{icon}</span><h3 className="mt-4 font-bold text-[#153d42]">{title}</h3><p className="mt-2 text-sm leading-6 text-[#607771]">{description}</p></div>; }
+
+export default function Home() {
+  const featured = modules.slice(0, 6);
+  return (
+    <ClinicalShell>
+      <section className="relative overflow-hidden border-b border-[#dce9e4] bg-[#f7fbf9]">
+        <div className="hero-orbit hero-orbit-one" />
+        <div className="hero-orbit hero-orbit-two" />
+        <div className="container relative grid gap-12 py-16 lg:grid-cols-[1.08fr_0.92fr] lg:py-24">
+          <div className="max-w-3xl">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#c9e0d6] bg-[#eff9f4] px-3 py-1.5 text-xs font-bold uppercase tracking-[0.12em] text-[#237162]">
+              <ShieldCheck className="h-3.5 w-3.5" /> Outil d’aide méthodologique et opérationnelle
+            </div>
+            <h1 className="font-serif text-5xl font-bold leading-[0.98] tracking-tight text-[#0d2b36] sm:text-6xl lg:text-7xl">
+              Concevoir, vérifier et conduire vos essais cliniques.
+            </h1>
+            <p className="mt-7 max-w-2xl text-lg leading-8 text-[#49625f]">
+              Clinical Navigator relie question scientifique, design, endpoints, estimands, effectif, calendrier, qualité, références et audit de cohérence dans un même espace.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link href="/fr/concevoir-un-essai">
+                <Button size="lg" className="h-12 rounded-xl bg-[#0d2b36] px-6 text-base font-bold text-white shadow-lg shadow-[#0d2b36]/15 hover:bg-[#164451]
+                ">Concevoir un essai <FlaskConical className="ml-2 h-4 w-4" /></Button>
+              </Link>
+              <Link href="/fr/probleme">
+                <Button size="lg" variant="outline" className="h-12 rounded-xl border-[#b9d7cd] bg-white px-6 text-base font-bold text-[#1e4c4e] hover:bg-[#eff8f4]">J’ai un problème</Button>
+              </Link>
+              <Link href="/fr/auditer-un-essai">
+                <Button size="lg" variant="outline" className="h-12 rounded-xl border-[#b9d7cd] bg-white px-6 text-base font-bold text-[#1e4c4e] hover:bg-[#eff8f4]">Auditer un essai</Button>
+              </Link>
+            </div>
+            <div className="mt-9 flex flex-wrap gap-x-6 gap-y-2 text-sm font-medium text-[#53716b]">
+              <span className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[#2e8b78]" />Références visibles</span>
+              <span className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[#2e8b78]" />Pas de données patient nécessaires</span>
+              <span className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[#2e8b78]" />Calculs explicitement hypothétiques</span>
+            </div>
+          </div>
+
+          <div className="relative self-center">
+            <div className="rounded-[2rem] border border-[#cbe3d9] bg-white/90 p-4 shadow-[0_30px_80px_rgba(20,57,57,0.14)] backdrop-blur">
+              <div className="rounded-[1.5rem] bg-[#0d2b36] p-6 text-white">
+                <div className="flex items-center justify-between">
+                  <span className="rounded-full bg-white/10 px-3 py-1 text-xs font-bold text-[#b8e2d1]">TRIAL DESIGN WORKSPACE</span>
+                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#2f8577]"><Compass className="h-5 w-5" /></span>
+                </div>
+                <p className="mt-5 text-xs font-bold uppercase tracking-[0.18em] text-[#9ccdbd]">Chaînage méthodologique</p>
+                <div className="mt-4 grid gap-2">
+                  {[
+                    ["Question", "Objectif principal"],
+                    ["Outcome", "Estimand"],
+                    ["Design", "Effectif"],
+                    ["Calendrier", "SAP / Protocole"],
+                  ].map(([a, b]) => (
+                    <div key={a} className="flex items-center justify-between rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm">
+                      <span className="text-white/65">{a}</span><span className="font-semibold text-[#d6efe5]">→ {b}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="grid gap-3 p-5 sm:grid-cols-2">
+                <MiniCard icon={<ClipboardCheck />} title="Audit" text="Détection des incohérences structurées." />
+                <MiniCard icon={<Wrench />} title="Outils" text="Effectif, recrutement, calendrier et charge." />
+                <MiniCard icon={<BookOpenCheck />} title="Références" text="Sources, versions et dates de revue." />
+                <MiniCard icon={<Sparkles />} title="Veille" text="Distinction entre applicable, à venir et à vérifier." />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-b border-[#dce9e4] bg-white">
+        <div className="container py-5">
+          <div className="grid gap-4 md:grid-cols-4">
+            <Pillar number="01" title="Naviguer" text="Comprendre une situation et trouver les prochaines vérifications." href="/fr/probleme" />
+            <Pillar number="02" title="Concevoir" text="Construire un essai depuis la question jusqu’au protocole." href="/fr/concevoir-un-essai" />
+            <Pillar number="03" title="Vérifier" text="Tester la cohérence scientifique, statistique et opérationnelle." href="/fr/auditer-un-essai" />
+            <Pillar number="04" title="Maintenir" text="Surveiller références, sources, liens et état technique." href="/fr/veille" />
+          </div>
+        </div>
+      </section>
+
+      <section className="container py-16">
+        <div className="flex flex-wrap items-end justify-between gap-5">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#39806f]">Bibliothèque</p>
+            <h2 className="mt-3 font-serif text-4xl font-bold tracking-tight text-[#0d2b36]">Les briques du quotidien.</h2>
+          </div>
+          <Link href="/fr/modules" className="inline-flex items-center gap-2 text-sm font-bold text-[#176d60]">Voir les modules <ArrowRight className="h-4 w-4" /></Link>
+        </div>
+        <div className="mt-9 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {featured.map((module, index) => (
+            <Link href={`/fr/modules/${module.id}`} key={module.id} className="group rounded-2xl border border-[#dbe8e3] bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:border-[#a8d1c2] hover:shadow-md">
+              <div className="flex items-start justify-between gap-3"><span className="text-sm font-bold text-[#3c8978]">{String(index + 1).padStart(2, "0")}</span><span className="rounded-full bg-[#edf5f1] px-2.5 py-1 text-xs font-bold text-[#297968]">{module.status}</span></div>
+              <h3 className="mt-6 text-lg font-bold text-[#153d42] group-hover:text-[#1d7869]">{module.title}</h3>
+              <p className="mt-2 text-sm leading-6 text-[#607771]">{module.summary}</p>
+              <div className="mt-4 flex flex-wrap gap-2">{module.topics.slice(0, 3).map(topic => <span key={topic} className="rounded-md bg-[#f0f6f3] px-2 py-1 text-xs font-medium text-[#53716b]">{topic}</span>)}</div>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <section className="border-y border-[#dbe8e3] bg-[#eaf3ef]"><div className="container py-16"><div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr]"><div><p className="text-xs font-bold uppercase tracking-[0.16em] text-[#39806f]">Règle de confiance</p><h2 className="mt-3 font-serif text-4xl font-bold tracking-tight text-[#0d2b36]">L’IA ne remplace pas les sources.</h2><p className="mt-5 text-base leading-7 text-[#536c68]">Le moteur doit préférer les règles explicites, les sources officielles et les contenus vérifiés. Lorsque les informations manquent ou sont contradictoires, Clinical Navigator doit le dire.</p><Link href="/fr/sources" className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-[#176d60]">Consulter les sources <ArrowRight className="h-4 w-4" /></Link></div><div className="grid gap-3 sm:grid-cols-2"><Trust title="Aucune donnée patient" text="Les scénarios et projets de conception restent abstraits et non identifiants." /><Trust title="Traçabilité" text="Les décisions, calculs et sources peuvent être versionnés." /><Trust title="Juridiction" text="Les exigences ne sont pas mélangées automatiquement entre pays." /><Trust title="Vérification humaine" text="Les décisions critiques restent soumises aux compétences appropriées." /></div></div></div></section>
+
+      <section className="container py-16"><div className="rounded-[2rem] bg-[#0d2b36] px-6 py-12 text-center text-white sm:px-12"><Search className="mx-auto h-7 w-7 text-[#9ed9c3]" /><h2 className="mt-4 font-serif text-4xl font-bold">Commencer par une vraie question.</h2><p className="mx-auto mt-3 max-w-2xl text-[#c2d9d2]">Le workspace vous guide étape par étape et expose ce qui reste à vérifier avant toute utilisation scientifique, opérationnelle ou réglementaire.</p><div className="mt-7 flex flex-wrap justify-center gap-3"><Link href="/fr/concevoir-un-essai"><Button size="lg" className="rounded-xl bg-[#b8dfce] px-6 font-bold text-[#0d2b36] hover:bg-white">Concevoir un essai <ArrowRight className="ml-2 h-4 w-4" /></Button></Link><Link href="/fr/ressources"><Button size="lg" variant="outline" className="rounded-xl border-white/25 bg-white/5 px-6 font-bold text-white hover:bg-white/10">Explorer les ressources</Button></Link></div></div></section>
+    </ClinicalShell>
+  );
+}
+function MiniCard({ icon, title, text }: { icon: React.ReactNode; title: string; text: string }) { return <div className="flex items-start gap-3 rounded-xl border border-[#d8e7e1] bg-[#fbfdfc] p-4"><span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#e4f3ec] text-[#277e6e]">{icon}</span><div><p className="text-sm font-bold text-[#173e43]">{title}</p><p className="mt-1 text-xs leading-5 text-[#607771]">{text}</p></div></div>; }
+function Pillar({ number, title, text, href }: { number: string; title: string; text: string; href: string }) { return <Link href={href} className="rounded-2xl border border-[#dbe8e3] bg-white p-5 transition hover:-translate-y-0.5 hover:border-[#b8d7cd]"><span className="text-xs font-bold tracking-[0.15em] text-[#39806f]">{number}</span><h2 className="mt-3 font-bold text-[#173e43]">{title}</h2><p className="mt-1 text-sm leading-6 text-[#607771]">{text}</p></Link>; }
+function Trust({ title, text }: { title: string; text: string }) { return <div className="rounded-2xl border border-[#d7e7df] bg-white p-5"><h3 className="font-bold text-[#173e43]">{title}</h3><p className="mt-2 text-sm leading-6 text-[#607771]">{text}</p></div>; }
