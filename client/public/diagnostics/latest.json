@@ -3,13 +3,13 @@
     "name": "Clinical Navigator",
     "version": "4.1.0",
     "repository": "Kevingiscard/Clinical-Navigator",
-    "branch": "feat/production-readiness"
+    "branch": "feat/v2-finale"
   },
   "build": {
     "version": "4.1.0",
-    "commitSha": "749d809d504061e5ccd30dee998882e67392d01d",
-    "branch": "feat/production-readiness",
-    "buildTime": "2026-08-16T15:58:37.784Z"
+    "commitSha": "44b69cf2333afde2bd92c2fd50f047e23391dc9d",
+    "branch": "feat/v2-finale",
+    "buildTime": "2026-08-16T16:20:57.043Z"
   },
   "status": {
     "overall": "OK",
@@ -131,5 +131,5 @@
   ],
   "warnings": [],
   "errors": [],
-  "generatedAt": "2026-08-16T15:58:37.784Z"
+  "generatedAt": "2026-08-16T16:20:57.043Z"
 }
