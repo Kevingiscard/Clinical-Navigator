@@ -1,0 +1,11 @@
+[build]
+  command = "pnpm build:static"
+  publish = "dist/public"
+
+[build.environment]
+  VITE_BASE_PATH = "/"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

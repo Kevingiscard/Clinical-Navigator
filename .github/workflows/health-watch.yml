@@ -1,0 +1,30 @@
+name: Clinical Navigator — Public Health Watch
+
+on:
+  schedule:
+    - cron: '7 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check public site
+        id: site
+        continue-on-error: true
+        run: |
+          URL="https://${GITHUB_REPOSITORY_OWNER}.github.io/Clinical-Navigator/"
+          curl --fail --silent --show-error --max-time 20 "$URL" | grep -q "Clinical Navigator"
+      - name: Open incident if unavailable
+        if: steps.site.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue create \
+            --title "Incident — site public potentiellement indisponible" \
+            --body "Le watchdog n'a pas pu vérifier le site public. Vérifier l'état GitHub Pages et le dernier déploiement. URL: https://${GITHUB_REPOSITORY_OWNER}.github.io/Clinical-Navigator/" \
+            --label "incident" || true

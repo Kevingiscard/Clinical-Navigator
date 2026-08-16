@@ -43,7 +43,7 @@ export function useAuth(options?: UseAuthOptions) {
       // header-based sessions (Safari ITP / WebView) are logged out too. The
       // backend cookie is cleared by the logout mutation.
       try {
-        sessionStorage.removeItem("manus-cookie");
+        sessionStorage.removeItem("clinical-navigator-session-cookie");
       } catch {}
       utils.auth.me.setData(undefined, null);
       await utils.auth.me.invalidate();
@@ -53,9 +53,9 @@ export function useAuth(options?: UseAuthOptions) {
   useEffect(() => {
     try {
       if (meQuery.data) {
-        localStorage.setItem("manus-runtime-user-info", JSON.stringify(meQuery.data));
+        localStorage.setItem("clinical-navigator-runtime-user", JSON.stringify(meQuery.data));
       } else {
-        localStorage.removeItem("manus-runtime-user-info");
+        localStorage.removeItem("clinical-navigator-runtime-user");
       }
     } catch {
       // Le stockage local est une optimisation de prévisualisation, jamais une condition de rendu.

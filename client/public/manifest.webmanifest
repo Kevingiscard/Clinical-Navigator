@@ -1,11 +1,25 @@
 {
-  "name": "Clinical Navigator",
-  "short_name": "Navigator",
-  "description": "Orientation opérationnelle et documentaire en recherche clinique.",
+  "name": "Clinical Navigator — Recherche clinique",
+  "short_name": "Clinical Navigator",
+  "description": "Copilote méthodologique et opérationnel pour concevoir, vérifier et documenter des essais cliniques.",
   "lang": "fr",
-  "start_url": "/",
+  "start_url": "./",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#f5f8f7",
   "theme_color": "#0d2b36",
-  "icons": [{ "src": "/manus-storage/clinical-navigator-icon_9d686799.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }]
+  "icons": [
+    {
+      "src": "./icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
 }

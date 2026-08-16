@@ -8,6 +8,7 @@ on:
 permissions:
   contents: read
   issues: write
+  actions: write
 
 jobs:
   health:
@@ -15,32 +16,57 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: pnpm
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
           version: 10.4.1
           run_install: false
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
       - name: Install
         run: pnpm install --frozen-lockfile
+      - name: Self-check
+        run: pnpm self-check
       - name: Type check
         run: pnpm check
       - name: Tests
         run: pnpm test
       - name: Production build
-        run: pnpm build
+        env:
+          VITE_BASE_PATH: /Clinical-Navigator/
+        run: pnpm build:static
+      - name: Validate published assets
+        run: |
+          test -f dist/public/index.html
+          test -f dist/public/manifest.webmanifest
+          test -f dist/public/sw.js
+          test -f dist/public/offline.html
       - name: Dependency audit
         run: pnpm audit --audit-level high || true
-      - name: Create maintenance issue if a job failed
-        if: failure()
+      - name: Runtime smoke check
+        id: runtime
+        continue-on-error: true
+        run: |
+          python3 -m http.server 4173 --directory dist/public >/tmp/clinical-navigator-http.log 2>&1 &
+          PID=$!
+          trap 'kill $PID || true' EXIT
+          sleep 2
+          curl --fail --silent http://127.0.0.1:4173/ | grep -q "Clinical Navigator"
+      - name: Create maintenance issue if something failed
+        if: failure() || steps.runtime.outcome == 'failure'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           gh issue create \
-            --title "Maintenance check failed — ${{ github.run_id }}" \
-            --body "Automated maintenance detected a failure. Run: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            --title "Maintenance automatique — contrôle en échec" \
+            --body "Le contrôle automatique a détecté un échec sur la version ${{ github.sha }}. Consulter le run ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}." \
             --label "maintenance" || true
+      - name: Retry failed workflow jobs once
+        if: failure() && github.run_attempt == 1
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh run rerun ${{ github.run_id }} --failed || true

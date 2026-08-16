@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://clinical-navigator.manus.space/</loc></url>
-  <url><loc>https://clinical-navigator.manus.space/fr/probleme</loc></url>
-  <url><loc>https://clinical-navigator.manus.space/fr/guides</loc></url>
-  <url><loc>https://clinical-navigator.manus.space/fr/modules</loc></url>
-  <url><loc>https://clinical-navigator.manus.space/fr/essais-complexes</loc></url>
-  <url><loc>https://clinical-navigator.manus.space/fr/formation</loc></url>
-  <url><loc>https://clinical-navigator.manus.space/fr/ressources</loc></url>
-  <url><loc>https://clinical-navigator.manus.space/fr/sources</loc></url>
-  <url><loc>https://clinical-navigator.manus.space/fr/limites</loc></url>
-  <url><loc>https://clinical-navigator.manus.space/fr/confidentialite</loc></url>
+  <url><loc>https://kevingiscard.github.io/Clinical-Navigator/</loc></url>
+  <url><loc>https://kevingiscard.github.io/Clinical-Navigator/fr/probleme</loc></url>
+  <url><loc>https://kevingiscard.github.io/Clinical-Navigator/fr/guides</loc></url>
+  <url><loc>https://kevingiscard.github.io/Clinical-Navigator/fr/modules</loc></url>
+  <url><loc>https://kevingiscard.github.io/Clinical-Navigator/fr/essais-complexes</loc></url>
+  <url><loc>https://kevingiscard.github.io/Clinical-Navigator/fr/formation</loc></url>
+  <url><loc>https://kevingiscard.github.io/Clinical-Navigator/fr/ressources</loc></url>
+  <url><loc>https://kevingiscard.github.io/Clinical-Navigator/fr/sources</loc></url>
+  <url><loc>https://kevingiscard.github.io/Clinical-Navigator/fr/limites</loc></url>
+  <url><loc>https://kevingiscard.github.io/Clinical-Navigator/fr/confidentialite</loc></url>
+  <url><loc>https://kevingiscard.github.io/Clinical-Navigator/fr/concevoir-un-essai</loc></url>
+  <url><loc>https://kevingiscard.github.io/Clinical-Navigator/fr/concevoir-un-essai/outils</loc></url>
+  <url><loc>https://kevingiscard.github.io/Clinical-Navigator/fr/auditer-un-essai</loc></url>
+  <url><loc>https://kevingiscard.github.io/Clinical-Navigator/fr/veille</loc></url>
+  <url><loc>https://kevingiscard.github.io/Clinical-Navigator/fr/systeme</loc></url>
+  <url><loc>https://kevingiscard.github.io/Clinical-Navigator/fr/auteur</loc></url>
 </urlset>

@@ -1,5 +1,7 @@
 # Clinical Navigator
 
+**Version 4.0 — plateforme autonome, portable et sans dépendance à Manus.**
+
 **Clinical Navigator** est une application web française d’orientation opérationnelle pour les professionnels de la recherche clinique. Elle aide à structurer une situation, à repérer les acteurs et documents pertinents, et à rendre visibles les sources, le statut du contenu et les limites d’une réponse. Elle ne remplace jamais le protocole, les SOP, une prise en charge clinique, les responsables habilités ou les autorités compétentes.
 
 ## Fonctionnalités principales
@@ -52,3 +54,26 @@ La page `/fr/veille` présente une revue institutionnelle datée des référence
 
 [1] [ICH, *E6(R3) Guideline for Good Clinical Practice*](https://database.ich.org/sites/default/files/ICH_E6%28R3%29_Step4_FinalGuideline_2025_0106.pdf)  
 [2] [OMS, *Guidance for best practices for clinical trials*](https://www.who.int/publications/i/item/9789240097711)
+
+## Hébergement direct
+
+Le build statique recommandé est :
+
+```bash
+pnpm install --frozen-lockfile
+pnpm build:static
+```
+
+Publier `dist/public` sur GitHub Pages, Netlify, Vercel ou Cloudflare Pages. Voir [`docs/hosting.md`](docs/hosting.md).
+
+## Maintenance automatique
+
+Le projet inclut des workflows GitHub Actions pour le contrôle qualité, les tests, le build, le déploiement GitHub Pages, Dependabot, la surveillance de disponibilité et la maintenance planifiée.
+
+Côté navigateur, Clinical Navigator peut récupérer automatiquement certains incidents réversibles (cache/service worker/erreur runtime) et repartir dans un état sûr.
+
+Aucune solution logicielle sérieuse ne peut promettre une réparation arbitraire et autonome de tout bug ou une validation automatique de toute nouvelle exigence réglementaire. Les changements critiques restent soumis à revue humaine.
+
+## Auteur
+
+Clinical Navigator est créé et développé par **Kevin HOUNSINOU**. Voir [`/fr/auteur`](https://kevingiscard.github.io/Clinical-Navigator/fr/auteur) pour le parcours, les domaines d'expertise, le dépôt source et le soutien au projet.

@@ -179,6 +179,30 @@ export const sources: SourceRecord[] = [
     jurisdiction: "France / UE", publishedAt: "2024-09-06", verifiedAt: "2026-08-15", nextReviewAt: "2026-12-01", status: "NEEDS_REVIEW", isOfficial: true,
     scope: "Ressources institutionnelles françaises sur l’encadrement des essais cliniques et le rôle de l’ANSM. À confronter aux textes et pages réglementaires les plus récents.",
   },
+  {
+    id: "who-trial-registration", title: "WHO — Clinical trial registration", publisher: "Organisation mondiale de la Santé",
+    url: "https://www.who.int/news-room/questions-and-answers/item/clinical-trials",
+    jurisdiction: "International", publishedAt: "2020-01-01", verifiedAt: "2026-08-16", nextReviewAt: "2027-01-01", status: "VERIFIED", isOfficial: true,
+    scope: "L’OMS indique que les essais doivent être enregistrés avant le recrutement du premier participant et que l’ICTRP n’est pas lui-même un registre dans lequel l’essai est enregistré directement.",
+  },
+  {
+    id: "fda-adaptive-2019", title: "FDA — Adaptive Design Clinical Trials for Drugs and Biologics", publisher: "U.S. FDA",
+    url: "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/adaptive-design-clinical-trials-drugs-and-biologics-guidance-industry",
+    jurisdiction: "États-Unis", publishedAt: "2019-12-01", verifiedAt: "2026-08-16", nextReviewAt: "2027-06-01", status: "VERIFIED", isOfficial: true,
+    scope: "Guidance finale sur les designs adaptatifs pour médicaments et biologiques, avec principes de planification, conduite, analyse et présentation des informations utiles à l’évaluation.",
+  },
+  {
+    id: "fda-e20-adaptive-draft", title: "ICH E20 — Adaptive Designs for Clinical Trials", publisher: "FDA / ICH",
+    url: "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/e20-adaptive-designs-clinical-trials",
+    jurisdiction: "International / États-Unis", publishedAt: "2025-09-01", verifiedAt: "2026-08-16", nextReviewAt: "2026-12-01", status: "NEEDS_REVIEW", isOfficial: true,
+    scope: "Projet de guidance ICH E20 publié en 2025. Marqué comme draft et non applicable comme guidance finale tant qu’il n’est pas adopté dans le périmètre concerné.",
+  },
+  {
+    id: "tidier", title: "TIDieR — intervention description and replication", publisher: "EQUATOR Network / BMJ",
+    url: "https://www.equator-network.org/reporting-guidelines/tidier/",
+    jurisdiction: "International", publishedAt: "2014-03-01", verifiedAt: "2026-08-16", nextReviewAt: "2027-03-01", status: "VERIFIED", isOfficial: false,
+    scope: "Checklist de description structurée des interventions afin de permettre leur compréhension et leur réplication.",
+  },
 ];
 
 export const modules: ClinicalModule[] = [

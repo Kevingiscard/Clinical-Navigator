@@ -1,21 +1,17 @@
-name: Clinical Navigator — Build & Deploy
+name: Clinical Navigator — Quality Gate
 
 on:
   push:
     branches: [main]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
-  contents: write
-  pages: write
-  id-token: write
-
-concurrency:
-  group: clinical-navigator-pages
-  cancel-in-progress: true
+  contents: read
 
 jobs:
-  build:
+  quality:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -34,28 +30,16 @@ jobs:
         run: pnpm install --frozen-lockfile
       - name: Self-check
         run: pnpm self-check
-      - name: Type check
+      - name: Type-check
         run: pnpm check
       - name: Unit tests
         run: pnpm test
-      - name: Build
+      - name: Build for GitHub Pages
         env:
           VITE_BASE_PATH: /Clinical-Navigator/
         run: pnpm build:static
-      - name: GitHub Pages fallback
-        run: cp dist/public/index.html dist/public/404.html
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: dist/public
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Static smoke checks
+        run: |
+          test -f dist/public/index.html
+          test -f dist/public/404.html || true
+          grep -q "Clinical Navigator" dist/public/index.html

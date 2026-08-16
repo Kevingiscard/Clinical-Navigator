@@ -1,0 +1,24 @@
+name: Bug report
+about: Signaler un bug technique sans donnée patient
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Ne mettez jamais de donnée patient, donnée source ou identifiant personnel dans ce formulaire.
+  - type: input
+    id: route
+    attributes:
+      label: Page / URL
+      placeholder: /fr/concevoir-un-essai
+  - type: textarea
+    id: steps
+    attributes:
+      label: Étapes pour reproduire
+  - type: textarea
+    id: expected
+    attributes:
+      label: Résultat attendu
+  - type: textarea
+    id: actual
+    attributes:
+      label: Résultat observé
