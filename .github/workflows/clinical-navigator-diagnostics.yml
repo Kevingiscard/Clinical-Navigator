@@ -1,0 +1,43 @@
+name: Clinical Navigator Diagnostics
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+  schedule:
+    - cron: '17 4 * * *'
+
+permissions:
+  contents: read
+
+jobs:
+  diagnostics:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          run_install: false
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - name: Install
+        run: pnpm install --frozen-lockfile
+      - name: Diagnostics
+        run: pnpm diagnostics
+      - name: Consistency / Self-check
+        run: pnpm self-check
+      - name: Type-check
+        run: pnpm check
+      - name: Unit tests
+        run: pnpm test
+      - name: Static build
+        env:
+          VITE_BASE_PATH: /Clinical-Navigator/
+        run: pnpm build:static

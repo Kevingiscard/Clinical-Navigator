@@ -1,0 +1,123 @@
+{
+  "product": {
+    "name": "Clinical Navigator",
+    "version": "4.1.0",
+    "repository": "Kevingiscard/Clinical-Navigator",
+    "branch": "main"
+  },
+  "build": {
+    "version": "4.1.0",
+    "commitSha": "269b90c27d43c5aa72932b35d7df1f1e48f55e0f",
+    "branch": "main",
+    "buildTime": "2026-08-16T13:15:00.484Z"
+  },
+  "status": {
+    "overall": "WARNING",
+    "frontend": "OK",
+    "pwa": "OK",
+    "navigation": "OK",
+    "trialDesign": "OK",
+    "audit": "OK",
+    "calculators": "OK",
+    "references": "WARNING",
+    "security": "UNKNOWN"
+  },
+  "features": {
+    "problemWizard": true,
+    "trialDesignWorkspace": true,
+    "trialAudit": true,
+    "sampleSize": true,
+    "recruitment": true,
+    "scheduleBuilder": true,
+    "estimand": true,
+    "randomization": true,
+    "blinding": true,
+    "protocolBuilder": true,
+    "sapBuilder": true,
+    "crfDesigner": true,
+    "riskEngine": true,
+    "qualityByDesign": true,
+    "referenceRegistry": true,
+    "pwa": true,
+    "offlineMode": true
+  },
+  "references": {
+    "ichE8R1": false,
+    "ichE9": true,
+    "ichE9R1": true,
+    "ichE6R3": true,
+    "spirit2025": true,
+    "consort2025": true,
+    "who": true,
+    "ema": true,
+    "fda": true
+  },
+  "maintenance": {
+    "githubActions": true,
+    "automatedTests": true,
+    "dependencyMonitoring": true,
+    "rollbackStrategy": true,
+    "healthChecks": true,
+    "sourceMonitoring": true
+  },
+  "tests": {
+    "typescript": "UNKNOWN",
+    "unit": "UNKNOWN",
+    "integration": "UNKNOWN",
+    "e2e": "UNKNOWN",
+    "accessibility": "UNKNOWN",
+    "security": "UNKNOWN",
+    "build": "UNKNOWN"
+  },
+  "routes": [
+    {
+      "route": "/",
+      "present": true
+    },
+    {
+      "route": "/fr/probleme",
+      "present": true
+    },
+    {
+      "route": "/fr/concevoir-un-essai",
+      "present": true
+    },
+    {
+      "route": "/fr/concevoir-un-essai/outils",
+      "present": true
+    },
+    {
+      "route": "/fr/auditer-un-essai",
+      "present": true
+    },
+    {
+      "route": "/fr/outils",
+      "present": true
+    },
+    {
+      "route": "/fr/veille",
+      "present": true
+    },
+    {
+      "route": "/fr/systeme",
+      "present": true
+    },
+    {
+      "route": "/fr/diagnostic",
+      "present": true
+    },
+    {
+      "route": "/fr/a-propos",
+      "present": true
+    },
+    {
+      "route": "/fr/auteur",
+      "present": true
+    }
+  ],
+  "warnings": [
+    "Reference not detected: ichE8R1"
+  ],
+  "errors": [],
+  "generatedAt": "2026-08-16T13:15:00.484Z"
+}

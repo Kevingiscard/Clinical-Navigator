@@ -1,6 +1,6 @@
 {
   "name": "clinical-navigator",
-  "version": "4.0.0",
+  "version": "4.1.0",
   "type": "module",
   "license": "MIT",
   "scripts": {
@@ -14,7 +14,8 @@
     "db:push": "drizzle-kit generate && drizzle-kit migrate",
     "build:static": "vite build",
     "typecheck": "tsc --noEmit",
-    "verify": "pnpm self-check && pnpm typecheck && pnpm test && pnpm build:static"
+    "verify": "pnpm self-check && pnpm diagnostics && pnpm typecheck && pnpm test && pnpm build:static",
+    "diagnostics": "node scripts/diagnostics.mjs"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.693.0",

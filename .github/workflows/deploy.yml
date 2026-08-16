@@ -33,6 +33,8 @@ jobs:
         run: pnpm install --frozen-lockfile
       - name: Self-check
         run: pnpm self-check
+      - name: Generate diagnostics
+        run: pnpm diagnostics
       - name: Type check
         run: pnpm check
       - name: Unit tests
