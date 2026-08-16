@@ -15,7 +15,12 @@
     "build:static": "vite build",
     "typecheck": "tsc --noEmit",
     "verify": "pnpm self-check && pnpm diagnostics && pnpm typecheck && pnpm test && pnpm build:static",
-    "diagnostics": "node scripts/diagnostics.mjs"
+    "diagnostics": "node scripts/diagnostics.mjs",
+    "references:validate": "node scripts/validate-references.mjs",
+    "diagnostics:consistency": "node scripts/check-clinical-consistency.mjs",
+    "security:baseline": "node scripts/security-baseline.mjs",
+    "release:gate": "node scripts/release-gate.mjs",
+    "test:record": "node scripts/run-and-record.mjs unit pnpm test"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.693.0",

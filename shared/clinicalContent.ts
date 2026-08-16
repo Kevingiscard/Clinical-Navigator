@@ -102,6 +102,12 @@ export const jurisdictions = ["Bénin", "France", "Sénégal", "Côte d’Ivoire
 
 export const sources: SourceRecord[] = [
   {
+    id: "ich-e8-r1", title: "ICH guideline E8(R1) on general considerations for clinical studies", publisher: "ICH / EMA",
+    url: "https://www.ema.europa.eu/en/ich-e8-general-considerations-clinical-studies-scientific-guideline",
+    jurisdiction: "International / UE", publishedAt: "2022-04-14", verifiedAt: "2026-08-16", nextReviewAt: "2027-04-14", status: "VERIFIED", isOfficial: true,
+    scope: "Guideline ICH E8(R1) sur les considérations générales relatives aux études cliniques ; effective date indiquée au 14 avril 2022.",
+  },
+  {
     id: "ich-e6r3-principles", title: "ICH E6(R3) — Principles & Annex 1", publisher: "ICH / EMA",
     url: "https://www.ema.europa.eu/en/ich-e6-good-clinical-practice-scientific-guideline",
     jurisdiction: "International / UE", publishedAt: "2025-01-27", verifiedAt: "2026-08-15", nextReviewAt: "2027-01-15", status: "VERIFIED", isOfficial: true,

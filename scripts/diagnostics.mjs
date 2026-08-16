@@ -6,6 +6,12 @@ const root = process.cwd();
 const exists = (p) => fs.existsSync(path.join(root, p));
 const read = (p) => fs.readFileSync(path.join(root, p), 'utf8');
 const result = { pass: [], warnings: [], errors: [] };
+const runtimePath = path.join(root, 'client/public/diagnostics/runtime-tests.json');
+let runtime = {};
+if (fs.existsSync(runtimePath)) {
+  try { runtime = JSON.parse(fs.readFileSync(runtimePath, 'utf8')); } catch { runtime = {}; }
+}
+const runtimeStatus = (key) => runtime[key]?.status ?? 'UNKNOWN';
 const status = (ok, warn = false) => ok ? 'OK' : warn ? 'WARNING' : 'ERROR';
 
 function gitValue(args) {
@@ -83,7 +89,7 @@ const payload = {
   product: { name: 'Clinical Navigator', version: build.version, repository: 'Kevingiscard/Clinical-Navigator', branch: build.branch },
   build,
   status: {
-    overall: result.errors.length ? 'ERROR' : result.warnings.length ? 'WARNING' : 'OK',
+    overall: result.errors.length ? 'ERROR' : ['typescript', 'unit', 'build', 'clinicalConsistency', 'security', 'e2e', 'accessibility'].some((key) => !['PASS', 'OK'].includes(runtimeStatus(key))) || !Object.values(referenceChecks).every(Boolean) ? 'WARNING' : 'OK',
     frontend: status(exists('client/src/App.tsx')),
     pwa: status(pwaOk, true),
     navigation: status(routes.every(r => r.present)),
@@ -91,7 +97,7 @@ const payload = {
     audit: status(features.trialAudit, true),
     calculators: status(features.sampleSize, true),
     references: status(referenceChecks.ichE8R1 && referenceChecks.ichE9R1 && referenceChecks.ichE6R3, true),
-    security: 'UNKNOWN',
+    security: runtimeStatus('security'),
   },
   features,
   references: referenceChecks,
@@ -104,8 +110,16 @@ const payload = {
     sourceMonitoring: exists('docs/research-update-2026-08.md'),
   },
   tests: {
-    typescript: 'UNKNOWN', unit: 'UNKNOWN', integration: 'UNKNOWN', e2e: 'UNKNOWN', accessibility: 'UNKNOWN', security: 'UNKNOWN', build: 'UNKNOWN'
+    typescript: runtimeStatus('typescript'), unit: runtimeStatus('unit'), integration: runtimeStatus('integration'), e2e: runtimeStatus('e2e'), accessibility: runtimeStatus('accessibility'), security: runtimeStatus('security'), build: runtimeStatus('build')
   },
+  releaseGate: {
+    typescript: runtimeStatus('typescript'), unit: runtimeStatus('unit'), integration: runtimeStatus('integration'), e2e: runtimeStatus('e2e'), accessibility: runtimeStatus('accessibility'), security: runtimeStatus('security'), build: runtimeStatus('build'),
+    pwa: pwaOk ? 'PASS' : 'ERROR', routes: routes.every(r => r.present) ? 'PASS' : 'ERROR', clinicalConsistency: runtimeStatus('clinicalConsistency'), references: Object.values(referenceChecks).every(Boolean) ? 'PASS' : 'WARNING'
+  },
+  releaseReady: ['typescript', 'unit', 'build', 'clinicalConsistency', 'security', 'references', 'e2e', 'accessibility'].every((key) => {
+    const value = key === 'references' ? (Object.values(referenceChecks).every(Boolean) ? 'PASS' : 'WARNING') : runtimeStatus(key);
+    return value === 'PASS' || value === 'OK';
+  }) && pwaOk && routes.every(r => r.present) && result.errors.length === 0,
   routes,
   warnings: result.warnings,
   errors: result.errors,

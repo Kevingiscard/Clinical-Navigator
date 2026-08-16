@@ -1,0 +1,38 @@
+{
+  "typescript": {
+    "status": "PASS",
+    "timestamp": "2026-08-16T13:25:05.286Z",
+    "command": "pnpm check",
+    "durationMs": 6413
+  },
+  "unit": {
+    "status": "PASS",
+    "timestamp": "2026-08-16T13:25:06.915Z",
+    "command": "pnpm test",
+    "durationMs": 1600
+  },
+  "clinicalConsistency": {
+    "status": "PASS",
+    "timestamp": "2026-08-16T13:25:07.587Z",
+    "command": "pnpm diagnostics:consistency",
+    "durationMs": 639
+  },
+  "references": {
+    "status": "PASS",
+    "timestamp": "2026-08-16T13:25:08.261Z",
+    "command": "pnpm references:validate",
+    "durationMs": 642
+  },
+  "security": {
+    "status": "PASS",
+    "timestamp": "2026-08-16T13:26:02.521Z",
+    "command": "pnpm security:baseline",
+    "durationMs": 761
+  },
+  "build": {
+    "status": "PASS",
+    "timestamp": "2026-08-16T13:26:58.023Z",
+    "command": "VITE_BASE_PATH=/Clinical-Navigator/ pnpm build:static",
+    "durationMs": 4833
+  }
+}

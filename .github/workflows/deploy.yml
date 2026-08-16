@@ -35,6 +35,12 @@ jobs:
         run: pnpm self-check
       - name: Generate diagnostics
         run: pnpm diagnostics
+      - name: Validate references
+        run: pnpm references:validate
+      - name: Clinical consistency
+        run: pnpm diagnostics:consistency
+      - name: Security baseline
+        run: pnpm security:baseline
       - name: Type check
         run: pnpm check
       - name: Unit tests
