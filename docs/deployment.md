@@ -43,3 +43,7 @@ Exécutez-la uniquement contre une base compatible avec le driver installé et a
 5. Exécutez les tests et le build avant toute migration de schéma.
 
 Le workflow GitHub Pages reste la voie de publication statique actuellement vérifiée. La publication Vercel nécessite les identifiants et secrets du compte propriétaire ; ils ne sont pas fournis dans Git et ne doivent pas être inventés.
+
+## Audit des dépendances
+
+Le seuil critique de l’audit des dépendances de production est bloquant et doit rester vert. L’audit haut produit encore un rapport non bloquant pour `xlsx@0.18.5` (avis sans version corrigée publiée), `lodash` via Recharts 2 et `lodash-es` via Mermaid/Streamdown. Ces dépendances doivent être remplacées ou mises à niveau dans une tâche dédiée avant une mise en production exposée à des données sensibles. Le workflow publie le rapport complet comme artefact au lieu de masquer ces résultats.
