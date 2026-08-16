@@ -30,4 +30,7 @@ jobs:
       - run: pnpm knowledge:verify
       - run: pnpm security:baseline
       - run: pnpm build
+      - run: pnpm build:static
+      - run: pnpm artifact:verify
+      - run: pnpm e2e
       - run: pnpm budget

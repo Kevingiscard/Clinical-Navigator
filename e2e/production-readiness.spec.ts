@@ -16,6 +16,28 @@ test("le parcours problème charge son interface", async ({ page }) => {
   await expect(page.locator("main")).toBeVisible();
 });
 
+test("la formation expose la base bilingue et la couverture juridictionnelle", async ({ page }) => {
+  await page.goto("/fr/formation");
+  await expect(page.getByRole("heading", { name: /Apprendre par situation/ })).toBeVisible();
+  await expect(page.getByText(/154 entrées/)).toBeVisible();
+  await expect(page.getByText("Revue locale obligatoire")).toBeVisible();
+});
+
+test("l’assistant offline refuse une question hors périmètre", async ({ page }) => {
+  await page.goto("/fr/formation");
+  const input = page.getByPlaceholder("Ex. Quelle différence entre ITT et per-protocol ?");
+  await expect(input).toBeVisible({ timeout: 10_000 });
+  await input.fill("parlez-moi de la météo demain");
+  await input.press("Enter");
+  await expect(page.getByText(/confiance est insuffisante/)).toBeVisible({ timeout: 10_000 });
+});
+
+test("la page formation respecte le contrôle accessibilité axe", async ({ page }) => {
+  await page.goto("/fr/formation");
+  const results = await new AxeBuilder({ page }).analyze();
+  expect(results.violations.filter(item => item.impact === "critical")).toEqual([]);
+});
+
 test("une route inconnue affiche la page NotFound", async ({ page }) => {
   const response = await page.goto("/fr/route-inconnue");
   expect(response?.status()).toBe(200);

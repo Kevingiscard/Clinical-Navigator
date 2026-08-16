@@ -1,8 +1,8 @@
 {
   "product": "Clinical Navigator",
   "version": "4.1.0",
-  "build": "44b69cf2333afde2bd92c2fd50f047e23391dc9d",
-  "generatedAt": "2026-08-16T16:20:57.043Z",
+  "build": "0b28f7630caa7e5256ad9322d94fc277a3eae993",
+  "generatedAt": "2026-08-16T18:06:33.545Z",
   "diagnostics": "/Clinical-Navigator/diagnostics/latest.json",
   "page": "/Clinical-Navigator/fr/diagnostic"
 }

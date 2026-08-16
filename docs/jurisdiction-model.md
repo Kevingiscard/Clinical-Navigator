@@ -1,0 +1,5 @@
+# Modèle de juridiction
+
+Le registre distingue un portail repéré d’une autorisation. Une entrée doit pouvoir évoluer vers les champs suivants : pays, région, autorité réglementaire, comité d’éthique, autorité de protection des données, autorité médicament ou dispositif, registre d’essais, système de soumission, consentement, protection des données, dossiers électroniques, archivage, safety reporting, enregistrement, publication, import/export, échantillons biologiques, populations vulnérables, pédiatrie, représentant local, sources officielles, date de vérification, prochaine revue et statut.
+
+La version actuelle implémente un noyau prudent : `slug`, pays, région, autorité ou portail, statut, date de contrôle, note et `localReviewRequired: true`. Les pays sans source nationale confirmée sont marqués `PORTAL_NOT_CONFIRMED`, et aucune autorité Bénin ou autre pays n’est inventée. Une fiche complète ne peut devenir `VERIFIED_CURRENT` qu’après revue humaine de sources officielles actuelles.

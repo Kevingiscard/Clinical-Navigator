@@ -20,9 +20,21 @@ class ErrorBoundary extends Component<Props, State> {
         sessionStorage.setItem(this.recoveryKey, "1");
         this.setState({ recovering: true });
         Promise.resolve().then(async () => {
-          try { if ("serviceWorker" in navigator) { const regs = await navigator.serviceWorker.getRegistrations(); for (const reg of regs) await reg.unregister(); } } catch {}
-          try { if ("caches" in window) { const keys = await caches.keys(); await Promise.all(keys.map(k => caches.delete(k))); } } catch {}
-          window.setTimeout(() => window.location.reload(), 250);
+          try {
+            if ("serviceWorker" in navigator) {
+              const registration = await navigator.serviceWorker.getRegistration();
+              await registration?.update();
+              registration?.active?.postMessage({ type: "SKIP_WAITING" });
+            }
+          } catch {}
+          try {
+            if ("caches" in window) {
+              const keys = await caches.keys();
+              const owned = keys.filter(key => key.startsWith("clinical-navigator") || key.startsWith("workbox-precache-v2"));
+              await Promise.all(owned.map(key => caches.delete(key)));
+            }
+          } catch {}
+          window.setTimeout(() => window.location.reload(), 500);
         });
       }
     } catch {}

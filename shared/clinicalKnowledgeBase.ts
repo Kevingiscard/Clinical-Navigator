@@ -268,7 +268,8 @@ function createEntry(category: KnowledgeCategory, topic: TopicTuple, index: numb
   };
 }
 
-export const clinicalKnowledgeBase: ClinicalKnowledgeEntry[] = topics.flatMap(({ category, items }) => items.map((item, index) => createEntry(category, item, index)));
+let nextKnowledgeEntryIndex = 0;
+export const clinicalKnowledgeBase: ClinicalKnowledgeEntry[] = topics.flatMap(({ category, items }) => items.map(item => createEntry(category, item, nextKnowledgeEntryIndex++)));
 
 export const knowledgeBase = clinicalKnowledgeBase;
 export const clinicalKnowledgeBaseVersion = "2.0.0";

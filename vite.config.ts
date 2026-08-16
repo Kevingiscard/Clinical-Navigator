@@ -29,7 +29,7 @@ const plugins = [
     },
     workbox: {
       cleanupOutdatedCaches: true,
-      sourcemap: true,
+      sourcemap: process.env.VITE_PWA_SOURCEMAP === "true",
       navigateFallback: "./offline.html",
       globPatterns: [
         "assets/index-*.js",
