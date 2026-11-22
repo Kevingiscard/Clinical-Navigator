@@ -1,0 +1,137 @@
+{
+  "product": {
+    "name": "Clinical Navigator",
+    "version": "4.1.0",
+    "repository": "Kevingiscard/Clinical-Navigator",
+    "branch": "main"
+  },
+  "build": {
+    "version": "4.1.0",
+    "commitSha": "4e9539ec95748acce45a95a17a406ed9ae296a36",
+    "branch": "main",
+    "buildTime": "2026-11-21T19:29:02.065Z"
+  },
+  "status": {
+    "overall": "OK",
+    "frontend": "OK",
+    "pwa": "WARNING",
+    "navigation": "OK",
+    "trialDesign": "OK",
+    "audit": "OK",
+    "calculators": "OK",
+    "references": "OK",
+    "security": "PASS"
+  },
+  "features": {
+    "problemWizard": true,
+    "trialDesignWorkspace": true,
+    "trialAudit": true,
+    "sampleSize": true,
+    "recruitment": true,
+    "scheduleBuilder": true,
+    "estimand": true,
+    "randomization": true,
+    "blinding": true,
+    "protocolBuilder": true,
+    "sapBuilder": true,
+    "crfDesigner": true,
+    "riskEngine": true,
+    "qualityByDesign": true,
+    "referenceRegistry": true,
+    "pwa": true,
+    "offlineMode": true
+  },
+  "references": {
+    "ichE8R1": true,
+    "ichE9": true,
+    "ichE9R1": true,
+    "ichE6R3": true,
+    "spirit2025": true,
+    "consort2025": true,
+    "who": true,
+    "ema": true,
+    "fda": true
+  },
+  "maintenance": {
+    "githubActions": true,
+    "automatedTests": true,
+    "dependencyMonitoring": true,
+    "rollbackStrategy": true,
+    "healthChecks": true,
+    "sourceMonitoring": true
+  },
+  "tests": {
+    "typescript": "PASS",
+    "unit": "PASS",
+    "integration": "PASS",
+    "e2e": "PASS",
+    "accessibility": "PASS",
+    "security": "PASS",
+    "build": "PASS"
+  },
+  "releaseGate": {
+    "typescript": "PASS",
+    "unit": "PASS",
+    "integration": "PASS",
+    "e2e": "PASS",
+    "accessibility": "PASS",
+    "security": "PASS",
+    "build": "PASS",
+    "pwa": "ERROR",
+    "routes": "PASS",
+    "clinicalConsistency": "PASS",
+    "references": "PASS"
+  },
+  "releaseReady": false,
+  "routes": [
+    {
+      "route": "/",
+      "present": true
+    },
+    {
+      "route": "/fr/probleme",
+      "present": true
+    },
+    {
+      "route": "/fr/concevoir-un-essai",
+      "present": true
+    },
+    {
+      "route": "/fr/concevoir-un-essai/outils",
+      "present": true
+    },
+    {
+      "route": "/fr/auditer-un-essai",
+      "present": true
+    },
+    {
+      "route": "/fr/outils",
+      "present": true
+    },
+    {
+      "route": "/fr/veille",
+      "present": true
+    },
+    {
+      "route": "/fr/systeme",
+      "present": true
+    },
+    {
+      "route": "/fr/diagnostic",
+      "present": true
+    },
+    {
+      "route": "/fr/a-propos",
+      "present": true
+    },
+    {
+      "route": "/fr/auteur",
+      "present": true
+    }
+  ],
+  "warnings": [
+    "PWA core incomplete"
+  ],
+  "errors": [],
+  "generatedAt": "2026-11-21T19:29:02.065Z"
+}
