@@ -3,15 +3,17 @@ import { initReactI18next } from "react-i18next";
 
 const resources = {
   fr: { translation: {
-    language: "Français", switchLanguage: "English", home: "Accueil", design: "Concevoir un essai", tools: "Outils avancés", audit: "Auditer un essai", problem: "J’ai un problème", explore: "Explorer", modules: "Modules", training: "Formation", resources: "Ressources", research: "Veille", system: "État du système", author: "À propos du créateur",
+    language: "Français", switchLanguage: "English", home: "Accueil", design: "Concevoir un essai", tools: "Outils avancés", audit: "Auditer un essai", problem: "J’ai un problème", explore: "Explorer", modules: "Modules", complex: "Essais complexes", training: "Formation", resources: "Ressources", research: "Veille", system: "État du système", author: "À propos du créateur",
   } },
   en: { translation: {
-    language: "English", switchLanguage: "Français", home: "Home", design: "Design a trial", tools: "Advanced tools", audit: "Audit a trial", problem: "I have a problem", explore: "Explore", modules: "Modules", training: "Training", resources: "Resources", research: "Research", system: "System status", author: "About the creator",
+    language: "English", switchLanguage: "Français", home: "Home", design: "Design a trial", tools: "Advanced tools", audit: "Audit a trial", problem: "I have a problem", explore: "Explore", modules: "Modules", complex: "Complex trials", training: "Training", resources: "Resources", research: "Research", system: "System status", author: "About the creator",
   } },
 } as const;
 
 const stored = typeof window !== "undefined" ? window.localStorage.getItem("clinical-navigator-language") : null;
-const browserLanguage = typeof navigator !== "undefined" && navigator.language.toLowerCase().startsWith("en") ? "en" : "fr";
+// Les pages sont rédigées en français : les libellés de navigation restent en français par défaut,
+// la langue ne change que sur choix explicite (mémorisé) de l’utilisateur.
+const browserLanguage = "fr";
 
 void i18n.use(initReactI18next).init({
   resources,

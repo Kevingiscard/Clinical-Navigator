@@ -19,7 +19,7 @@ export function ResourceCard({ resource, compact = false }: { resource: ModuleRe
       <span>{resource.level}</span><span aria-hidden="true">·</span><span>{resource.jurisdiction.slice(0, 2).join(" / ")}</span><span aria-hidden="true">·</span><span>{resource.offlineAvailable ? "Disponible hors ligne" : "Nécessite Internet"}</span>
     </div>
     <div className="mt-4 flex flex-wrap gap-1.5">{resource.tags.slice(0, 4).map(tag => <span key={tag} className="rounded bg-[#f6f8f7] px-2 py-1 text-[11px] text-[#566662]">{tag}</span>)}</div>
-    <div className="mt-4 flex items-center justify-between gap-3 border-t border-[#e9edeb] pt-3 text-xs text-[#71807d]"><span>Revu le {resource.lastReviewed}</span><span className="inline-flex items-center gap-1 font-bold text-[#263f3d]">Ouvrir <ArrowUpRight className="h-3.5 w-3.5" /></span></div>
+    <div className="mt-4 flex items-center justify-between gap-3 border-t border-[#e9edeb] pt-3 text-xs text-[#365f56]"><span>Revu le {resource.lastReviewed}</span><span className="inline-flex items-center gap-1 font-bold text-[#263f3d]">Ouvrir <ArrowUpRight className="h-3.5 w-3.5" /></span></div>
   </>;
   const className = "block rounded-xl border border-[#dce4e1] bg-white p-4 shadow-sm transition hover:-translate-y-0.5 hover:border-[#7d918c] hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#314b47]";
   if (resource.internalRoute) return <Link href={resource.internalRoute} className={className}>{content}</Link>;
