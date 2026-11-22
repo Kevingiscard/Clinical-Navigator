@@ -1,6 +1,0 @@
-Clinical Navigator
-Version: 4.1.0
-Build: 4e9539ec95748acce45a95a17a406ed9ae296a36
-Branch: main
-Commit: 4e9539ec95748acce45a95a17a406ed9ae296a36
-Generated: 2026-11-21T19:29:02.065Z

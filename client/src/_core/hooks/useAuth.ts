@@ -1,3 +1,4 @@
+import { STATIC_ONLY } from "@/lib/runtime";
 import { startLogin } from "@/const";
 import { trpc } from "@/lib/trpc";
 import { TRPCClientError } from "@trpc/client";
@@ -17,6 +18,7 @@ export function useAuth(options?: UseAuthOptions) {
   const utils = trpc.useUtils();
 
   const meQuery = trpc.auth.me.useQuery(undefined, {
+    enabled: !STATIC_ONLY,
     retry: false,
     refetchOnWindowFocus: false,
   });
@@ -65,7 +67,7 @@ export function useAuth(options?: UseAuthOptions) {
   const state = useMemo(() => {
     return {
       user: meQuery.data ?? null,
-      loading: (meQuery.isPending && !meQuery.error) || logoutMutation.isPending,
+      loading: !STATIC_ONLY && ((meQuery.isPending && !meQuery.error) || logoutMutation.isPending),
       error: meQuery.error ?? logoutMutation.error ?? null,
       isAuthenticated: Boolean(meQuery.data),
     };
@@ -78,7 +80,7 @@ export function useAuth(options?: UseAuthOptions) {
   ]);
 
   useEffect(() => {
-    if (!redirectOnUnauthenticated) return;
+    if (STATIC_ONLY || !redirectOnUnauthenticated) return;
     if (meQuery.isLoading || logoutMutation.isPending) return;
     if (state.user) return;
     if (typeof window === "undefined") return;
