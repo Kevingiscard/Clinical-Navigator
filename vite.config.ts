@@ -30,7 +30,7 @@ const plugins = [
     workbox: {
       cleanupOutdatedCaches: true,
       sourcemap: process.env.VITE_PWA_SOURCEMAP === "true",
-      navigateFallback: "./offline.html",
+      navigateFallback: "./index.html",
       globPatterns: [
         "assets/index-*.js",
         "assets/react-*.js",
@@ -38,6 +38,9 @@ const plugins = [
         "assets/ui-*.js",
         "assets/clinicalContent-*.js",
         "assets/*.css",
+        "assets/dm-sans-*.woff2",
+        "assets/cormorant-garamond-*.woff2",
+        "index.html",
         "offline.html",
         "manifest.webmanifest",
         "favicon.ico",
@@ -48,11 +51,16 @@ const plugins = [
   }),
 ];
 
-export default defineConfig({
+export default defineConfig(({ isSsrBuild }) => ({
   base: process.env.VITE_BASE_PATH || "/",
   plugins,
   resolve: {
     alias: {
+      // Static-only bundles have no backend: swap the tRPC client for an inert stub
+      // so the @trpc/@tanstack stack never ships to the browser.
+      ...(process.env.VITE_STATIC_ONLY === "true"
+        ? { "@/lib/trpc": path.resolve(import.meta.dirname, "client", "src", "lib", "trpcStaticStub.ts") }
+        : {}),
       "@": path.resolve(import.meta.dirname, "client", "src"),
       "@shared": path.resolve(import.meta.dirname, "shared"),
       "@assets": path.resolve(import.meta.dirname, "attached_assets"),
@@ -66,7 +74,9 @@ export default defineConfig({
     emptyOutDir: true,
     rollupOptions: {
       output: {
-        manualChunks: {
+        // SSR (prerender) builds externalize dependencies; manual chunks only apply
+        // to the client bundle, where every listed package is bundled.
+        manualChunks: isSsrBuild ? undefined : {
           react: ["react", "react-dom", "wouter"],
           trpc: ["@tanstack/react-query", "@trpc/client", "@trpc/react-query", "superjson"],
           ui: ["lucide-react", "@radix-ui/react-accordion", "@radix-ui/react-dialog", "@radix-ui/react-tabs"],
@@ -86,4 +96,4 @@ export default defineConfig({
       deny: ["**/.*"],
     },
   },
-});
+}));

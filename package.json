@@ -14,7 +14,7 @@
     "self-check": "node scripts/self-check.mjs",
     "db:push": "drizzle-kit generate && drizzle-kit migrate",
     "db:migrate": "drizzle-kit migrate",
-    "build:static": "vite build && node scripts/prepare-static-artifact.mjs",
+    "build:static": "vite build && node scripts/prepare-static-artifact.mjs && node scripts/prerender-home.mjs",
     "routes:static": "node scripts/generate-static-routes.mjs",
     "prepare:static": "node scripts/prepare-static-artifact.mjs",
     "artifact:verify": "node scripts/validate-production-artifact.mjs",

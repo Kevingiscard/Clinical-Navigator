@@ -9,6 +9,7 @@ export type KnowledgeCategory =
   | "Données"
   | "Qualité"
   | "Soumissions"
+  | "Afrique de l’Ouest"
   | "Glossaire";
 
 export type EvidenceLevel = "A" | "B" | "C";
@@ -29,12 +30,25 @@ type TopicTuple = [fr: string, en: string, frAnswer: string, enAnswer: string];
 
 const international = ["International / à préciser"];
 const africa = ["Afrique subsaharienne", "International / à préciser"];
+const westAfrica = ["Afrique de l’Ouest", "Afrique subsaharienne", "International / à préciser"];
+const waSources = [
+  "https://arp.sn/fonctions-reglementaires/essais-cliniques",
+  "https://www.cners.sn/",
+  "https://sigir.airp.ci/portail-public/essais-cliniques",
+  "https://nafdac.gov.ng/drugs/clinical-trial-regulation/",
+  "https://nhrec.gov.ng/",
+  "https://fdaghana.gov.gh/services-2/clinical-trials-authorization-service/",
+  "https://dirpharma.ml/index.php/fr/services/notre-organisation",
+  "https://clinregs.niaid.nih.gov/country/mali",
+  "https://www.wahooas.org/web-ooas/fr",
+  "https://avaref.afro.who.int/",
+];
 const coreSources = [
   "https://database.ich.org/sites/default/files/ICH_E6%28R3%29_Step4_FinalGuideline_2025_0106.pdf",
   "https://www.who.int/publications/i/item/9789240097711",
 ];
 const statsSources = [
-  "https://database.ich.org/sites/default/files/ICH_E9-R1_Step4_Guideline_2019_1110.pdf",
+  "https://database.ich.org/sites/default/files/E9%2DR1_Step4_Guideline_2019_1203.pdf",
   "https://database.ich.org/sites/default/files/ICH_E6%28R3%29_Step4_FinalGuideline_2025_0106.pdf",
 ];
 const topics: Array<{ category: KnowledgeCategory; items: TopicTuple[] }> = [
@@ -125,7 +139,11 @@ const topics: Array<{ category: KnowledgeCategory; items: TopicTuple[] }> = [
       ["TGA", "TGA", "en Australie, la voie réglementaire dépend notamment du produit, du sponsor et du dispositif applicable; les sources TGA doivent être vérifiées.", "in Australia, the pathway depends on product, sponsor and applicable scheme; TGA sources must be checked."],
       ["AVAREF", "AVAREF", "l’initiative AVAREF vise à renforcer la coopération et les capacités de revue éthique et réglementaire en Afrique; elle ne remplace pas les autorités nationales.", "AVAREF supports cooperation and capacity for ethical and regulatory review in Africa; it does not replace national authorities."],
       ["AMRH", "AMRH", "l’initiative d’harmonisation réglementaire africaine cherche à faciliter la convergence; la décision applicable reste celle des autorités compétentes.", "the African regulatory harmonisation initiative seeks convergence; the applicable decision remains with competent authorities."],
-      ["Bénin", "Benin", "pour le Bénin, les autorités, le comité d’éthique, les exigences linguistiques et les circuits de soumission doivent être confirmés dans les sources nationales avant toute décision.", "for Benin, authorities, ethics committee, language requirements and submission pathways must be confirmed in national sources before decisions."],
+      ["Bénin", "Benin", "au Bénin, un essai clinique de médicament relève de l’ABMed (loi n°2021-03 du 1er février 2021, art. 80), avec avis du CNERS (loi n° 2010-40 du 8 décembre 2010) et protection des données personnelles encadrée par la loi n° 2017-20 (APDP); confirmer versions et circuits dans les sources nationales.", "in Benin, a medicine clinical trial falls under ABMed (law n°2021-03 of 1 February 2021, art. 80), with CNERS ethics opinion (law n° 2010-40 of 8 December 2010) and personal-data protection governed by law n° 2017-20 (APDP); confirm current versions and pathways in national sources."],
+      ["ABMed", "ABMed", "l’Agence béninoise du Médicament et des autres produits de santé supervise les essais cliniques conduits au Bénin et a publié des lignes directrices (EC-LD-0001, version 1, applicable depuis le 12 septembre 2025); le promoteur vérifie toujours la version en vigueur auprès de l’agence.", "the Beninese Agency for Medicines and other health products supervises clinical trials conducted in Benin and has issued guidelines (EC-LD-0001, version 1, applicable since 12 September 2025); sponsors always verify the current version with the agency."],
+      ["CNERS", "CNERS", "le Comité national d’éthique pour la recherche en santé, créé par la loi n° 2010-40 du 8 décembre 2010, examine les protocoles de recherche en santé au Bénin et donne un avis motivé au ministère de la Santé en vue de l’autorisation administrative; son site est ethique-sante.org.", "the National Ethics Committee for Health Research, created by law n° 2010-40 of 8 December 2010, reviews health research protocols in Benin and issues a reasoned opinion to the Ministry of Health toward administrative authorisation; its site is ethique-sante.org."],
+      ["Autorisation d’essai clinique (AEC)", "Clinical trial authorisation (CTA)", "selon les lignes directrices ABMed, la demande d’AEC se dépose en français sur la plateforme service-public.bj avec paiement en ligne des redevances; l’instruction vise 60 jours ouvrables (30 en voie accélérée) et l’autorisation reste conditionnée au rapport annuel d’avancement et aux inspections BPC.", "under the ABMed guidelines, the CTA application is filed in French on the service-public.bj platform with online fee payment; review targets 60 business days (30 on the accelerated track) and authorisation remains conditional on the annual progress report and GCP inspections."],
+      ["PACTR", "PACTR", "les lignes directrices ABMed exigent l’enregistrement de l’essai dans le registre panafricain des essais cliniques (PACTR) et la mention du numéro d’enregistrement dans la lettre de demande d’AEC.", "the ABMed guidelines require trial registration in the Pan African Clinical Trials Registry (PACTR) and inclusion of the registration number in the CTA application letter."],
       ["Nigeria NAFDAC", "Nigeria NAFDAC", "au Nigeria, NAFDAC et les autres instances pertinentes doivent être distinguées selon le produit, le protocole et la responsabilité concernée.", "in Nigeria, NAFDAC and other relevant bodies must be distinguished by product, protocol and responsibility."],
       ["Afrique du Sud SAHPRA", "South Africa SAHPRA", "en Afrique du Sud, SAHPRA et les comités d’éthique interviennent selon le cadre applicable; la source officielle et la version doivent être vérifiées.", "in South Africa, SAHPRA and ethics committees act under the applicable framework; official source and version must be checked."],
       ["Kenya PPB", "Kenya PPB", "au Kenya, le Pharmacy and Poisons Board et les instances éthiques pertinentes doivent être consultés selon le type d’étude et de produit.", "in Kenya, the Pharmacy and Poisons Board and relevant ethics bodies should be consulted according to study and product type."],
@@ -247,11 +265,32 @@ const topics: Array<{ category: KnowledgeCategory; items: TopicTuple[] }> = [
       ["Risque", "Risk", "combinaison de la probabilité et de l’impact d’un événement indésirable ou d’une défaillance.", "combination of likelihood and impact of an undesirable event or failure."],
     ],
   },
+  {
+    category: "Afrique de l’Ouest",
+    items: [
+      ["Sénégal, ARP", "Senegal, ARP", "au Sénégal, l’Agence sénégalaise de Réglementation pharmaceutique supervise les essais cliniques : le décret n° 2023-2422 du 27 décembre 2023 et une ligne directrice nationale encadrent leur conduite, avec registre public et formulaires sur arp.sn ; confirmer la version en vigueur auprès de l’ARP.", "in Senegal, the pharmaceutical regulatory agency (ARP) oversees clinical trials: decree No. 2023-2422 of 27 December 2023 and a national guideline govern trial conduct, with a public registry and forms on arp.sn; confirm the current version with the ARP."],
+      ["Sénégal, CNERS", "Senegal, CNERS", "l’avis d’éthique au Sénégal relève du Comité National d’Éthique pour la Recherche en Santé (cners.sn), dans le cadre de la loi n° 2009-17 portant Code d’éthique pour la recherche en santé ; dépôt, sessions et redevances se confirment auprès du comité.", "in Senegal, the ethics opinion is issued by the National Ethics Committee for Health Research (cners.sn) under Law No. 2009-17 (Code of Ethics for Health Research); submission, sessions and fees are confirmed with the committee."],
+      ["Côte d’Ivoire, AIRP", "Côte d’Ivoire, AIRP", "l’AIRP (loi n° 2017-541) autorise les essais cliniques et publie le registre des essais autorisés ou refusés (sigir.airp.ci) ; l’avis du comité national d’éthique compétent reste requis et son circuit exact se confirme localement.", "in Côte d’Ivoire, the AIRP (Law No. 2017-541) authorises clinical trials and publishes the registry of authorised or refused trials (sigir.airp.ci); the opinion of the competent national ethics committee remains required and its exact pathway is confirmed locally."],
+      ["Ghana, FDA", "Ghana, FDA", "la Food and Drugs Authority du Ghana autorise les essais cliniques (service dédié et guideline de janvier 2024) ; l’avis éthique relève notamment du Ghana Health Service Ethics Review Committee, circuit et frais à confirmer auprès des deux instances.", "the Ghana Food and Drugs Authority authorises clinical trials (dedicated service and January 2024 guideline); the ethics opinion involves the Ghana Health Service Ethics Review Committee, with pathway and fees to confirm with both bodies."],
+      ["Nigeria, NAFDAC", "Nigeria, NAFDAC", "la NAFDAC publie la voie d’autorisation des essais cliniques et la guideline DER-GDL-002-02 (effective depuis le 22 octobre 2021, révision annoncée au 21 octobre 2026) ; vérifier l’édition applicable avant tout dépôt.", "NAFDAC publishes the clinical trial authorisation pathway and guideline DER-GDL-002-02 (effective since 22 October 2021, review announced for 21 October 2026); check the applicable edition before any submission."],
+      ["Nigeria, NHREC", "Nigeria, NHREC", "le National Health Research Ethics Committee (nhrec.gov.ng) encadre l’éthique de la recherche en santé et l’enregistrement des comités ; son avis se distingue de l’autorisation NAFDAC et les deux circuits doivent être vérifiés.", "the National Health Research Ethics Committee (nhrec.gov.ng) governs health research ethics and the registration of ethics committees; its opinion is distinct from NAFDAC authorisation and both pathways must be checked."],
+      ["Mali, DPM", "Mali, DPM", "la Direction de la Pharmacie et du Médicament est l’autorité compétente pour les essais (décret n° 2011-753, selon la synthèse ClinRegs du NIAID) ; plusieurs comités d’éthique coexistent, dont un comité national, et le circuit concret se confirme localement.", "the Directorate of Pharmacy and Medicine is the competent authority for trials (Decree No. 2011-753, per the NIAID ClinRegs summary); several ethics committees coexist, including a national committee, and the concrete pathway is confirmed locally."],
+      ["Togo, CBRS", "Togo, CBRS", "le Comité de Bioéthique pour la Recherche en Santé est l’instance d’éthique identifiée au Togo (source secondaire) ; aucun portail national vérifié à ce jour : contacter le ministère de la Santé avant tout dépôt.", "the Comité de Bioéthique pour la Recherche en Santé is the ethics body identified in Togo (secondary source); no national portal verified so far: contact the Ministry of Health before any submission."],
+      ["Burkina Faso, CERS", "Burkina Faso, CERS", "le Comité d’Éthique pour la Recherche en Santé est l’instance identifiée au Burkina Faso (sources secondaires) ; aucun portail national vérifié : confirmation locale obligatoire avant tout dépôt.", "the Comité d’Éthique pour la Recherche en Santé is the body identified in Burkina Faso (secondary sources); no national portal verified: local confirmation is mandatory before any submission."],
+      ["Niger, CCNE", "Niger, CCNE", "le Comité Consultatif National d’Éthique est l’instance identifiée au Niger (source secondaire) ; aucun portail national vérifié : confirmation locale obligatoire avant tout dépôt.", "the Comité Consultatif National d’Éthique is the body identified in Niger (secondary source); no national portal verified: local confirmation is mandatory before any submission."],
+      ["OOAS (CEDEAO)", "WAHO (ECOWAS)", "l’Organisation Ouest Africaine de la Santé coordonne la coopération sanitaire régionale au sein de la CEDEAO ; elle harmonise et appuie les États sans délivrer les autorisations nationales.", "the West African Health Organization coordinates regional health cooperation within ECOWAS; it harmonises and supports States but does not issue national authorisations."],
+      ["Double circuit éthique et réglementaire", "Dual ethics and regulatory pathway", "dans la plupart des pays d’Afrique de l’Ouest, l’avis du comité d’éthique et l’autorisation de l’autorité pharmaceutique sont deux décisions distinctes, parfois ordonnées ; vérifier les deux circuits, leurs pièces et leurs délais pour le pays concerné.", "in most West African countries, the ethics committee opinion and the pharmaceutical authority authorisation are two distinct decisions, sometimes ordered; check both pathways, their documents and their timelines for the country concerned."],
+      ["CREC (Bénin)", "CREC (Benin)", "le Centre de Recherche Entomologique de Cotonou (crec.bj) est un établissement béninois de recherche sur les maladies transmissibles ; exemple de structure pouvant accueillir ou encadrer des travaux, chaque collaboration restant à établir formellement.", "the Centre de Recherche Entomologique de Cotonou (crec.bj) is a Beninese research institution on communicable diseases; an example of a structure that can host or supervise work, each collaboration remaining to be formally established."],
+      ["IRSP-CAQ Ouidah (Bénin)", "IRSP-CAQ Ouidah (Benin)", "l’Institut Régional de Santé Publique de l’Université d’Abomey-Calavi forme, recherche et conseille en santé publique pour l’Afrique ; piste de formation et d’encadrement à contacter directement.", "the Regional Institute of Public Health of the University of Abomey-Calavi trains, researches and advises in public health for Africa; a training and supervision lead to contact directly."],
+      ["IRCB (Bénin)", "IRCB (Benin)", "l’Institut de Recherche Clinique du Bénin (ircbenin.bj) est un centre scientifique béninois dédié à la recherche clinique ; piste d’ancrage local à vérifier selon le projet.", "the Institut de Recherche Clinique du Bénin (ircbenin.bj) is a Beninese scientific centre dedicated to clinical research; a local anchoring lead to check according to the project."],
+      ["ClinRegs (NIAID)", "ClinRegs (NIAID)", "ClinRegs publie des synthèses réglementaires par pays ; pour l’Afrique de l’Ouest, seul le Mali dispose d’un profil dédié vérifié à cette date, et l’absence de profil ne signifie pas absence de règles nationales.", "ClinRegs publishes country regulatory summaries; for West Africa, only Mali has a dedicated profile verified at this date, and the absence of a profile does not mean an absence of national rules."],
+    ],
+  },
 ];
 
 function createEntry(category: KnowledgeCategory, topic: TopicTuple, index: number): ClinicalKnowledgeEntry {
   const [fr, en, frAnswer, enAnswer] = topic;
-  const scope = category === "Réglementaire" || category === "Éthique" ? international : ["International"];
+  const scope = category === "Réglementaire" || category === "Éthique" ? international : category === "Afrique de l’Ouest" ? westAfrica : ["International"];
   return {
     id: `ckb-${String(index + 1).padStart(3, "0")}`,
     category,
@@ -261,10 +300,10 @@ function createEntry(category: KnowledgeCategory, topic: TopicTuple, index: numb
       fr: `${frAnswer} Toujours vérifier la version du protocole, les SOP et les exigences de la juridiction avant d’agir.`,
       en: `${enAnswer} Always verify the protocol version, SOPs and jurisdictional requirements before acting.`,
     },
-    sources: category === "Statistiques" || category === "Méthodologie" ? statsSources : coreSources,
+    sources: category === "Statistiques" || category === "Méthodologie" ? statsSources : category === "Afrique de l’Ouest" ? waSources : coreSources,
     geographicScope: scope,
     evidenceLevel: category === "Glossaire" ? "C" : "B",
-    localVerificationRequired: category === "Réglementaire" && ["Bénin", "Nigeria NAFDAC", "Afrique du Sud SAHPRA", "Kenya PPB"].includes(fr),
+    localVerificationRequired: category === "Afrique de l’Ouest" || (category === "Réglementaire" && ["Bénin", "ABMed", "CNERS", "Autorisation d’essai clinique (AEC)", "PACTR", "Nigeria NAFDAC", "Afrique du Sud SAHPRA", "Kenya PPB"].includes(fr)),
   };
 }
 
