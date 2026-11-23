@@ -26,4 +26,7 @@ export const sitePagesIndex: SitePageRef[] = [
   { route: "/fr/mes-donnees", title: "Mes données", description: "Ce qui reste sur l'appareil et comment le supprimer.", keywords: ["donnees", "vie privee", "supprimer", "local", "confidentialite"] },
   { route: "/fr/soutenir", title: "Soutenir le projet", description: "Comment soutenir Clinical Navigator.", keywords: ["soutenir", "don", "sponsor"] },
   { route: "/fr/auteur", title: "À propos du créateur", description: "Parcours et expertise de Kevin HOUNSINOU.", keywords: ["auteur", "createur", "kevin", "contact", "apropos"] },
+  { route: "/fr/campus", title: "Campus", description: "Apprendre par niveau, s'exercer sur des cas fictifs et construire un projet de A à Z, avec progression locale.", keywords: ["campus", "apprendre", "exercer", "construire", "parcours", "projet", "etapes", "quiz", "cas fictifs"] },
+  { route: "/fr/afrique-ouest", title: "Bénin & Afrique de l'Ouest", description: "Structures, autorités et repères réglementaires vérifiés : CNERS, ABMed, FSS, OOAS, Pasteur Dakar, EDCTP.", keywords: ["benin", "afrique", "cners", "abmed", "ethique", "autorisation", "ooas", "cedeao", "pasteur", "edctp", "reglementaire", "soumission"] },
+  { route: "/fr/plan-du-site", title: "Plan du site", description: "Toutes les pages du site, regroupées par rubrique.", keywords: ["plan", "sommaire", "pages", "navigation", "reperer"] },
 ];
