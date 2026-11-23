@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-22T18:32:03.744Z",
+  "generatedAt": "2026-11-23T01:30:30.567Z",
   "status": "PASS",
   "routes": [
     "/",
@@ -9,8 +9,10 @@
     "/fr/admin/catalogue",
     "/fr/admin/donnees",
     "/fr/admin/knowledge",
+    "/fr/afrique-ouest",
     "/fr/auditer-un-essai",
     "/fr/auteur",
+    "/fr/campus",
     "/fr/comment-ca-marche",
     "/fr/concevoir-un-essai",
     "/fr/concevoir-un-essai/outils",
@@ -38,6 +40,7 @@
     "/fr/modules/:slug",
     "/fr/mon-espace",
     "/fr/outils",
+    "/fr/plan-du-site",
     "/fr/probleme",
     "/fr/ressources",
     "/fr/scenarios",
@@ -59,7 +62,7 @@
     },
     {
       "file": "client/src/components/ClinicalShell.tsx",
-      "href": "/fr/auteur"
+      "href": "/"
     },
     {
       "file": "client/src/components/ClinicalShell.tsx",
@@ -76,6 +79,10 @@
     {
       "file": "client/src/components/ClinicalShell.tsx",
       "href": "/fr/mentions-legales"
+    },
+    {
+      "file": "client/src/components/ClinicalShell.tsx",
+      "href": "/fr/soutenir"
     },
     {
       "file": "client/src/components/ErrorBoundary.tsx",
@@ -110,12 +117,12 @@
       "href": "/fr/admin"
     },
     {
-      "file": "client/src/pages/AuthorPage.tsx",
-      "href": "/fr/concevoir-un-essai"
+      "file": "client/src/pages/CampusPage.tsx",
+      "href": "/fr/probleme"
     },
     {
-      "file": "client/src/pages/AuthorPage.tsx",
-      "href": "/fr/veille"
+      "file": "client/src/pages/CampusPage.tsx",
+      "href": "/fr/plan-du-site"
     },
     {
       "file": "client/src/pages/ComponentShowcase.tsx",
@@ -144,6 +151,10 @@
     {
       "file": "client/src/pages/DiagnosticsPage.tsx",
       "href": "/Clinical-Navigator/diagnostics/latest.json"
+    },
+    {
+      "file": "client/src/pages/Home.tsx",
+      "href": "/fr/plan-du-site"
     },
     {
       "file": "client/src/pages/Home.tsx",
@@ -244,12 +255,24 @@
     {
       "file": "client/src/pages/TrialToolsLab.tsx",
       "href": "/fr/concevoir-un-essai"
+    },
+    {
+      "file": "client/src/pages/WestAfricaPage.tsx",
+      "href": "/fr/consentement-audio"
+    },
+    {
+      "file": "client/src/pages/WestAfricaPage.tsx",
+      "href": "/fr/sources"
+    },
+    {
+      "file": "client/src/pages/WestAfricaPage.tsx",
+      "href": "/fr/consentement-cas"
     }
   ],
   "externalLinks": [
     {
-      "file": "client/src/pages/AuthorPage.tsx",
-      "href": "https://github.com/Kevingiscard/Clinical-Navigator"
+      "file": "client/src/pages/WestAfricaPage.tsx",
+      "href": "https://www.jaimemalangue.bj/"
     }
   ],
   "anchorLinks": [
@@ -259,7 +282,7 @@
     },
     {
       "file": "client/src/pages/Home.tsx",
-      "href": "#choisir-parcours"
+      "href": "#orientation"
     },
     {
       "file": "client/src/pages/Home.tsx",
