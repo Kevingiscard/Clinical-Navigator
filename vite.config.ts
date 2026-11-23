@@ -31,6 +31,7 @@ const plugins = [
       cleanupOutdatedCaches: true,
       sourcemap: process.env.VITE_PWA_SOURCEMAP === "true",
       navigateFallback: "./index.html",
+      navigateFallbackAllowlist: [new RegExp(`^${(process.env.VITE_BASE_PATH || "/").replace(/\/$/, "")}/?(?:index\\.html)?$`)],
       globPatterns: [
         "assets/index-*.js",
         "assets/react-*.js",
