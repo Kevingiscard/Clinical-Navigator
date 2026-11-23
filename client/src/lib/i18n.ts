@@ -4,9 +4,13 @@ import { initReactI18next } from "react-i18next";
 const resources = {
   fr: { translation: {
     language: "Français", switchLanguage: "English", home: "Accueil", design: "Concevoir un essai", tools: "Outils avancés", audit: "Auditer un essai", problem: "J’ai un problème", explore: "Explorer", modules: "Modules", complex: "Essais complexes", training: "Formation", resources: "Ressources", research: "Veille", system: "État du système", author: "À propos du créateur",
+    navWork: "Travailler", navLearn: "Apprendre", navResources: "Ressources", navReference: "Référence",
+    trainingQuiz: "Se tester et s’entraîner", templates: "Modèles de documents", consentCases: "Consentement, cas par cas", consentAudio: "Consentement audio", sources: "Sources", limits: "Limites", howItWorks: "Comment ça marche", sitemap: "Plan du site", westAfrica: "Bénin & Afrique de l’Ouest", campus: "Campus",
   } },
   en: { translation: {
     language: "English", switchLanguage: "Français", home: "Home", design: "Design a trial", tools: "Advanced tools", audit: "Audit a trial", problem: "I have a problem", explore: "Explore", modules: "Modules", complex: "Complex trials", training: "Training", resources: "Resources", research: "Research", system: "System status", author: "About the creator",
+    navWork: "Work", navLearn: "Learn", navResources: "Resources", navReference: "Reference",
+    trainingQuiz: "Practice and quizzes", templates: "Document templates", consentCases: "Consent, case by case", consentAudio: "Audio consent", sources: "Sources", limits: "Limits", howItWorks: "How it works", sitemap: "Site map", westAfrica: "Benin & West Africa", campus: "Campus",
   } },
 } as const;
 
