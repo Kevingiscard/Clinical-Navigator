@@ -19,7 +19,7 @@ export default function DiagnosticsPage() {
   return <ClinicalShell>
     <main className="container max-w-6xl py-10">
       <div className="flex flex-wrap items-center justify-between gap-5">
-        <div><p className="text-xs font-bold uppercase tracking-[0.18em] text-[#39806f]">System Diagnostics</p><h1 className="mt-2 font-serif text-4xl font-bold text-[#0d2b36]">État réel de Clinical Navigator</h1><p className="mt-3 max-w-3xl text-[#526b67]">Rapport statique généré à partir du code et des contrôles du dépôt. Un statut UNKNOWN signifie que le test n’a pas été exécuté ou ne peut pas être vérifié ici.</p></div>
+        <div><p className="text-xs font-bold uppercase tracking-[0.18em] text-[#365f56]">System Diagnostics</p><h1 className="mt-2 font-serif text-4xl font-bold text-[#0d2b36]">État réel de Clinical Navigator</h1><p className="mt-3 max-w-3xl text-[#526b67]">Rapport statique généré à partir du code et des contrôles du dépôt. Un statut UNKNOWN signifie que le test n’a pas été exécuté ou ne peut pas être vérifié ici.</p></div>
         <Badge className={`${badgeClass(status)} px-4 py-2 text-sm`}><span className="mr-2"><Icon value={status}/></span>{status}</Badge>
       </div>
       <div className="mt-8 grid gap-5 md:grid-cols-3">

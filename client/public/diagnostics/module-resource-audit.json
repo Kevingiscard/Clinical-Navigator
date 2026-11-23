@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-08-16T22:22:37.892Z",
+  "generatedAt": "2026-11-22T23:12:07.009Z",
   "status": "PASS",
   "stats": {
-    "modules": 28,
-    "resources": 24,
-    "tools": 4,
-    "checklists": 3,
-    "templates": 1,
-    "sources": 7,
-    "trainings": 1,
-    "externalLinks": 7
+    "modules": 31,
+    "resources": 94,
+    "tools": 15,
+    "checklists": 4,
+    "templates": 7,
+    "sources": 49,
+    "trainings": 9,
+    "externalLinks": 66
   },
-  "modules": 28,
-  "resources": 24,
-  "externalLinks": 7,
+  "modules": 31,
+  "resources": 94,
+  "externalLinks": 66,
   "findings": []
 }

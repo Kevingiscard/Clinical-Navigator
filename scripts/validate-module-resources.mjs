@@ -3,7 +3,7 @@ import { moduleDefinitions, moduleResources, moduleResourceStats } from "../shar
 import { referenceRegistry } from "../shared/referenceRegistry.ts";
 
 const internalRoutes = new Set([
-  "/fr/concevoir-un-essai", "/fr/auditer-un-essai", "/fr/probleme", "/fr/formation", "/fr/ressources", "/fr/veille", "/fr/outils", "/fr/essais-complexes", "/fr/limites",
+  "/fr/concevoir-un-essai", "/fr/auditer-un-essai", "/fr/probleme", "/fr/consentement-audio", "/fr/consentement-cas", "/fr/entrainement", "/fr/formation", "/fr/ressources", "/fr/veille", "/fr/outils", "/fr/essais-complexes", "/fr/limites",
 ]);
 const findings = [];
 const push = (kind, message, severity = "ERROR") => findings.push({ kind, message, severity });
@@ -12,7 +12,7 @@ for (const resource of moduleResources) {
   if (ids.has(resource.id)) push("DUPLICATE_RESOURCE_ID", resource.id);
   ids.add(resource.id);
   if (!resource.title || !resource.description) push("EMPTY_RESOURCE", resource.id);
-  if (resource.internalRoute && !internalRoutes.has(resource.internalRoute.split("?")[0]) && !resource.internalRoute.startsWith("/fr/modules/")) push("MISSING_INTERNAL_ROUTE", `${resource.id}: ${resource.internalRoute}`);
+  if (resource.internalRoute && !internalRoutes.has(resource.internalRoute.split("?")[0]) && !resource.internalRoute.startsWith("/fr/modules/") && !resource.internalRoute.startsWith("/fr/modeles/")) push("MISSING_INTERNAL_ROUTE", `${resource.id}: ${resource.internalRoute}`);
   if (resource.url && !/^https:\/\//.test(resource.url)) push("INVALID_EXTERNAL_URL", `${resource.id}: ${resource.url}`);
   for (const sourceId of resource.sourceIds) if (!referenceRegistry.some(reference => reference.id === sourceId)) push("MISSING_SOURCE", `${resource.id} -> ${sourceId}`);
   for (const moduleId of resource.moduleIds) if (!moduleDefinitions.some(module => module.id === moduleId)) push("MISSING_MODULE", `${resource.id} -> ${moduleId}`);

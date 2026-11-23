@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-16T22:22:38.504Z",
+  "generatedAt": "2026-11-22T18:32:03.744Z",
   "status": "PASS",
   "routes": [
     "/",
@@ -16,8 +16,11 @@
     "/fr/concevoir-un-essai/outils",
     "/fr/conditions",
     "/fr/confidentialite",
+    "/fr/consentement-audio",
+    "/fr/consentement-cas",
     "/fr/contact",
     "/fr/diagnostic",
+    "/fr/entrainement",
     "/fr/essais-complexes",
     "/fr/explorer",
     "/fr/favoris",
@@ -29,6 +32,8 @@
     "/fr/mentions-legales",
     "/fr/mes-cas",
     "/fr/mes-donnees",
+    "/fr/modeles",
+    "/fr/modeles/:id",
     "/fr/modules",
     "/fr/modules/:slug",
     "/fr/mon-espace",
@@ -121,6 +126,22 @@
       "href": "/fr/guides"
     },
     {
+      "file": "client/src/pages/ConsentAudioPage.tsx",
+      "href": "/fr/consentement-cas"
+    },
+    {
+      "file": "client/src/pages/ConsentAudioPage.tsx",
+      "href": "/fr/modules/consentement"
+    },
+    {
+      "file": "client/src/pages/ConsentAudioPage.tsx",
+      "href": "/fr/modules/patients"
+    },
+    {
+      "file": "client/src/pages/ConsentCasesPage.tsx",
+      "href": "/fr/consentement-audio"
+    },
+    {
       "file": "client/src/pages/DiagnosticsPage.tsx",
       "href": "/Clinical-Navigator/diagnostics/latest.json"
     },
@@ -130,27 +151,7 @@
     },
     {
       "file": "client/src/pages/Home.tsx",
-      "href": "/fr/probleme"
-    },
-    {
-      "file": "client/src/pages/Home.tsx",
-      "href": "/fr/auditer-un-essai"
-    },
-    {
-      "file": "client/src/pages/Home.tsx",
-      "href": "/fr/probleme"
-    },
-    {
-      "file": "client/src/pages/Home.tsx",
-      "href": "/fr/concevoir-un-essai"
-    },
-    {
-      "file": "client/src/pages/Home.tsx",
-      "href": "/fr/auditer-un-essai"
-    },
-    {
-      "file": "client/src/pages/Home.tsx",
-      "href": "/fr/veille"
+      "href": "/fr/limites"
     },
     {
       "file": "client/src/pages/Home.tsx",
@@ -162,11 +163,19 @@
     },
     {
       "file": "client/src/pages/Home.tsx",
+      "href": "/fr/veille"
+    },
+    {
+      "file": "client/src/pages/Home.tsx",
       "href": "/fr/concevoir-un-essai"
     },
     {
       "file": "client/src/pages/Home.tsx",
       "href": "/fr/ressources"
+    },
+    {
+      "file": "client/src/pages/Home.tsx",
+      "href": "/fr/formation"
     },
     {
       "file": "client/src/pages/ModuleHubPage.tsx",
@@ -189,12 +198,24 @@
       "href": "/fr/veille"
     },
     {
+      "file": "client/src/pages/ProblemWizardStandalone.tsx",
+      "href": "/fr/scenarios"
+    },
+    {
       "file": "client/src/pages/ResearchPage.tsx",
       "href": "/fr/concevoir-un-essai"
     },
     {
       "file": "client/src/pages/ResearchPage.tsx",
       "href": "/fr/ressources"
+    },
+    {
+      "file": "client/src/pages/TemplatesPage.tsx",
+      "href": "/fr/modeles"
+    },
+    {
+      "file": "client/src/pages/TrainingQuizPage.tsx",
+      "href": "/fr/consentement-cas"
     },
     {
       "file": "client/src/pages/TrialDesignOperationsPage.tsx",
@@ -231,5 +252,18 @@
       "href": "https://github.com/Kevingiscard/Clinical-Navigator"
     }
   ],
-  "anchorLinks": []
+  "anchorLinks": [
+    {
+      "file": "client/src/App.tsx",
+      "href": "#main-content"
+    },
+    {
+      "file": "client/src/pages/Home.tsx",
+      "href": "#choisir-parcours"
+    },
+    {
+      "file": "client/src/pages/Home.tsx",
+      "href": "#cn-primer-title"
+    }
+  ]
 }

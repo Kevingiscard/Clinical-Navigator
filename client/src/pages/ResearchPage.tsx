@@ -59,7 +59,7 @@ export default function ResearchPage() {
                 <Icon className="mt-0.5 h-5 w-5 shrink-0 text-[#287c71]" />
                 <div>
                   <h2 className="font-serif text-2xl font-bold text-[#173e43]">{title}</h2>
-                  <p className="mt-2 text-sm leading-6 text-[#607771]">{description}</p>
+                  <p className="mt-2 text-sm leading-6 text-[#365f56]">{description}</p>
                 </div>
               </div>
               <div className="mt-5 grid gap-3">
@@ -76,15 +76,15 @@ export default function ResearchPage() {
             <Globe2 className="mt-0.5 h-5 w-5 shrink-0 text-[#287c71]" />
             <div>
               <h2 className="font-serif text-2xl font-bold text-[#143c41]">Lecture par juridiction</h2>
-              <p className="mt-2 max-w-3xl text-sm leading-6 text-[#607771]">
+              <p className="mt-2 max-w-3xl text-sm leading-6 text-[#365f56]">
                 Le socle international peut aider à structurer une conception, mais les obligations locales restent déterminantes. Pour la France, le site distingue notamment le CTR/CTIS et les référentiels CNIL 2026. Pour le Bénin et les autres pays, aucune règle locale n’est inventée : le parcours doit renvoyer vers les autorités et textes applicables avant toute conclusion.
               </p>
             </div>
           </div>
           <div className="mt-5 grid gap-3 md:grid-cols-3">
-            <div className="rounded-xl bg-[#f2f8f5] p-4"><p className="text-xs font-bold uppercase tracking-wide text-[#4d716a]">International</p><p className="mt-1 font-bold text-[#173e43]">ICH + OMS</p><p className="mt-1 text-sm text-[#607771]">Socle méthodologique et qualité.</p></div>
-            <div className="rounded-xl bg-[#f2f8f5] p-4"><p className="text-xs font-bold uppercase tracking-wide text-[#4d716a]">Union européenne</p><p className="mt-1 font-bold text-[#173e43]">CTR + CTIS</p><p className="mt-1 text-sm text-[#607771]">Cadre des essais de médicaments.</p></div>
-            <div className="rounded-xl bg-[#f2f8f5] p-4"><p className="text-xs font-bold uppercase tracking-wide text-[#4d716a]">France</p><p className="mt-1 font-bold text-[#173e43]">ANSM + CNIL</p><p className="mt-1 text-sm text-[#607771]">Réglementation et données de recherche.</p></div>
+            <div className="rounded-xl bg-[#f2f8f5] p-4"><p className="text-xs font-bold uppercase tracking-wide text-[#4d716a]">International</p><p className="mt-1 font-bold text-[#173e43]">ICH + OMS</p><p className="mt-1 text-sm text-[#365f56]">Socle méthodologique et qualité.</p></div>
+            <div className="rounded-xl bg-[#f2f8f5] p-4"><p className="text-xs font-bold uppercase tracking-wide text-[#4d716a]">Union européenne</p><p className="mt-1 font-bold text-[#173e43]">CTR + CTIS</p><p className="mt-1 text-sm text-[#365f56]">Cadre des essais de médicaments.</p></div>
+            <div className="rounded-xl bg-[#f2f8f5] p-4"><p className="text-xs font-bold uppercase tracking-wide text-[#4d716a]">France</p><p className="mt-1 font-bold text-[#173e43]">ANSM + CNIL</p><p className="mt-1 text-sm text-[#365f56]">Réglementation et données de recherche.</p></div>
           </div>
         </section>
 

@@ -1,78 +1,8 @@
-import { trpc } from "@/lib/trpc";
-import { COOKIE_NAME, UNAUTHED_ERR_MSG } from '@shared/const';
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { httpBatchLink, TRPCClientError } from "@trpc/client";
-import { createRoot } from "react-dom/client";
-import superjson from "superjson";
+import type { ReactNode } from "react";
+import { createRoot, hydrateRoot } from "react-dom/client";
 import App from "./App";
-import { startLogin } from "./const";
-import { STATIC_ONLY, trpcUrl } from "./lib/runtime";
+import { STATIC_ONLY } from "./lib/runtime";
 import "./index.css";
-
-const queryClient = new QueryClient();
-
-const redirectToLoginIfUnauthorized = (error: unknown) => {
-  if (STATIC_ONLY) return;
-  if (!(error instanceof TRPCClientError)) return;
-  if (typeof window === "undefined") return;
-
-  const isUnauthorized = error.message === UNAUTHED_ERR_MSG;
-
-  if (!isUnauthorized) return;
-
-  startLogin();
-};
-
-queryClient.getQueryCache().subscribe(event => {
-  if (event.type === "updated" && event.action.type === "error") {
-    const error = event.query.state.error;
-    redirectToLoginIfUnauthorized(error);
-    console.error("[API Query Error]", error);
-  }
-});
-
-queryClient.getMutationCache().subscribe(event => {
-  if (event.type === "updated" && event.action.type === "error") {
-    const error = event.mutation.state.error;
-    redirectToLoginIfUnauthorized(error);
-    console.error("[API Mutation Error]", error);
-  }
-});
-
-const trpcClient = trpc.createClient({
-  links: [
-    httpBatchLink({
-      url: trpcUrl,
-      transformer: superjson,
-      headers() {
-        // Preview auto-login fallback: when the browser blocks iframe cookies
-        // (Safari ITP / private browsing / WebView), the runtime mirrors the
-        // session into sessionStorage so we can forward it as a Bearer token.
-        // The regular OAuth cookie flow keeps working and takes priority server-side.
-        try {
-          const raw = sessionStorage.getItem("clinical-navigator-session-cookie");
-          if (raw) {
-            const prefix = `${COOKIE_NAME}=`;
-            const pair = raw.split(";").find(s => s.trim().startsWith(prefix));
-            const token = pair?.trim().slice(prefix.length);
-            if (token) {
-              return { Authorization: `Bearer ${token}` };
-            }
-          }
-        } catch {
-          // sessionStorage unavailable
-        }
-        return {};
-      },
-      fetch(input, init) {
-        return globalThis.fetch(input, {
-          ...(init ?? {}),
-          credentials: "include",
-        });
-      },
-    }),
-  ],
-});
 
 if (import.meta.env.PROD && "serviceWorker" in navigator) {
   window.addEventListener("load", () => {
@@ -90,10 +20,26 @@ if (import.meta.env.PROD && "serviceWorker" in navigator) {
   });
 }
 
-createRoot(document.getElementById("root")!).render(
-  <trpc.Provider client={trpcClient} queryClient={queryClient}>
-    <QueryClientProvider client={queryClient}>
-      <App />
-    </QueryClientProvider>
-  </trpc.Provider>
-);
+async function bootstrap() {
+  const rootElement = document.getElementById("root")!;
+  // Static builds alias "@/lib/trpc" to an inert stub, so the full provider
+  // stack (tRPC client, React Query, superjson) only loads when a backend exists.
+  let tree: ReactNode = <App />;
+  if (!STATIC_ONLY) {
+    const { AppProviders, createAppQueryClient, createAppTrpcClient } = await import("./AppProviders");
+    const queryClient = createAppQueryClient();
+    const trpcClient = createAppTrpcClient();
+    tree = (
+      <AppProviders queryClient={queryClient} trpcClient={trpcClient}>
+        <App />
+      </AppProviders>
+    );
+  }
+  if (rootElement.hasChildNodes()) {
+    hydrateRoot(rootElement, tree);
+  } else {
+    createRoot(rootElement).render(tree);
+  }
+}
+
+void bootstrap();
