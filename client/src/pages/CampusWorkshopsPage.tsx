@@ -81,6 +81,34 @@ const workshops: Workshop[] = [
     ],
     retain: "Un consentement n'est valable que s'il peut être refusé sans conséquence.",
   },
+  {
+    id: "audit-trail",
+    role: "Data manager · ARC",
+    title: "Une valeur corrigée sans laisser de trace",
+    story: "Dans une étude fictive, un data manager voit qu'une pression artérielle a été saisie 1800 au lieu de 180. Un collègue propose d'écraser la valeur directement dans la base pour gagner du temps, sans rien noter.",
+    question: "Que faites-vous ?",
+    choices: [
+      { label: "Écraser la valeur : l'erreur est évidente", ok: false, why: "Même évidente, une correction doit pouvoir être retracée : qui a changé quoi, quand et pourquoi." },
+      { label: "Émettre une demande de clarification au centre, faire corriger par la personne autorisée, avec la trace de la modification et sa justification", ok: true, why: "La modification d'une donnée suit la procédure de l'étude et reste traçable (piste d'audit). La donnée d'origine reste consultable." },
+      { label: "Supprimer la ligne pour éviter la confusion", ok: false, why: "Supprimer fait disparaître l'historique. Une donnée ne s'efface pas pour éviter une question." },
+      { label: "Laisser la valeur telle quelle et ne rien dire", ok: false, why: "Une anomalie connue et non traitée peut fausser les analyses. Elle doit être signalée." },
+    ],
+    retain: "On ne corrige pas en silence : demande, correction autorisée, trace et justification.",
+  },
+  {
+    id: "amendement",
+    role: "Chef de projet · investigateur",
+    title: "Appliquer un changement avant qu'il soit approuvé",
+    story: "Dans une étude fictive, l'équipe veut ajouter un examen sanguin supplémentaire à la visite 2. Le promoteur dit que le texte modifié est en cours de rédaction, et qu'on peut déjà commencer pour ne pas perdre de temps.",
+    question: "Quelle est la bonne conduite ?",
+    choices: [
+      { label: "Commencer tout de suite : c'est un petit examen", ok: false, why: "Une modification du protocole suit la procédure d'amendement et les approbations requises avant d'être appliquée, sauf cas particulier prévu pour la sécurité immédiate des participants." },
+      { label: "Attendre l'amendement approuvé par les instances concernées et la version à jour du protocole, puis informer et former l'équipe avant de l'appliquer", ok: true, why: "Les participants et l'équipe travaillent sur la version approuvée. Selon le cas, un nouveau consentement peut être nécessaire : à vérifier avec le comité d'éthique et le promoteur." },
+      { label: "Appliquer sans le dire dans le dossier de l'étude", ok: false, why: "Un écart non documenté est une déviation et empêche de justifier ce qui a été fait." },
+      { label: "Laisser chaque centre décider seul", ok: false, why: "Un protocole commun doit être appliqué de la même façon dans tous les centres." },
+    ],
+    retain: "Pas d'application avant approbation : version à jour, équipe informée, dossier tenu.",
+  },
 ];
 
 function WorkshopCard({ item, index }: { item: Workshop; index: number }) {
@@ -129,8 +157,8 @@ export default function CampusWorkshopsPage() {
     <section className="border-b border-[#dce9e4] bg-[#edf5f1]">
       <div className="container py-10">
         <p className="text-xs font-bold uppercase tracking-[0.15em] text-[#365f56]">Campus · s'exercer</p>
-        <h1 className="mt-3 font-serif text-4xl font-bold text-[#0d2b36]">Ateliers pratiques : cinq cas fictifs</h1>
-        <p className="mt-3 max-w-3xl leading-7 text-[#526b67]">Chaque atelier met en situation un rôle de la recherche clinique : déclaration d'un événement grave, consentement, déviation, correction d'un dossier, indépendance du consentement. Choisissez une réponse, lisez pourquoi, puis refaites-la si vous voulez. Aucun compte, aucune donnée enregistrée.</p>
+        <h1 className="mt-3 font-serif text-4xl font-bold text-[#0d2b36]">Ateliers pratiques : sept cas fictifs</h1>
+        <p className="mt-3 max-w-3xl leading-7 text-[#526b67]">Chaque atelier met en situation un rôle de la recherche clinique : déclaration d'un événement grave, consentement, déviation, correction d'un dossier, indépendance du consentement, correction de données tracée, amendement. Choisissez une réponse, lisez pourquoi, puis refaites-la si vous voulez. Aucun compte, aucune donnée enregistrée.</p>
       </div>
     </section>
     <section className="container grid gap-6 py-10">
