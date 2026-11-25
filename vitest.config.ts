@@ -14,6 +14,6 @@ export default defineConfig({
   },
   test: {
     environment: "node",
-    include: ["server/**/*.test.ts", "server/**/*.spec.ts", "client/src/lib/localProgress.test.ts", "client/src/lib/rolesExtra.test.ts", "client/src/lib/glossaryRoles.test.ts", "client/src/lib/workshops.test.ts", "client/src/lib/termBox.test.ts", "client/src/lib/visitCalc.test.ts", "client/src/lib/opsTools.test.ts", "client/src/lib/enrollment.test.ts"],
+    include: ["server/**/*.test.ts", "server/**/*.spec.ts", "client/src/lib/localProgress.test.ts", "client/src/lib/rolesExtra.test.ts", "client/src/lib/glossaryRoles.test.ts", "client/src/lib/workshops.test.ts", "client/src/lib/termBox.test.ts", "client/src/lib/visitCalc.test.ts", "client/src/lib/opsTools.test.ts", "client/src/lib/enrollment.test.ts", "client/src/lib/checklists.test.ts"],
   },
 });
