@@ -19,7 +19,7 @@ export const features: Feature[] = [
   { id: "essai", title: "Atelier de conception d'essai", text: "Question, design, critères de jugement, effectif indicatif, calendrier et trame de protocole.", status: "disponible", href: "/fr/concevoir-un-essai" },
   { id: "benin", title: "Repères Bénin et Afrique de l'Ouest", text: "CNERS, APDP, ABMed et autres structures, avec date de consultation et ce qui reste à confirmer.", status: "disponible", href: "/fr/afrique-ouest" },
   { id: "modeles", title: "Modèles et ressources", text: "Documents à adapter, glossaire et ressources gratuites étiquetées.", status: "disponible", href: "/fr/modeles" },
-  { id: "dashboard", title: "Tableau de bord personnel", text: "Progression, derniers parcours, rappels. Local à l'appareil d'abord.", status: "prevu" },
+  { id: "dashboard", title: "Tableau de bord personnel", text: "Progression du campus, dernières pages vues, travaux en cours. Gardé sur l'appareil.", status: "disponible", href: "/fr/tableau-de-bord" },
   { id: "roles", title: "Espaces par rôle", text: "Investigateur, ARC, chef de projet, data manager, formateur, apprenant, administrateur.", status: "prevu" },
   { id: "protocole", title: "Analyse de protocole", text: "Extraction de sections et détection d'incohérences par règles, dans le navigateur. Le fichier ne quitte pas l'appareil.", status: "prevu" },
   { id: "assistant", title: "Assistant avec références", text: "Recherche dans un corpus officiel versionné, avec citation et incertitudes visibles. Aucune génération libre.", status: "prevu" },
