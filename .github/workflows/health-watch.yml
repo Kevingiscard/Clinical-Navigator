@@ -17,7 +17,7 @@ jobs:
         id: site
         continue-on-error: true
         run: |
-          URL="https://${GITHUB_REPOSITORY_OWNER}.github.io/Clinical-Navigator/"
+          URL="https://clinical-navigator.edgeone.dev/"
           curl --fail --silent --show-error --max-time 20 "$URL" | grep -q "Clinical Navigator"
       - name: Open incident if unavailable
         if: steps.site.outcome == 'failure'
@@ -26,5 +26,5 @@ jobs:
         run: |
           gh issue create \
             --title "Incident — site public potentiellement indisponible" \
-            --body "Le watchdog n'a pas pu vérifier le site public. Vérifier l'état GitHub Pages et le dernier déploiement. URL: https://${GITHUB_REPOSITORY_OWNER}.github.io/Clinical-Navigator/" \
+            --body "Le watchdog n'a pas pu vérifier le site public. Vérifier l'état de l'hébergement EdgeOne et le dernier déploiement. URL: https://clinical-navigator.edgeone.dev/" \
             --label "incident" || true
