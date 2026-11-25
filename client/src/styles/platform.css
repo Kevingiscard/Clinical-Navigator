@@ -1,0 +1,47 @@
+/* Design system plateforme : bleu nuit, blanc cassé, accent turquoise. Contrastes vérifiés > 4.5:1 pour le texte. */
+.pf{--pf-night:#0d2b36;--pf-night-2:#16414f;--pf-paper:#f7f6f1;--pf-line:#d9e2de;--pf-ink:#17323b;--pf-muted:#4b6670;--pf-teal:#1f7a6d;--pf-teal-soft:#e3f1ed;background:var(--pf-paper);color:var(--pf-ink);font-size:16px;line-height:1.6}
+.pf h1,.pf h2,.pf h3{font-family:var(--cn-font-serif);color:var(--pf-night);letter-spacing:-.02em;font-weight:600}
+.pf-head{background:var(--pf-night);padding:64px 0 56px}
+.pf-head h1{color:#f7f6f1;font-size:clamp(2.2rem,4.5vw,3.6rem);line-height:1.08;max-width:18ch}
+.pf-eyebrow{color:#8fd3c4;font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin:0 0 14px}
+.pf-intro{color:#d3e3df;max-width:60ch;margin-top:18px;font-size:1.08rem}
+.pf-section{padding-block:52px}
+.pf-section h2{font-size:clamp(1.8rem,3vw,2.4rem);margin-bottom:26px}
+.pf-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:16px}
+.pf-card,.pf-case,.pf-plan{background:#fff;border:1px solid var(--pf-line);border-radius:12px;padding:22px;display:flex;flex-direction:column;gap:10px}
+.pf-card h3,.pf-case h3{font-size:1.35rem;line-height:1.2}
+.pf-card p,.pf-case li{color:var(--pf-muted);font-size:.94rem}
+.pf-badge{align-self:flex-start;font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:999px}
+.pf-badge-disponible{background:var(--pf-teal-soft);color:#125448}
+.pf-badge-demo{background:#e8eef7;color:#1f3d6b}
+.pf-badge-prevu{background:#efece2;color:#5c4c22}
+.pf-link{margin-top:auto;display:inline-flex;align-items:center;gap:6px;font-weight:600;color:var(--pf-teal);text-decoration:none;min-height:32px}
+.pf-link:hover{text-decoration:underline}
+.pf-soon{margin-top:auto;font-size:.82rem;color:var(--pf-muted)}
+.pf-cases{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.pf-role{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--pf-teal);margin:0}
+.pf-case ol{margin:0;padding-left:1.2rem;display:grid;gap:4px}
+.pf-plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.pf-plan-on{border:2px solid var(--pf-teal)}
+.pf-price{font-family:var(--cn-font-serif);font-size:2rem;font-weight:600;color:var(--pf-night);margin:0}
+.pf-price span{font-family:var(--cn-font-sans);font-size:.85rem;font-weight:400;color:var(--pf-muted)}
+.pf-aud{color:var(--pf-muted);font-size:.9rem;margin:0}
+.pf-plan ul{list-style:none;margin:6px 0 14px;padding:0;display:grid;gap:8px}
+.pf-plan li{display:flex;gap:8px;align-items:flex-start;font-size:.92rem}
+.pf-plan li svg{color:var(--pf-teal);flex:none;margin-top:3px}
+.pf-btn{margin-top:auto;display:inline-flex;justify-content:center;align-items:center;min-height:44px;padding:0 18px;border-radius:8px;background:var(--pf-night);color:#fff;font-weight:600;text-decoration:none}
+.pf-btn:hover{background:var(--pf-night-2);text-decoration:none}
+.pf-btn-off{background:#e9ebe7;color:#4b5a5f;cursor:not-allowed}
+.pf-foot{color:var(--pf-muted);font-size:.84rem;margin-top:16px}
+.pf-faq{max-width:820px}
+.pf-q{background:#fff;border:1px solid var(--pf-line);border-radius:10px;margin-bottom:10px;padding:0}
+.pf-q summary{cursor:pointer;padding:16px 18px;font-weight:600;color:var(--pf-night);min-height:44px}
+.pf-q p{padding:0 18px 16px;margin:0;color:var(--pf-muted)}
+.pf-contact{max-width:640px}
+.pf-note{background:var(--pf-teal-soft);border-top:1px solid var(--pf-line)}
+.pf-note .container{display:flex;flex-wrap:wrap;gap:12px;align-items:center;padding-block:18px;font-size:.9rem}
+.pf-note p{margin:0;flex:1 1 320px;color:var(--pf-ink)}
+.pf-note a{color:#125448;font-weight:600}
+.pf-note svg{color:#125448}
+@media (prefers-reduced-motion:no-preference){.pf-card,.pf-case,.pf-plan{transition:box-shadow .2s,transform .2s}.pf-card:hover,.pf-case:hover{box-shadow:0 8px 24px rgba(13,43,54,.08);transform:translateY(-2px)}}
+.pf-ok{color:var(--pf-teal)}.pf-cta{margin-top:28px}.pf-cta .pf-btn{display:inline-flex}
