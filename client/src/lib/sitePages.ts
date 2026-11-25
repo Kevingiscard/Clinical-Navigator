@@ -26,6 +26,7 @@ export const sitePagesIndex: SitePageRef[] = [
   { route: "/fr/mes-donnees", title: "Mes données", description: "Ce qui reste sur l'appareil et comment le supprimer.", keywords: ["donnees", "vie privee", "supprimer", "local", "confidentialite"] },
   { route: "/fr/soutenir", title: "Soutenir le projet", description: "Comment soutenir Clinical Navigator.", keywords: ["soutenir", "don", "sponsor"] },
   { route: "/fr/auteur", title: "À propos du créateur", description: "Parcours et expertise de Kevin HOUNSINOU.", keywords: ["auteur", "createur", "kevin", "contact", "apropos"] },
+  { route: "/fr/campus/roles", title: "Parcours par rôle", description: "Investigateur, ARC, chef de projet, data manager, formateur, apprenant, équipe Bénin, administrateur : les pages utiles dans l'ordre.", keywords: ["roles", "parcours", "investigateur", "arc", "cra", "data manager", "formateur"] },
   { route: "/fr/tableau-de-bord", title: "Mon tableau de bord", description: "Progression du campus, pages vues et travaux en cours, gardés sur cet appareil.", keywords: ["tableau de bord", "progression", "dashboard", "avancement", "suivi"] },
   { route: "/fr/plateforme", title: "La plateforme", description: "Fonctionnalités et cas d'usage par rôle, avec le statut réel de chaque fonction.", keywords: ["plateforme", "fonctionnalites", "cas d'usage", "roles", "produit"] },
   { route: "/fr/gratuit", title: "Gratuit", description: "Tout est gratuit, sans compte obligatoire.", keywords: ["gratuit", "free", "prix"] },
