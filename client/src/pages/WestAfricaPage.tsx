@@ -1,3 +1,4 @@
+import { TermBox } from "@/components/TermBox";
 import { ClinicalShell } from "@/components/ClinicalShell";
 import { ArrowUpRight, Building2, Flag, Globe2, Landmark, ScrollText, ShieldAlert } from "lucide-react";
 import { Link } from "wouter";
@@ -157,6 +158,7 @@ export default function WestAfricaPage() {
           </p>
           <Link href="/fr/consentement-audio" className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-[#1c7566] hover:text-[#0d2b36]">Écouter le prototype d'explication audio du site <ArrowUpRight className="h-4 w-4" aria-hidden="true" /></Link>
         </article>
+        <TermBox />
       </div>
       <aside className="mt-10 rounded-2xl bg-[#0d2b36] p-7 text-white">
         <h2 className="font-serif text-2xl font-bold">Avant de citer une structure</h2>
@@ -188,6 +190,7 @@ export default function WestAfricaPage() {
               <li className="rounded-lg bg-[#f5f9f7] p-3 text-sm leading-6 text-[#46605b]">Un dossier est dit complet s'il a été validé par un ou des experts scientifiques, corrigé par le chercheur avec attestation de correction, et si toutes ses pièces sont disponibles avant la date indiquée.</li>
               <li className="rounded-lg bg-[#f5f9f7] p-3 text-sm leading-6 text-[#46605b]">Documents publiés : fiche du déposant avec liste des pièces, aspects scientifiques pris en compte, grilles d'auto-évaluation de la note d'information et du formulaire de consentement, modèle de CV, fiche de réapprobation ou rapport d'étape.</li>
               <li className="rounded-lg bg-[#f5f9f7] p-3 text-sm leading-6 text-[#46605b]">Quorum à la moitié plus un, avec diversité de profils et de sexe ; décisions à la majorité simple, exprimées en avis favorable ou défavorable.</li>
+              <li className="rounded-lg bg-[#f5f9f7] p-3 text-sm leading-6 text-[#46605b]">Le CNERS indique sur sa page de soumission que son avis éthique est directement exécutoire, sauf dans le cas prévu à l'article 36 de la loi. Ce que recouvre cet article n'est pas détaillé sur la page : à lire dans le texte de loi avant toute conclusion.</li>
               <li className="rounded-lg bg-[#f5f9f7] p-3 text-sm leading-6 text-[#46605b]">Un avis diffusé sur la page d'accueil du CNERS demande de déposer toute demande au moins trois mois avant la date prévue de démarrage. L'avis est daté de 2021 : confirmer qu'il est toujours appliqué.</li>
             </ul>
           </article>
