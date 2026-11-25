@@ -15,7 +15,7 @@ export type Feature = { id: string; title: string; text: string; status: Feature
 export const features: Feature[] = [
   { id: "orientation", title: "Orientation par situation", text: "Décrire une situation de terrain, sans donnée patient, et obtenir des repères sourcés, des délais à vérifier et les limites.", status: "disponible", href: "/fr/probleme" },
   { id: "campus", title: "Campus par niveau", text: "Apprendre du débutant à l'expert, avec une progression gardée sur l'appareil.", status: "disponible", href: "/fr/campus" },
-  { id: "ateliers", title: "Ateliers sur cas fictifs", text: "Cinq cas corrigés : événement grave, consentement, déviation, dossier source, indépendance du consentement.", status: "disponible", href: "/fr/campus/ateliers" },
+  { id: "ateliers", title: "Ateliers sur cas fictifs", text: "Sept cas corrigés : événement grave, consentement, déviation, dossier source, indépendance du consentement, correction de données tracée, amendement.", status: "disponible", href: "/fr/campus/ateliers" },
   { id: "essai", title: "Atelier de conception d'essai", text: "Question, design, critères de jugement, effectif indicatif, calendrier et trame de protocole.", status: "disponible", href: "/fr/concevoir-un-essai" },
   { id: "benin", title: "Repères Bénin et Afrique de l'Ouest", text: "CNERS, APDP, ABMed et autres structures, avec date de consultation et ce qui reste à confirmer.", status: "disponible", href: "/fr/afrique-ouest" },
   { id: "modeles", title: "Modèles et ressources", text: "Documents à adapter, glossaire et ressources gratuites étiquetées.", status: "disponible", href: "/fr/modeles" },
