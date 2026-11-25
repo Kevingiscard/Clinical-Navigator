@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { criticality, defaultCriteria, feasibility, isOverdue, levelOf, risksToCsv, validateAction, validateRisk, type ActionItem, type Criterion, type Risk } from "@/lib/opsTools";
+import { EnrollmentSim } from "@/components/EnrollmentSim";
 import { useEffect, useState } from "react";
 
 const STORAGE = "cn-actions-v1";
@@ -58,5 +59,5 @@ function Actions() {
 }
 
 export function OpsTools() {
-  return <section className="container pb-10" aria-labelledby="ops-title"><h2 id="ops-title" className="font-serif text-3xl font-bold text-[#0d2b36]">Pilotage et qualité</h2><p className="mt-2 max-w-3xl text-sm leading-6 text-[#526b67]">Trois outils qui fonctionnent entièrement dans votre navigateur, sans compte ni envoi de données. Ce sont des aides pédagogiques à adapter au protocole et aux procédures de votre organisation.</p><div className="mt-6 grid gap-6 lg:grid-cols-2"><RiskMatrix /><Feasibility /><Actions /></div></section>;
+  return <section className="container pb-10" aria-labelledby="ops-title"><h2 id="ops-title" className="font-serif text-3xl font-bold text-[#0d2b36]">Pilotage et qualité</h2><p className="mt-2 max-w-3xl text-sm leading-6 text-[#526b67]">Quatre outils qui fonctionnent entièrement dans votre navigateur, sans compte ni envoi de données. Ce sont des aides pédagogiques à adapter au protocole et aux procédures de votre organisation.</p><div className="mt-6 grid gap-6 lg:grid-cols-2"><RiskMatrix /><Feasibility /><Actions /><EnrollmentSim /></div></section>;
 }
