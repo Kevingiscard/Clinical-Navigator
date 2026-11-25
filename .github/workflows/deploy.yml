@@ -53,10 +53,12 @@ jobs:
         run: pnpm build:static
       - name: Verify GitHub Pages artifact
         run: pnpm artifact:verify
+      - name: Build redirect-only GitHub Pages artifact (site lives on EdgeOne)
+        run: node scripts/make-pages-redirect.mjs
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist/public
+          path: dist/redirect
 
   deploy:
     needs: build
