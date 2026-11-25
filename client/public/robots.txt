@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /fr/admin
 Disallow: /admin
-Sitemap: https://kevingiscard.github.io/Clinical-Navigator/sitemap.xml
+Sitemap: https://clinical-navigator.edgeone.dev/sitemap.xml
