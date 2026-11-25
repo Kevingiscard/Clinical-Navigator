@@ -173,6 +173,42 @@ export default function WestAfricaPage() {
       </aside>
     </section>
 
+    <section className="border-t border-[#dce9e4] bg-white" aria-labelledby="wa-dossier-title">
+      <div className="container py-10">
+        <p className="text-xs font-bold uppercase tracking-[0.15em] text-[#365f56]">Dossier éthique et données · pages officielles consultées le 25 novembre 2026</p>
+        <h2 id="wa-dossier-title" className="mt-2 font-serif text-3xl font-bold text-[#143c41]">Ce que disent les pages officielles sur le dépôt d'un dossier</h2>
+        <p className="mt-2 max-w-3xl text-sm leading-6 text-[#4d6661]">Deux démarches se croisent quand une recherche en santé traite des données de personnes : l'avis éthique du CNERS et, pour les données personnelles, l'autorité de protection APDP. Voici ce que leurs pages publient. Ce n'est pas une procédure complète : les textes en vigueur et les secrétariats restent la référence.</p>
+        <div className="mt-6 grid gap-5 lg:grid-cols-2">
+          <article className="rounded-2xl border border-[#dbe8e3] bg-white p-6 shadow-sm">
+            <h3 className="font-serif text-xl font-bold leading-snug text-[#143c41]">CNERS : le dépôt d'un protocole</h3>
+            <a href="https://ethique-sante.org/soumission/" target="_blank" rel="noreferrer" className="mt-1 inline-flex items-center gap-1 text-xs font-bold text-[#1c7566] hover:text-[#0d2b36]">ethique-sante.org/soumission <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" /></a>
+            <ul className="mt-4 grid gap-2">
+              <li className="rounded-lg bg-[#f5f9f7] p-3 text-sm leading-6 text-[#46605b]">Le CNERS vérifie que les documents sont complets et que la qualité scientifique est prouvée ; sinon il peut constituer un comité scientifique ad hoc.</li>
+              <li className="rounded-lg bg-[#f5f9f7] p-3 text-sm leading-6 text-[#46605b]">La soumission se fait via la plateforme en ligne du CNERS, après création d'un compte.</li>
+              <li className="rounded-lg bg-[#f5f9f7] p-3 text-sm leading-6 text-[#46605b]">Un dossier est dit complet s'il a été validé par un ou des experts scientifiques, corrigé par le chercheur avec attestation de correction, et si toutes ses pièces sont disponibles avant la date indiquée.</li>
+              <li className="rounded-lg bg-[#f5f9f7] p-3 text-sm leading-6 text-[#46605b]">Documents publiés : fiche du déposant avec liste des pièces, aspects scientifiques pris en compte, grilles d'auto-évaluation de la note d'information et du formulaire de consentement, modèle de CV, fiche de réapprobation ou rapport d'étape.</li>
+              <li className="rounded-lg bg-[#f5f9f7] p-3 text-sm leading-6 text-[#46605b]">Quorum à la moitié plus un, avec diversité de profils et de sexe ; décisions à la majorité simple, exprimées en avis favorable ou défavorable.</li>
+              <li className="rounded-lg bg-[#f5f9f7] p-3 text-sm leading-6 text-[#46605b]">Un avis diffusé sur la page d'accueil du CNERS demande de déposer toute demande au moins trois mois avant la date prévue de démarrage. L'avis est daté de 2021 : confirmer qu'il est toujours appliqué.</li>
+            </ul>
+          </article>
+          <article className="rounded-2xl border border-[#dbe8e3] bg-white p-6 shadow-sm">
+            <h3 className="font-serif text-xl font-bold leading-snug text-[#143c41]">APDP : les données personnelles</h3>
+            <a href="https://apiprod.apdp.bj/storage/f330ebafae74b1ab250a44db1848c632/LISTE.PIECES-A-JOINDRE_FORMULAIRE-UNIQUE.pdf" target="_blank" rel="noreferrer" className="mt-1 inline-flex items-center gap-1 text-xs font-bold text-[#1c7566] hover:text-[#0d2b36]">apdp.bj, liste des pièces du formulaire unique <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" /></a>
+            <ul className="mt-4 grid gap-2">
+              <li className="rounded-lg bg-[#f5f9f7] p-3 text-sm leading-6 text-[#46605b]">Le cadre est le Code du numérique (loi n° 2017-20 du 20 avril 2018 selon les supports de l'APDP). La page des textes du gouvernement donne le 28 avril 2018 et précise que seuls les textes du Journal Officiel font foi : la date exacte est à confirmer dans le Journal Officiel.</li>
+              <li className="rounded-lg bg-[#f5f9f7] p-3 text-sm leading-6 text-[#46605b]">Le formulaire unique de l'APDP demande, selon les cas, un projet d'information des personnes, la preuve de mesures de sécurité, la fiche technique du logiciel, un modèle de preuve du consentement et un engagement de confidentialité signé.</li>
+              <li className="rounded-lg bg-[#f5f9f7] p-3 text-sm leading-6 text-[#46605b]">Des pièces s'ajoutent en présence de sous-traitants (contrat de confidentialité) ou d'un transfert de données à l'étranger (clauses contractuelles types de l'APDP).</li>
+              <li className="rounded-lg bg-[#f5f9f7] p-3 text-sm leading-6 text-[#46605b]">La liste mentionne aussi des pièces propres aux recherches en santé ; la lire en entier sur le document officiel.</li>
+            </ul>
+            <p className="mt-3 flex items-start gap-2 rounded-xl border border-[#f0e2c0] bg-[#fdf7ea] p-3 text-xs leading-5 text-[#6b4f1d]">
+              <ShieldAlert className="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true" />
+              Ces documents sont des pages et des formulaires publiés, pas des textes de loi. Ils peuvent changer, et rien ici ne dit dans quel ordre déposer auprès du CNERS et de l'APDP : à confirmer auprès des deux structures.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section className="border-t border-[#dce9e4] bg-[#f7faf8]" aria-labelledby="wa-checklist-title">
       <div className="container py-10">
         <p className="text-xs font-bold uppercase tracking-[0.15em] text-[#365f56]">En pratique</p>
