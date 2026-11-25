@@ -1,25 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://clinical-navigator.edgeone.dev/</loc></url>
-  <url><loc>https://clinical-navigator.edgeone.dev/fr/probleme</loc></url>
-  <url><loc>https://clinical-navigator.edgeone.dev/fr/guides</loc></url>
-  <url><loc>https://clinical-navigator.edgeone.dev/fr/modules</loc></url>
-  <url><loc>https://clinical-navigator.edgeone.dev/fr/essais-complexes</loc></url>
-  <url><loc>https://clinical-navigator.edgeone.dev/fr/formation</loc></url>
-  <url><loc>https://clinical-navigator.edgeone.dev/fr/ressources</loc></url>
-  <url><loc>https://clinical-navigator.edgeone.dev/fr/sources</loc></url>
-  <url><loc>https://clinical-navigator.edgeone.dev/fr/limites</loc></url>
-  <url><loc>https://clinical-navigator.edgeone.dev/fr/confidentialite</loc></url>
+  <url><loc>https://clinical-navigator.edgeone.dev/fr/a-propos</loc></url>
+  <url><loc>https://clinical-navigator.edgeone.dev/fr/afrique-ouest</loc></url>
+  <url><loc>https://clinical-navigator.edgeone.dev/fr/auditer-un-essai</loc></url>
+  <url><loc>https://clinical-navigator.edgeone.dev/fr/auteur</loc></url>
+  <url><loc>https://clinical-navigator.edgeone.dev/fr/campus</loc></url>
+  <url><loc>https://clinical-navigator.edgeone.dev/fr/campus/ateliers</loc></url>
+  <url><loc>https://clinical-navigator.edgeone.dev/fr/campus/roles</loc></url>
+  <url><loc>https://clinical-navigator.edgeone.dev/fr/comment-ca-marche</loc></url>
   <url><loc>https://clinical-navigator.edgeone.dev/fr/concevoir-un-essai</loc></url>
   <url><loc>https://clinical-navigator.edgeone.dev/fr/concevoir-un-essai/outils</loc></url>
-  <url><loc>https://clinical-navigator.edgeone.dev/fr/auditer-un-essai</loc></url>
-  <url><loc>https://clinical-navigator.edgeone.dev/fr/veille</loc></url>
-  <url><loc>https://clinical-navigator.edgeone.dev/fr/systeme</loc></url>
-  <url><loc>https://clinical-navigator.edgeone.dev/fr/auteur</loc></url>
+  <url><loc>https://clinical-navigator.edgeone.dev/fr/conditions</loc></url>
+  <url><loc>https://clinical-navigator.edgeone.dev/fr/confidentialite</loc></url>
+  <url><loc>https://clinical-navigator.edgeone.dev/fr/consentement-audio</loc></url>
+  <url><loc>https://clinical-navigator.edgeone.dev/fr/consentement-cas</loc></url>
+  <url><loc>https://clinical-navigator.edgeone.dev/fr/contact</loc></url>
   <url><loc>https://clinical-navigator.edgeone.dev/fr/diagnostic</loc></url>
-  <url><loc>https://clinical-navigator.edgeone.dev/fr/plateforme</loc></url>
-  <url><loc>https://clinical-navigator.edgeone.dev/fr/gratuit</loc></url>
+  <url><loc>https://clinical-navigator.edgeone.dev/fr/entrainement</loc></url>
+  <url><loc>https://clinical-navigator.edgeone.dev/fr/essais-complexes</loc></url>
+  <url><loc>https://clinical-navigator.edgeone.dev/fr/explorer</loc></url>
   <url><loc>https://clinical-navigator.edgeone.dev/fr/faq</loc></url>
+  <url><loc>https://clinical-navigator.edgeone.dev/fr/formation</loc></url>
+  <url><loc>https://clinical-navigator.edgeone.dev/fr/gratuit</loc></url>
+  <url><loc>https://clinical-navigator.edgeone.dev/fr/guides</loc></url>
+  <url><loc>https://clinical-navigator.edgeone.dev/fr/knowledge</loc></url>
+  <url><loc>https://clinical-navigator.edgeone.dev/fr/limites</loc></url>
+  <url><loc>https://clinical-navigator.edgeone.dev/fr/mentions-legales</loc></url>
+  <url><loc>https://clinical-navigator.edgeone.dev/fr/modeles</loc></url>
+  <url><loc>https://clinical-navigator.edgeone.dev/fr/modules</loc></url>
+  <url><loc>https://clinical-navigator.edgeone.dev/fr/outils</loc></url>
+  <url><loc>https://clinical-navigator.edgeone.dev/fr/plan-du-site</loc></url>
+  <url><loc>https://clinical-navigator.edgeone.dev/fr/plateforme</loc></url>
+  <url><loc>https://clinical-navigator.edgeone.dev/fr/probleme</loc></url>
+  <url><loc>https://clinical-navigator.edgeone.dev/fr/ressources</loc></url>
+  <url><loc>https://clinical-navigator.edgeone.dev/fr/scenarios</loc></url>
+  <url><loc>https://clinical-navigator.edgeone.dev/fr/sources</loc></url>
+  <url><loc>https://clinical-navigator.edgeone.dev/fr/soutenir</loc></url>
+  <url><loc>https://clinical-navigator.edgeone.dev/fr/systeme</loc></url>
   <url><loc>https://clinical-navigator.edgeone.dev/fr/tableau-de-bord</loc></url>
-  <url><loc>https://clinical-navigator.edgeone.dev/fr/campus/roles</loc></url>
+  <url><loc>https://clinical-navigator.edgeone.dev/fr/veille</loc></url>
 </urlset>
