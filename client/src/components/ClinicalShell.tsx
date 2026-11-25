@@ -1,5 +1,6 @@
 import { Link, useLocation } from "wouter";
 import { BookOpenCheck, ChevronDown, ChevronRight, CircleHelp, Compass, Menu, ShieldCheck, X } from "lucide-react";
+import { ContactBlock } from "@/components/ContactBlock";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { useTranslation } from "react-i18next";
 import { useEffect, useRef, useState } from "react";
@@ -163,6 +164,7 @@ export function ClinicalShell({ children }: { children: React.ReactNode }) {
               <Link href="/fr/soutenir" className="text-[#355a57] hover:text-[#0d2b36]">Soutenir le projet</Link>
             </div>
           </div>
+          <div><ContactBlock compact /></div>
         </div>
       </div>
       <div className="border-t border-[#d8e5df] py-4 text-center text-xs text-[#365f56]">Clinical Navigator · Créé et développé par Kevin HOUNSINOU · Contenu versionné · Ne saisissez aucune donnée permettant d’identifier directement un participant.</div>
