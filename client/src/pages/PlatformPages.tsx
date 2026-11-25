@@ -1,3 +1,4 @@
+import { ContactBlock } from "@/components/ContactBlock";
 import { ClinicalShell } from "@/components/ClinicalShell";
 import { faq, features, freeItems, freePromise, statusLabels, useCases, type FeatureStatus } from "@/lib/platformConfig";
 import { ArrowRight, CheckCircle2, ShieldCheck } from "lucide-react";
@@ -44,7 +45,7 @@ export function FaqPage() {
 }
 
 export function ContactStaticPage() {
-  return <Shell eyebrow="Contact" title="Signaler une erreur ou demander un contenu." intro="Pas de formulaire serveur sur cette version. Le suivi public du projet sur GitHub sert de point de contact.">
-    <section className="container pf-section pf-contact"><article className="pf-card"><h3>Ouvrir une demande</h3><p>Décrivez le besoin de façon générale. N'écrivez aucun nom, identifiant ou donnée de patient : le suivi est public.</p><a className="pf-btn" href={ISSUES_URL} target="_blank" rel="noreferrer noopener">Ouvrir une demande sur GitHub</a><p className="pf-foot">Un compte GitHub est nécessaire. Une adresse e-mail de contact pourra être ajoutée par le responsable du projet.</p></article></section>
+  return <Shell eyebrow="Contact" title="Signaler une erreur ou demander un contenu." intro="Pas de formulaire sur cette version. Écrivez par e-mail, par Instagram, ou ouvrez une demande publique sur GitHub.">
+    <section className="container pf-section pf-contact"><article className="pf-card"><h3>Ouvrir une demande</h3><p>Décrivez le besoin de façon générale. N'écrivez aucun nom, identifiant ou donnée de patient : le suivi est public.</p><a className="pf-btn" href={ISSUES_URL} target="_blank" rel="noreferrer noopener">Ouvrir une demande sur GitHub</a><p className="pf-foot">Un compte GitHub est nécessaire pour cette voie.</p></article><article className="pf-card"><h3>Écrire directement</h3><ContactBlock /></article></section>
   </Shell>;
 }
