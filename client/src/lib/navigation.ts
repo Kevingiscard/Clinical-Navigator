@@ -84,6 +84,7 @@ const extraRoutes: Record<string, { label: string; parent?: string }> = {
   "/fr/contact": { label: "Contact" },
   "/fr/plateforme": { label: "La plateforme" },
   "/fr/gratuit": { label: "Gratuit" },
+  "/fr/tableau-de-bord": { label: "Mon tableau de bord" },
   "/fr/faq": { label: "Questions fréquentes" },
   "/fr/mes-donnees": { label: "Mes données" },
   "/fr/mes-cas": { label: "Mes cas" },
