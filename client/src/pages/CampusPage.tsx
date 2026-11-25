@@ -20,8 +20,8 @@ const wings = [
     icon: FlaskConical,
     title: "S'exercer",
     text: "S'entraîner sur des cas fictifs : quiz, mises en situation et scénarios versionnés, sans aucune donnée réelle.",
-    href: "/fr/entrainement",
-    action: "Ouvrir les exercices",
+    href: "/fr/campus/ateliers",
+    action: "Ouvrir les ateliers pratiques",
   },
   {
     icon: Hammer,
