@@ -20,7 +20,7 @@ export const features: Feature[] = [
   { id: "benin", title: "Repères Bénin et Afrique de l'Ouest", text: "CNERS, APDP, ABMed et autres structures, avec date de consultation et ce qui reste à confirmer.", status: "disponible", href: "/fr/afrique-ouest" },
   { id: "modeles", title: "Modèles et ressources", text: "Documents à adapter, glossaire et ressources gratuites étiquetées.", status: "disponible", href: "/fr/modeles" },
   { id: "dashboard", title: "Tableau de bord personnel", text: "Progression du campus, dernières pages vues, travaux en cours. Gardé sur l'appareil.", status: "disponible", href: "/fr/tableau-de-bord" },
-  { id: "roles", title: "Espaces par rôle", text: "Investigateur, ARC, chef de projet, data manager, formateur, apprenant, administrateur.", status: "prevu" },
+  { id: "roles", title: "Espaces par rôle", text: "Investigateur, ARC, chef de projet, data manager, formateur, apprenant, équipe Bénin, administrateur : parcours de pages, sans compte.", status: "disponible", href: "/fr/campus/roles" },
   { id: "protocole", title: "Analyse de protocole", text: "Extraction de sections et détection d'incohérences par règles, dans le navigateur. Le fichier ne quitte pas l'appareil.", status: "prevu" },
   { id: "assistant", title: "Assistant avec références", text: "Recherche dans un corpus officiel versionné, avec citation et incertitudes visibles. Aucune génération libre.", status: "prevu" },
 ];
