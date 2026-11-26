@@ -13,6 +13,7 @@ export function Fiches() {
         <div><dt className="font-bold text-[#183f43]">Selon le pays</dt><dd>{f.pays}</dd></div>
         <div><dt className="font-bold text-[#183f43]">Selon le protocole</dt><dd>{f.protocole}</dd></div>
         <div><dt className="font-bold text-[#183f43]">À confirmer par une personne compétente</dt><dd>{f.aConfirmer}</dd></div></dl>
+      <p className="mt-3 text-sm"><a className="font-bold text-[#1b5f55] underline" href={`/api/stats?action=doc&id=fiche-${f.id}`} download>Télécharger cette fiche (.md)</a><span className="ml-2 text-xs text-[#4b6460]">fichier texte, nécessite une connexion</span></p>
       <p className="mt-3 text-xs font-bold text-[#183f43]">Sources</p>
       <ul className="mt-1 space-y-1 text-xs">{f.refs.map(r => <li key={r.url}><a className="text-[#1b5f55] underline" href={r.url} target="_blank" rel="noopener noreferrer">{r.label}</a></li>)}</ul>
     </details>)}</div>
