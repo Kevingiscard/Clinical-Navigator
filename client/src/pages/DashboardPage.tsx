@@ -4,6 +4,7 @@ import { sitePagesIndex } from "@/lib/sitePages";
 import { modules } from "@shared/clinicalModules";
 import { ArrowRight, ShieldCheck, Trash2 } from "lucide-react";
 import { useEffect, useState } from "react";
+import { ProgressSync } from "@/components/ProgressSync";
 import { Link } from "wouter";
 import "@/styles/platform.css";
 
@@ -43,7 +44,7 @@ export default function DashboardPage() {
   const activeModules = modules.filter(m => (checks[m.id] ?? 0) > 0);
 
   return <ClinicalShell><div className="pf">
-    <header className="pf-head"><div className="container"><p className="pf-eyebrow">Mon tableau de bord</p><h1>Où j'en suis.</h1><p className="pf-intro">Votre progression, gardée sur cet appareil. Pas de compte, rien n'est envoyé.</p></div></header>
+    <header className="pf-head"><div className="container"><p className="pf-eyebrow">Mon tableau de bord</p><h1>Où j'en suis.</h1><p className="pf-intro">Votre progression, gardée sur cet appareil. Pas de compte. Rien n'est envoyé, sauf si vous choisissez de sauvegarder avec un code.</p></div></header>
     <section className="container pf-section" aria-live="polite">
       {!ready ? <p>Chargement…</p> : <div className="pf-dash">
         <article className="pf-card pf-dash-main">
@@ -62,6 +63,7 @@ export default function DashboardPage() {
         <article className="pf-card"><h3>Mes données</h3><p>Tout est stocké dans ce navigateur. Effacer ici supprime la progression, les listes et le brouillon, pas le thème ni la langue.</p>
           <button type="button" className="pf-btn pf-btn-danger" onClick={() => { if (window.confirm("Effacer ma progression sur cet appareil ?")) { clearLocalProgress(); refresh(); setCleared(true); } }}><Trash2 size={16} aria-hidden="true" /> Effacer ma progression</button>
           {cleared ? <p role="status">Progression effacée.</p> : null}</article>
+        <ProgressSync onRestored={refresh} />
       </div>}
     </section>
     <section className="pf-note"><div className="container"><ShieldCheck size={20} aria-hidden="true" /><p><strong>Aucune donnée patient.</strong> Ce tableau de bord ne mesure pas des compétences : il garde vos repères de lecture.</p><Link href="/fr/mes-donnees">Mes données</Link></div></section>
