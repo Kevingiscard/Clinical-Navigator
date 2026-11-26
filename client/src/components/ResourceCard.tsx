@@ -23,6 +23,6 @@ export function ResourceCard({ resource, compact = false }: { resource: ModuleRe
   </>;
   const className = "block rounded-xl border border-[#dce4e1] bg-white p-4 shadow-sm transition hover:-translate-y-0.5 hover:border-[#7d918c] hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#314b47]";
   if (resource.internalRoute) return <Link href={resource.internalRoute} className={className}>{content}</Link>;
-  if (resource.url) return <a href={resource.url} target="_blank" rel="noreferrer" className={className} aria-label={`${resource.title} — source externe`}>{content}</a>;
+  if (resource.url) return <a href={resource.url} target="_blank" rel="noreferrer" className={className}>{content}<span className="sr-only"> (source externe, s'ouvre dans un nouvel onglet)</span></a>;
   return <article className={className}>{content}</article>;
 }
