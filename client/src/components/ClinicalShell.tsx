@@ -1,6 +1,7 @@
 import { Link, useLocation } from "wouter";
 import { BookOpenCheck, ChevronDown, ChevronRight, CircleHelp, Compass, Menu, ShieldCheck, X } from "lucide-react";
 import { ContactBlock } from "@/components/ContactBlock";
+import { ReportError } from "@/components/ReportError";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { useTranslation } from "react-i18next";
 import { useEffect, useRef, useState } from "react";
@@ -162,6 +163,7 @@ export function ClinicalShell({ children }: { children: React.ReactNode }) {
               <Link href="/fr/confidentialite" className="flex items-center gap-2 text-[#355a57] hover:text-[#0d2b36]"><ShieldCheck className="h-4 w-4" />Confidentialité</Link>
               <Link href="/fr/mentions-legales" className="text-[#355a57] hover:text-[#0d2b36]">Mentions légales</Link>
               <Link href="/fr/soutenir" className="text-[#355a57] hover:text-[#0d2b36]">Soutenir le projet</Link>
+              <ReportError />
             </div>
           </div>
           <div><ContactBlock compact /></div>
