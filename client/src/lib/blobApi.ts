@@ -22,3 +22,15 @@ export const sendScore = (quiz: string, missedTexts: string[]) => post("score", 
 export const fetchTop = (quiz: string): Promise<{ attempts: number; top: { q: string; n: number }[] } | null> => get(`action=top&quiz=${encodeURIComponent(quiz)}`);
 export const sendVote = (fiche: string, v: 0 | 1): Promise<{ ok?: boolean; yes?: number; no?: number } | null> => post("vote", { fiche, v });
 export const fetchVotes = (fiche: string): Promise<{ yes: number; no: number } | null> => get(`action=votes&fiche=${encodeURIComponent(fiche)}`);
+
+// Sauvegarde de progression par code personnel aléatoire (sans e-mail, sans compte).
+export const createCode = (): Promise<{ code?: string; error?: string } | null> => post("create", {});
+export const saveProgress = (code: string, data: Record<string, string>) => post("save", { code, data });
+export const forgetProgress = (code: string) => post("forget", { code });
+export const loadProgress = (code: string): Promise<{ data?: Record<string, string>; error?: string } | null> => get(`action=load&code=${encodeURIComponent(code)}`);
+
+// Signalement d'erreur : jamais publié automatiquement, relu avant toute correction.
+export async function sendReport(page: string, text: string): Promise<{ ok: boolean; error?: string }> {
+  const r = await post("report", { page, text });
+  return r && r.ok ? { ok: true } : { ok: false, error: (r && r.error) || "Le signalement n'a pas pu être envoyé (connexion nécessaire)." };
+}
