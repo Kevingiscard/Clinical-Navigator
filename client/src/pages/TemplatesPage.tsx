@@ -46,6 +46,7 @@ export default function TemplatesPage() {
           <div className="flex gap-2">
             <Button variant="outline" onClick={() => copy(document.body)} className="border-[#c9ddd6] bg-white text-[#23464a]">{copied ? <Check className="mr-2 h-4 w-4" /> : <Copy className="mr-2 h-4 w-4" />}{copied ? "Copié" : "Copier"}</Button>
             <Button onClick={() => download(document)} className="bg-[#0d2b36]"><Download className="mr-2 h-4 w-4" />Télécharger (.txt)</Button>
+            <a className="inline-flex h-9 items-center rounded-md border border-[#c9ddd6] bg-white px-4 text-sm font-medium text-[#23464a]" href={`/api/stats?action=doc&id=modele-${document.id}`} download>Fichier .md (en ligne)</a>
           </div>
         </div>
         <pre className="mt-5 overflow-x-auto whitespace-pre-wrap rounded-2xl border border-[#dbe8e3] bg-white p-5 font-sans text-sm leading-6 text-[#365652]">{document.body}</pre>
