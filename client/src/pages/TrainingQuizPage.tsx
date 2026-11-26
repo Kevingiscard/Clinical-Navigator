@@ -3,7 +3,8 @@ import { composeSession } from "@/lib/quizComposer";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { AlertTriangle, GraduationCap, RotateCcw, CheckCircle2, XCircle, Users, Stethoscope, Hammer } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { fetchTop, qid, sendScore } from "@/lib/blobApi";
 import { Link } from "wouter";
 
 type Question = { q: string; options: string[]; answer: number; explain: string; source: string | null };
@@ -18,7 +19,7 @@ const audiences: Audience[] = [
     id: "patients",
     title: "Je suis patient ou proche",
     icon: Users,
-    intro: "Des questions simples pour vérifier que les explications sont bien comprises. Le résultat vous appartient : il n'est ni enregistré, ni transmis, et il ne décide jamais à votre place.",
+    intro: "Des questions simples pour vérifier que les explications sont bien comprises. Le résultat vous appartient : il n'est pas enregistré à votre nom, et il ne décide jamais à votre place.",
     topics: [
       {
         id: "droits",
@@ -119,18 +120,39 @@ export default function TrainingQuizPage() {
   const [scenarioPicked, setScenarioPicked] = useState<number | null>(null);
   const [custom, setCustom] = useState<{ q1: Question[]; q2: Question[] } | null>(null);
 
+  const [share, setShare] = useState(true);
+  const [stats, setStats] = useState<{ attempts: number; top: { q: string; n: number }[] } | null>(null);
+
   const topic = audiences[ai]?.topics[ti];
   const pool1 = custom?.q1 ?? topic?.questions;
   const pool2 = custom?.q2 ?? topic?.questionsB;
   const hasSecond = (pool2?.length ?? 0) > 0;
   const activeQuestions = phase === "quiz2" ? pool2 : pool1;
 
+  useEffect(() => {
+    if (phase !== "done" || !topic) return;
+    const quizId = `${audiences[ai].id}-${topic.id}`;
+    let cancelled = false;
+    (async () => {
+      if (share) {
+        const texts = [...missed1.map(i => pool1?.[i]?.q), ...missed2.map(i => pool2?.[i]?.q)].filter((x): x is string => !!x);
+        await sendScore(quizId, texts);
+      }
+      const t = await fetchTop(quizId);
+      if (!cancelled) setStats(t);
+    })();
+    return () => { cancelled = true; };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [phase]);
+
   const startQuiz = (a: number, t: number) => {
+    setStats(null);
     setAi(a); setTi(t); setPhase("quiz1"); setQi(0); setPicked(null);
     setScore1(0); setMissed1([]); setScore2(0); setMissed2([]); setScenarioPicked(null); setCustom(null);
   };
 
   const startComposed = (a: number, t: number) => {
+    setStats(null);
     const topicSel = audiences[a]?.topics[t];
     if (!topicSel) return;
     const q1 = composeSession(topicSel.questions);
@@ -207,11 +229,11 @@ export default function TrainingQuizPage() {
       <Alert className="mb-6 border-[#f0d9b5] bg-[#fdf6e9] text-[#6b4a1b]">
         <AlertTriangle className="h-5 w-5" />
         <AlertTitle>Maquette en préparation, pas un certificat</AlertTitle>
-        <AlertDescription>Aucun compte, aucune donnée identifiante : le résultat reste sur cette page et disparaît dès qu'on la quitte. Un score ne vaut ni certification professionnelle ni consentement : pour un patient, il ne sert jamais à pousser une décision ; pour un professionnel, la pratique se vérifie sous supervision. Les sujets marqués « contenu vérifié » s'appuient sur des sources primaires datées, sans que la conception des quiz (choix et formulation des questions) ait encore été validée par un expert médical ou juridique ; les autres sujets sont des exemples à valider.</AlertDescription>
+        <AlertDescription>Aucun compte, aucune donnée identifiante : votre résultat reste sur cette page et disparaît dès qu'on la quitte. Un score ne vaut ni certification professionnelle ni consentement : pour un patient, il ne sert jamais à pousser une décision ; pour un professionnel, la pratique se vérifie sous supervision. Les sujets marqués « contenu vérifié » s'appuient sur des sources primaires datées, sans que la conception des quiz (choix et formulation des questions) ait encore été validée par un expert médical ou juridique ; les autres sujets sont des exemples à valider.</AlertDescription>
       </Alert>
       <div className="mb-8 rounded-2xl border border-[#d8e7e1] bg-white p-5 shadow-sm">
         <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-wide text-[#365f56]"><Hammer className="h-4 w-4" />Ce qui fonctionne ici, ce qui reste maquette</p>
-        <p className="mt-2 text-sm leading-6 text-[#536d67]"><strong className="text-[#264b4c]">Fonctionne :</strong> quiz de départ, corrections expliquées et sourcées, mise en situation, second quiz différent, bilan des erreurs, tout en local sur la page.</p>
+        <p className="mt-2 text-sm leading-6 text-[#536d67]"><strong className="text-[#264b4c]">Fonctionne :</strong> quiz de départ, corrections expliquées et sourcées, mise en situation, second quiz différent, bilan des erreurs affiché en local sur la page (seul un décompte anonyme des questions manquées peut être envoyé, si la case est cochée).</p>
         <p className="mt-1 text-sm leading-6 text-[#536d67]"><strong className="text-[#264b4c]">Reste maquette :</strong> deux sujets seulement par profil (dont un exemple non validé), pas de banques complètes par sujet, pas de suivi de progression entre les visites (volontaire, car il demanderait comptes ou stockage), pas d'adaptation automatique du parcours.</p>
       </div>
 
@@ -230,6 +252,7 @@ export default function TrainingQuizPage() {
       {phase === "topics" && (
         <div>
           <h2 className="font-serif text-2xl font-bold text-[#11373d]">{audiences[ai].title}</h2>
+          <label className="mt-3 flex items-start gap-2 rounded-xl border border-[#d8e7e1] bg-white p-3 text-xs leading-5 text-[#536d67]"><input type="checkbox" className="mt-1" checked={share} onChange={e => setShare(e.target.checked)} /><span>À la fin d'une session, compter anonymement les questions que j'ai manquées dans les statistiques « questions les plus ratées ». Rien d'autre n'est envoyé : ni nom, ni score personnel, ni identifiant, ni cookie. Décochez pour ne rien envoyer.</span></label>
           <div className="mt-4 grid gap-4">
             {audiences[ai].topics.map((t, tix) => (
               <div key={t.id} className="rounded-2xl border border-[#d8e7e1] bg-white p-6 text-left shadow-sm transition hover:border-[#207666]">
@@ -300,7 +323,15 @@ export default function TrainingQuizPage() {
               </ul>
             </div>
           ) : <p className="mt-3 text-sm leading-6 text-[#536d67]">Aucune erreur. La compréhension réelle se confirme dans l'échange, pas par un score.</p>}
-          <p className="mt-4 text-xs leading-5 text-[#718682]">Ce bilan n'est ni enregistré ni transmis ; il disparaît en quittant la page. Il ne vaut ni certification, ni qualification, ni consentement.</p>
+          <p className="mt-4 text-xs leading-5 text-[#718682]">Votre bilan n'est pas enregistré et disparaît en quittant la page. Il ne vaut ni certification, ni qualification, ni consentement.</p>
+          {(() => {
+            const known = new Map<string, string>([...topic.questions, ...topic.questionsB].map(q => [qid(q.q), q.q]));
+            const rows = (stats?.top ?? []).filter(r => known.has(r.q)).slice(0, 3);
+            return stats && stats.attempts >= 5 && rows.length > 0 ? <div className="mt-4 rounded-xl bg-[#f3f7f5] p-4 text-sm leading-6 text-[#264b4c]">
+              <p className="font-semibold">Questions les plus ratées par les autres participants ({stats.attempts} sessions anonymes)</p>
+              <ol className="mt-2 list-decimal space-y-1 pl-5">{rows.map(r => <li key={r.q}>{known.get(r.q)} <span className="text-xs text-[#536d67]">({r.n} erreurs)</span></li>)}</ol>
+            </div> : null;
+          })()}
           <div className="mt-4 flex flex-wrap gap-2">
             <Button className="bg-[#0d2b36]" onClick={() => startQuiz(ai, ti)}><RotateCcw className="mr-2 h-4 w-4" />Refaire la session</Button>
             <Button variant="outline" onClick={() => setPhase("topics")}>Autre sujet</Button>
