@@ -19,7 +19,7 @@ export function EnrollmentSim() {
     <h3 id="enr-title" className="text-xl font-bold text-[#183f43]">Simulateur d'inclusion</h3>
     <p className="mt-1 text-sm leading-6 text-[#526d68]">Estime la durée de recrutement à partir d'hypothèses agrégées. Ne saisissez aucune donnée de participant. Calcul local, rien n'est envoyé.</p>
     <div className="mt-4 grid gap-3 sm:grid-cols-3">{fields.map(f => <label key={f.key} className="grid gap-1 text-xs font-bold text-[#3f635b]">{f.label}<Input type="number" inputMode="decimal" step={f.step} value={v[f.key]} onChange={e => setV({ ...v, [f.key]: e.target.value })} /></label>)}</div>
-    <div className="mt-4 flex gap-2"><Button className="bg-[#0d2b36] hover:bg-[#164451]" onClick={run}>Simuler le recrutement</Button><Button variant="outline" className="border-[#bed8ce]" onClick={() => setRes(null)}>Effacer le résultat</Button></div>
+    <div className="mt-4 flex flex-wrap gap-2"><Button className="bg-[#0d2b36] hover:bg-[#164451]" onClick={run}>Simuler le recrutement</Button><Button variant="outline" className="border-[#bed8ce]" onClick={() => setRes(null)}>Effacer le résultat</Button></div>
     {res && !res.ok && <p role="alert" className="mt-4 text-sm font-semibold text-red-800">{res.error}</p>}
     {res && res.ok && <div role="status" className="mt-5"><div className="grid gap-3 sm:grid-cols-3">
       <p className="rounded-xl bg-[#f2f8f5] p-3 text-sm"><span className="block text-xs font-bold text-[#3f635b]">À randomiser</span>{res.randomised}</p>
