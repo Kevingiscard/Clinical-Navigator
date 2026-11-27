@@ -7,7 +7,7 @@ import fs from 'node:fs';
 
 execFileSync('pnpm', ['exec', 'vite', 'build', '--ssr', 'src/entry-server.tsx', '--outDir', '../dist-ssr', '--logLevel', 'warn', '--emptyOutDir'], { stdio: 'inherit', env: process.env });
 
-const { render } = await import(new URL('../dist-ssr/entry-server.js', import.meta.url));
+const { render, renderRoute } = await import(new URL('../dist-ssr/entry-server.js', import.meta.url));
 const basePath = (process.env.VITE_BASE_PATH || '/').replace(/\/$/, '');
 const markup = render(`${basePath}/`);
 
@@ -28,3 +28,27 @@ out = out.replace(/<link rel="modulepreload" /g, '<link rel="modulepreload" fetc
 out = out.replace(/<script type="module" crossorigin src=/g, '<script type="module" fetchpriority="low" crossorigin src=');
 fs.writeFileSync(file, out);
 console.log(`prerender-home: injected ${markup.length} bytes of prerendered home markup, demoted module fetch priority`);
+
+// Internal routes: prerendered with React's Suspense-aware prerender so the first
+// paint no longer waits for the lazy route chunk. Each route is checked for its h1
+// and for the absence of the loading fallback; a failing route keeps the empty root
+// (client-rendered, as before) instead of failing the build.
+const routes = ['/fr/formation', '/fr/campus', '/fr/explorer', '/fr/outils'];
+for (const route of routes) {
+  try {
+    const html = await renderRoute(`${basePath}${route}`);
+    if (!/<h1[ >]/.test(html) || html.includes('Chargement de Clinical Navigator')) throw new Error('no h1 or loading fallback in output');
+    const target = new URL(`../dist/public${route}/index.html`, import.meta.url);
+    const tpl = fs.readFileSync(target, 'utf8');
+    const rootEmpty = '<div id="root"></div>';
+    // route copies are made from the original index.html, so the root is still empty
+    if (!tpl.includes(rootEmpty)) throw new Error('route copy root marker missing');
+    let page2 = tpl.replace(rootEmpty, `<div id="root">${html}</div>`);
+    page2 = page2.replace(/<link rel="modulepreload" /g, '<link rel="modulepreload" fetchpriority="low" ');
+    page2 = page2.replace(/<script type="module" crossorigin src=/g, '<script type="module" fetchpriority="low" crossorigin src=');
+    fs.writeFileSync(target, page2);
+    console.log(`prerender-route: ${route} ${html.length} bytes`);
+  } catch (e) {
+    console.warn(`prerender-route: ${route} skipped (${e.message})`);
+  }
+}
