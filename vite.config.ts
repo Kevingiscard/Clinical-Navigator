@@ -55,6 +55,7 @@ const plugins = [
 export default defineConfig(({ isSsrBuild }) => ({
   base: process.env.VITE_BASE_PATH || "/",
   plugins,
+  ssr: { noExternal: ["katex", "streamdown"] },
   resolve: {
     alias: {
       // Static-only bundles have no backend: swap the tRPC client for an inert stub
