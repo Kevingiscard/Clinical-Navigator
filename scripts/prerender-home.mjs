@@ -37,6 +37,8 @@ const routes = ['/fr/formation', '/fr/campus', '/fr/explorer', '/fr/outils'];
 for (const route of routes) {
   try {
     const html = await renderRoute(`${basePath}${route}`);
+    // Pending Suspense boundaries make React emit inline scripts / <template> blocks, which the CSP (script-src 'self') blocks.
+    if (/<script|<template/.test(html)) throw new Error('output contains inline script or template (unresolved Suspense boundary)');
     if (!/<h1[ >]/.test(html) || html.includes('Chargement de Clinical Navigator')) throw new Error('no h1 or loading fallback in output');
     const target = new URL(`../dist/public${route}/index.html`, import.meta.url);
     const tpl = fs.readFileSync(target, 'utf8');
