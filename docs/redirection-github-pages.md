@@ -1,7 +1,8 @@
-# GitHub Pages : redirection vers EdgeOne
+# GitHub Pages : retiré (28 novembre 2026)
 
-Depuis le 25 novembre 2026, le site vit sur https://clinical-navigator.edgeone.dev (EdgeOne Makers, plan gratuit, déploiement automatique depuis `main`).
+Le site officiel est https://clinical-navigator.edgeone.dev (Tencent EdgeOne Makers, plan gratuit).
+Les commits sur `main` ne le mettent PAS en ligne tout seuls : après un commit, lancer « New Deployment » dans la console EdgeOne Makers (branche main).
 
-GitHub Pages ne publie plus que des pages de redirection (`scripts/make-pages-redirect.mjs`) : chaque ancienne adresse `kevingiscard.github.io/Clinical-Navigator/...` renvoie vers la même page sur EdgeOne. Rien n'est supprimé du code.
+GitHub Pages ne publie plus rien. Le workflow `.github/workflows/deploy.yml` ne fait plus que construire et vérifier (tests, types, diagnostics, artefact), sans étape de publication. L'ancien lien `https://kevingiscard.github.io/Clinical-Navigator/` n'est plus servi.
 
-Retour arrière : dans `.github/workflows/deploy.yml`, supprimer l'étape « Build redirect-only GitHub Pages artifact » et remettre `path: dist/public` à l'étape « Upload Pages artifact », puis remettre `https://kevingiscard.github.io/Clinical-Navigator/` dans `client/index.html`, `client/public/sitemap.xml`, `client/public/robots.txt`, `client/public/404.html` et `.github/workflows/health-watch.yml`.
+Retour arrière : réactiver Pages dans Settings > Pages (source « GitHub Actions »), puis rétablir dans `deploy.yml` les permissions `pages: write` et `id-token: write`, l'étape `node scripts/make-pages-redirect.mjs`, l'étape `actions/upload-pages-artifact@v3` (chemin `dist/redirect`) et le job `deploy` (`actions/deploy-pages@v4`). Le script `scripts/make-pages-redirect.mjs` est conservé.
