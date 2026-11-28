@@ -1,17 +1,16 @@
-name: Clinical Navigator — Build & Deploy
+name: Clinical Navigator — Build & Verify
 
+# La publication se fait sur Tencent EdgeOne (console, New Deployment). GitHub Pages n'est plus utilisé.
 on:
   push:
     branches: [main]
   workflow_dispatch:
 
 permissions:
-  contents: write
-  pages: write
-  id-token: write
+  contents: read
 
 concurrency:
-  group: clinical-navigator-pages
+  group: clinical-navigator-build
   cancel-in-progress: true
 
 jobs:
@@ -53,20 +52,3 @@ jobs:
         run: pnpm build:static
       - name: Verify GitHub Pages artifact
         run: pnpm artifact:verify
-      - name: Build redirect-only GitHub Pages artifact (site lives on EdgeOne)
-        run: node scripts/make-pages-redirect.mjs
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: dist/redirect
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
