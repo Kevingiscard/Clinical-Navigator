@@ -88,7 +88,7 @@ Publier `dist/public` sur GitHub Pages, Netlify, Vercel ou Cloudflare Pages. Voi
 
 ## Maintenance automatique
 
-Le projet inclut des workflows GitHub Actions pour le contrôle qualité, les tests, le build, le déploiement GitHub Pages, Dependabot, la surveillance de disponibilité et la maintenance planifiée.
+Le projet inclut des workflows GitHub Actions pour le contrôle qualité, les tests, le build, la vérification du build (publication manuelle sur Tencent EdgeOne), Dependabot, la surveillance de disponibilité et la maintenance planifiée.
 
 Côté navigateur, Clinical Navigator peut récupérer automatiquement certains incidents réversibles (cache/service worker/erreur runtime) et repartir dans un état sûr.
 
